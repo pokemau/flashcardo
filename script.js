@@ -1,26 +1,38 @@
-function newQuestion() {
+const questions = {} //object for questions
+
+function getQuestion() {
    const def = document.getElementById('def')
    const term = document.getElementById('term')
    const submitBtn = document.getElementById('submitBtn')
    const qCont = document.getElementById('qContainer')
 
+   let numCount = 1
+
    //event listener for submit btn
    submitBtn.addEventListener('click', () => {
       const qDiv = document.createElement('div')
       qDiv.classList.add('qDiv')
-      const newDef = document.createElement('p')
-      const newTerm = document.createElement('p')
+      const q = document.createElement('p')
 
-      newDef.innerText = def.value
-      newTerm.innerText = term.value
-      def.value = ''
-      term.value = ''
-
-      qDiv.append(newDef, newTerm)
-      qCont.append(qDiv)
+      if(term.value || def.value) {
+         q.innerText = `${numCount}. ${term.value} - ${def.value}`
+         questions[term.value] = def.value;
+         def.value = ''
+         term.value = ''
+         qDiv.append(q)
+         qCont.append(qDiv)
+         numCount++
+      }
    })
 }
 
+function startQuiz() {
+   const startBtn = document.getElementById('startBtn')
 
+   startBtn.addEventListener('click', ()=> {
+      console.log(questions)
+   })
+}
 
-newQuestion()
+startQuiz()
+getQuestion()
