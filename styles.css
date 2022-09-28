@@ -1,9 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=Lato:wght@400;700;900&family=Noto+Sans+Mono:wght@400;500;700;800&display=swap');
+
 * {
    margin: 0;
    padding: 0;
    box-sizing: border-box;
 }
-
-.qDiv {
+body {
+   background-color: rgb(202, 207, 129);
+   font-family: 'Josefin Sans', sans-serif;
+   font-family: 'Lato', sans-serif;
+   font-family: 'Noto Sans Mono', monospace;
+}
+.title {
+   text-align: center;
+   margin: .5em 0 1em 0;
+}
+/* main body */
+.main-container {
    display: flex;
+   justify-content: center;
+}
+/* input fields */
+.def-container {
+   width: 25em;
+   min-height: 8em;
+   background-color: rgb(165, 142, 142);
+   padding: .5em;
+   border-radius: 5px;
+   margin-bottom: .8em;
+}
+[contenteditable]:focus {
+   outline: 0px solid transparent;
+}
+[def-placeholder]:empty:before {
+   content: attr(def-placeholder);
+   color: rgb(255, 253, 126);
+   opacity: .3;
+   cursor: text;
+}
+
+.answer-container {
+   width: 25em;
+   min-height: 2.5em;
+   background-color: rgb(205, 173, 236);
+   padding: .5em;
+   border-radius: 5px;
+   margin-bottom: .6em;
+}
+[ans-placeholder]:empty:before {
+   content: attr(ans-placeholder);
+   color: rgb(31, 31, 31);
+   opacity: .3;
+   cursor: text;
+}
+/* add button */
+#add-btn {
+   width: 8em;
+   height: 3em;
 }

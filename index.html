@@ -8,23 +8,31 @@
    <title>FLASCHCARDO</title>
 </head>
 <body>
-   <h1>FLASHCARDO</h1>
+   <header class="title">
+      <h1>FLASHCARDO</h1>
+   </header>
 
-   <form action="" class="form">
-      <label for="">term</label>
-      <input type="text" class="inputField" id="term">
+   <section class="main-container">
+      <div class="input-fields">
+         <div class="def-container" 
+         contenteditable="true" 
+         def-placeholder="Write your question here"></div>
+   
+         <div class="answer-container" 
+         contenteditable="true"
+         ans-placeholder="Answer here"></div>
+      </div>
+   </section>
 
-      <label for="">definition</label>
-      <input type="text" class="inputField" id="def">
+   <section class="question-container">
+      <div class="q-title">
+         <h1>Questions</h1>
+      </div>
 
-      <button id="submitBtn" type="button">Add</button>
+      <div class="questions-list">
 
-   </form>
-
-   <div id="qContainer">
-      <h1>Questions</h1>
-      
-   </div>
+      </div>
+   </section>
 
    <a href="flashcards.html"><button id="startBtn" type="button">START FLASHCARDS</button></a>
 
