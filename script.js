@@ -1,10 +1,9 @@
 const questions = {}; //object for questions
+const questionArr = [];
 
 function getQuestion() {
-   const def = document.getElementById('def');
-   const term = document.getElementById('term');
-   const submitBtn = document.getElementById('submit-btn');
    const qCont = document.querySelector('.questions-list');
+   const addBtn = document.querySelector('.add-btn');
    //input fields
    const inputField = document.querySelector('.input-fields');
    const defCont = document.querySelector('.def-container');
@@ -12,36 +11,46 @@ function getQuestion() {
 
    let numCount = 1;
 
-   //text field event listener
+   function addQuestion() {
+      if(defCont.textContent != '' && ansCont.textContent != '') {
+         const qDiv = document.createElement('div');
+         qDiv.classList.add('qDiv');
+         const q = document.createElement('p');
+         
+         q.textContent = `${numCount}. ${ansCont.textContent} - ${defCont.textContent}`;
+         questions[ansCont.textContent] = defCont.textContent;
+         questionArr.push(ansCont.textContent);
+         defCont.textContent = '';
+         ansCont.textContent = '';
+
+         qDiv.append(q);
+         qCont.append(qDiv);
+         numCount++;
+      };      
+   }
+   //button and text field event listener
    //save question to object and show on page
+   addBtn.addEventListener('click', addQuestion);
    inputField.addEventListener('keydown', e => {
       if(e.key === 'Enter') {
          e.preventDefault();
-         if(defCont.textContent != '' && ansCont.textContent != '') {
-            const qDiv = document.createElement('div');
-            qDiv.classList.add('qDiv');
-            const q = document.createElement('p');
-            
-            q.textContent = `${numCount}. ${ansCont.textContent} - ${defCont.textContent}`;
-            questions[ansCont.textContent] = defCont.textContent;
-            defCont.textContent = '';
-            ansCont.textContent = '';
-
-            qDiv.append(q);
-            qCont.append(qDiv);
-            numCount++;
-         };
-      };
+         addQuestion();
+      }
    });
-}
+};
 
 function startQuiz() {
-   const startBtn = document.getElementById('startBtn')
+   const startBtn = document.getElementById('start-btn');
 
    startBtn.addEventListener('click', ()=> {
-      console.log(questions)
-   })
-}
+      if(Object.keys(questions).length !== 0) {
+         localStorage.setItem('questions', JSON.stringify(questions));
+         localStorage.setItem('quesArr', JSON.stringify(questionArr));
+         window.location.href = 'flashcard.html';
+      }
+   });
+};
+
 
 startQuiz()
 getQuestion()
