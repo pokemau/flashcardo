@@ -6,7 +6,7 @@
    box-sizing: border-box;
 }
 body {
-   background-color: rgb(240, 234, 223);
+   background-color: #DBD3D8;
    font-family: 'Josefin Sans', sans-serif;
    font-family: 'Lato', sans-serif;
    font-family: 'Noto Sans Mono', monospace;
@@ -14,33 +14,35 @@ body {
 }
 /* borders */
 
-
 /* borders */
 
-
+/* title */
 .title {
    text-align: center;
    margin: .5em 0 1em 0;
 }
+
 /* main body */
 .main-container {
    display: flex;
    justify-content: center;
-   width: 40%;
+   width: 30em;
+   margin: 1em;
 }
 .site-body-container {
    display: flex;
+   justify-content: center;
 }
 
 /* input fields */
 .def-container {
-   width: 25em;
+   width: 30em;
    min-height: 8em;
    background-color: rgb(255, 255, 255);
    padding: .5em;
    border-radius: 5px;
    margin-bottom: .8em;
-   box-shadow: 0 0 10px rgb(218, 218, 218);
+   box-shadow: 0 0 10px rgb(202, 199, 199);
    text-decoration: none;
    color: black;
 }
@@ -55,13 +57,13 @@ body {
 }
 
 .answer-container {
-   width: 25em;
+   width: 30em;
    min-height: 2.5em;
    background-color: rgb(255, 255, 255);
    padding: .5em;
    border-radius: 5px;
    margin-bottom: .6em;
-   box-shadow: 0 0 10px rgb(204, 198, 198);
+   box-shadow: 0 0 10px rgb(202, 199, 199);
 }
 [ans-placeholder]:empty:before {
    content: attr(ans-placeholder);
@@ -69,65 +71,38 @@ body {
    opacity: .3;
    cursor: text;
 }
-/* add button */
-#add-btn {
-   width: 8em;
-   height: 3em;
-}
+
 
 /* show questions container */
 .question-container {
-   width: 55%;
+   width: 43em;
+   margin: 1em;
 }
 .questions-list {
    word-wrap: break-word;
 }
 .question-bg {
    background-color: white;
-   width: 50em;
    min-height: 20em;
    border-radius: 5px;
-   box-shadow: 0 0 10px rgb(204, 198, 198);
+   box-shadow: 0 0 10px rgb(202, 199, 199);
    padding: .5em;
 }
 
-
-/* flashcard section */
-.flashcard-container {
-   display: flex;
-   justify-content: center;
+/* buttons */
+.startbtn-container {
+   margin-top: 1em;
 }
-.flashcard {
-   width: 35em;
-   height: 15em;
-   background-color: rgb(116, 184, 110);
-   margin: 1em;
+#start-btn, .add-btn {
    border-radius: 5px;
-   padding: 1em;
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   cursor: pointer;
+   border: none;
+   font-size: 1em;
+   width: 10em;
+   height: 3em;
+   background-color: #D77A61;
+   box-shadow: 0 0 10px rgb(177, 177, 177);
    transition: .2s;
 }
-.flashcard-def {
-   font-size: 2em;
-}
-.flashcard-ans {
-   margin-top: 5em;
-   font-size: 1em;
-}
-.flashcard:hover {
-   background-color: rgb(114, 168, 109);
-}
-
-/* next button*/
-.next-btn-container {
-   display: flex;
-   justify-content: center;
-}
-.next-btn {
-   width: 20em;
-   height: 4em;
+#start-btn:hover, .add-btn:hover {
+   background-color: #ce674b;
 }

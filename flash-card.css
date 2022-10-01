@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=Lato:wght@400;700;900&family=Noto+Sans+Mono:wght@400;500;700;800&display=swap');
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+body {
+   background-color: rgb(240, 234, 223);
+   font-family: 'Josefin Sans', sans-serif;
+   font-family: 'Lato', sans-serif;
+   font-family: 'Noto Sans Mono', monospace;
+   color: black;
+}
+
+/* flashcard section */
+.flashcard-container {
+    display: flex;
+    justify-content: center;
+ }
+ .flashcard {
+    width: 35em;
+    height: 15em;
+    background-color: rgb(116, 184, 110);
+    margin: 1em;
+    border-radius: 5px;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: .2s;
+ }
+ .flashcard-def {
+    font-size: 2em;
+ }
+ .flashcard-ans {
+    margin-top: 5em;
+    font-size: 1em;
+ }
+ .flashcard:hover {
+    background-color: rgb(114, 168, 109);
+ }
+ 
+ /* next button*/
+ .next-btn-container {
+    display: flex;
+    justify-content: center;
+ }
+ .next-btn {
+    width: 20em;
+    height: 4em;
+ }
