@@ -15,40 +15,36 @@ body {
 
 /* flashcard section */
 .flashcard-container {
-    display: flex;
-    justify-content: center;
+   display: flex;
+   justify-content: center;
  }
- .flashcard {
-    width: 35em;
-    height: 15em;
-    background-color: rgb(116, 184, 110);
-    margin: 1em;
-    border-radius: 5px;
-    padding: 1em;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: .2s;
- }
- .flashcard-def {
-    font-size: 2em;
- }
- .flashcard-ans {
-    margin-top: 5em;
-    font-size: 1em;
- }
- .flashcard:hover {
-    background-color: rgb(114, 168, 109);
- }
- 
- /* next button*/
- .next-btn-container {
-    display: flex;
-    justify-content: center;
- }
- .next-btn {
-    width: 20em;
-    height: 4em;
- }
+.flashcard {
+   width: 75em;
+   min-height: 15em;
+   background-color: rgb(116, 184, 110);
+   border-radius: 5px;
+   margin: 1em;
+   padding: 1em;
+   cursor: pointer;
+   transition: .2s;
+}
+.flashcard-def {
+   font-size: 2em;
+}
+.flashcard-ans {
+   margin-top: 5em;
+   font-size: 1em;
+}
+.flashcard:hover {
+   background-color: rgb(114, 168, 109);
+}
+
+/* next button*/
+.next-btn-container {
+   display: flex;
+   justify-content: center;
+}
+.next-btn {
+   width: 20em;
+   height: 4em;
+}

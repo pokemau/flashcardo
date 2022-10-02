@@ -6,7 +6,7 @@ const fcAns = document.querySelector('.flashcard-ans');
 
 //show a card with the question
 function showCard() {
-   const flashCard = document.querySelector('.flashcard-container');
+   const flashCard = document.querySelector('.flashcard');
    //questions
    if(quesArr.length > 0) {
       const {qAns, qDef} = getRandomQuestion();
