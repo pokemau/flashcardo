@@ -21,7 +21,8 @@ body {
 .flashcard {
    width: 75em;
    min-height: 15em;
-   background-color: rgb(116, 184, 110);
+   background-color: white;
+   box-shadow: 0 0 10px rgb(202, 199, 199);
    border-radius: 5px;
    margin: 1em;
    padding: 1em;
@@ -36,15 +37,25 @@ body {
    font-size: 1em;
 }
 .flashcard:hover {
-   background-color: rgb(114, 168, 109);
+   background-color: rgb(238, 238, 238);
 }
 
 /* next button*/
 .next-btn-container {
+   margin-top: 1em;
    display: flex;
    justify-content: center;
 }
 .next-btn {
-   width: 20em;
-   height: 4em;
+   border-radius: 5px;
+   border: none;
+   font-size: 1em;
+   width: 10em;
+   height: 3em;
+   background-color: #D77A61;
+   box-shadow: 0 0 10px rgb(177, 177, 177);
+   transition: .2s;
+}
+.next-btn:hover {
+   background-color: #ce674b;
 }
