@@ -1,6 +1,8 @@
 const questions = {}; //object for questions
 const questionArr = [];
 
+console.log
+
 function getQuestion() {
    const qCont = document.querySelector('.questions-list');
    const addBtn = document.querySelector('.add-btn');
@@ -43,9 +45,9 @@ function startQuiz() {
    const startBtn = document.getElementById('start-btn');
 
    startBtn.addEventListener('click', ()=> {
-      if(Object.keys(questions).length !== 0) {
-         localStorage.setItem('questions', JSON.stringify(questions));
-         localStorage.setItem('quesArr', JSON.stringify(questionArr));
+      if(Object.keys(questions).length != 0) {
+         window.localStorage.setItem('questions', JSON.stringify(questions));
+         window.localStorage.setItem('quesArr', JSON.stringify(questionArr));
          window.location.href = 'flashcard.html';
       }
    });
@@ -54,7 +56,6 @@ function startQuiz() {
 //allow only to paste plain text to input fields
 const def = document.querySelector('.def-container');
 const ans = document.querySelector('.answer-container');
-
 function plainText(inputField) {
    inputField.addEventListener('paste', e => {
       e.preventDefault();
@@ -84,7 +85,32 @@ function plainText(inputField) {
       }
    });
 }
+
+function startPreviousCards() {
+   const previous = document.querySelector('.previous');
+   const prevQuestions = JSON.parse(window.localStorage.getItem('questions'));
+   const prevQuesArr = JSON.parse(window.localStorage.getItem('quesArr'));
+   const firstQues = prevQuesArr[0]
+
+   if(prevQuestions !== null) {
+      previous.innerHTML = `${firstQues} - ${prevQuestions[firstQues]}`;
+      previous.addEventListener('click', () => {
+         window.location.href = 'flashcard.html';
+      });
+   }
+
+}
+startPreviousCards();
+
+
+
+
+
+
+
 plainText(def);
 plainText(ans);
+
+
 startQuiz();
 getQuestion();

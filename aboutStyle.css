@@ -1,0 +1,11 @@
+.about-container {
+   width: 70vw;
+   margin: auto;
+   text-align: center;
+}
+.about-container h1 {
+   font-size: 2em;
+}
+.about-container p {
+   font-size: 1em;
+}

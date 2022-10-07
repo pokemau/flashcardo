@@ -16,11 +16,43 @@ body {
 
 /* borders */
 
-/* title */
-.title {
-   text-align: center;
-   margin: .5em 0 1em 0;
+/* header */
+.header-container {
+   padding: 1em 3em;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
 }
+
+.title {
+   display: flex;
+   align-items: center;
+   cursor: pointer;
+}
+.navbar {
+   display: flex;
+   justify-content:flex-end;
+}
+.link-container {
+   border-radius: 10px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 6em;
+   height: 2.5em;
+   transition: .2s;
+   margin: 0 .2em;
+}
+.link-container:hover {
+   background-color: rgb(207, 204, 204);
+}
+.nav-link {
+   text-align: center;
+   text-decoration: none;
+   color: black;
+   font-size: 1.1em;
+}
+
 
 /* main body */
 .main-container {
@@ -42,7 +74,7 @@ body {
    padding: .5em;
    border-radius: 5px;
    margin-bottom: .8em;
-   box-shadow: 0 0 10px rgb(202, 199, 199);
+   box-shadow: 0 0 10px rgb(177, 177, 177);
    text-decoration: none;
    color: black;
 }
@@ -63,7 +95,7 @@ body {
    padding: .5em;
    border-radius: 5px;
    margin-bottom: .6em;
-   box-shadow: 0 0 10px rgb(202, 199, 199);
+   box-shadow: 0 0 10px rgb(177, 177, 177);
 }
 [ans-placeholder]:empty:before {
    content: attr(ans-placeholder);
@@ -81,10 +113,10 @@ body {
    word-wrap: break-word;
 }
 .question-bg {
-   background-color: #D8B4A0;
+   background-color: #e2c5b6;
    min-height: 20em;
    border-radius: 5px;
-   box-shadow: 0 0 10px rgb(202, 199, 199);
+   box-shadow: 0 0 10px rgb(177, 177, 177);
    padding: .5em;
 }
 
@@ -93,6 +125,7 @@ body {
    margin-top: 1em;
 }
 #start-btn, .add-btn {
+   cursor: pointer;
    border-radius: 5px;
    border: none;
    font-size: 1em;
@@ -104,4 +137,24 @@ body {
 }
 #start-btn:hover, .add-btn:hover {
    background-color: #ce674b;
+}
+
+/* previous flashcards */
+.previous-questions-container {
+   margin-top: 3em;
+}
+.previous {
+   background-color: rgb(255, 255, 255);
+   border-radius: 5px;
+   box-shadow: 0 0 10px rgb(177, 177, 177);
+   width: 30em;
+   height: 4em;
+   margin-top: .5em;
+   padding: .5em;
+   word-wrap: break-word;
+   transition: .2s;
+   cursor: pointer;
+}
+.previous:hover {
+   background-color: rgb(231, 231, 231);
 }
