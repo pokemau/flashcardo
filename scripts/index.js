@@ -14,7 +14,7 @@ function createNewFlashcard() {
    addNewBtn.addEventListener('click', () => {
       if(flaschardTitle.textContent !== '') {
          
-         window.location.href = 'pages/edit-questions.html';
+         window.location.href = './pages/edit-questions.html';
          flaschardTitle.textContent = '';
       };
    });
