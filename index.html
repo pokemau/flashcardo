@@ -4,7 +4,7 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="/styles.css">
+   <link rel="stylesheet" href="/styles/index-styles.css">
    <title>Flashcardo</title>
 </head>
 <body>
@@ -19,12 +19,61 @@
             </div>
          </a>
 
-         <a class="nav-link" href="about.html">
+         <a class="nav-link" href="/pages/about.html">
             <div class="about-cont link-container">
                About
             </div>
          </a>
       </nav>
    </header>
+
+   <div class="body-container">
+      <div class="left-container">
+         <div class="left-title">
+            <h1>Create New Flashcard</h1>
+         </div>
+
+         <div class="title-container" 
+            contenteditable="true"
+            title-placeholder="Enter Title..."></div>
+
+         <div class="add-title-container">
+            <button class="add-title-btn" type="button">Create New</button>
+         </div>
+      </div>
+
+      <div class="right-container">
+         <div class="right-title">
+            <h1>Previous Flashcards</h1>
+         </div>
+
+         <div class="previous-cards-container">
+            <div class="question">
+               question 1
+
+               <div class="del-btn-container">
+                  <button class="del-btn" type="button">del</button>
+               </div>
+            </div>
+
+            <div class="question">
+               question 2
+
+               <div class="del-btn-container">
+                  <button class="del-btn" type="button">del</button>
+               </div>
+            </div>
+
+            <div class="question">
+               question 3
+
+               <div class="del-btn-container">
+                  <button class="del-btn" type="button">del</button>
+               </div>
+            </div>
+         </div>
+
+      </div>
+   </div>
 </body>
 </html>
