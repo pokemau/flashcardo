@@ -90,9 +90,9 @@ function startPreviousCards() {
    const previous = document.querySelector('.previous');
    const prevQuestions = JSON.parse(window.localStorage.getItem('questions'));
    const prevQuesArr = JSON.parse(window.localStorage.getItem('quesArr'));
-   const firstQues = prevQuesArr[0]
 
    if(prevQuestions !== null) {
+      const firstQues = prevQuesArr[0]
       previous.innerHTML = `${firstQues} - ${prevQuestions[firstQues]}`;
       previous.addEventListener('click', () => {
          window.location.href = 'flashcard.html';
