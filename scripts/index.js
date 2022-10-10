@@ -1,7 +1,29 @@
 const questions = {}; //object for questions
 const questionArr = [];
 
-console.log
+function createNewFlashcard() {
+   const flaschardTitle = document.querySelector('.title-container');
+   const addNewBtn = document.querySelector('.add-title-btn');
+
+   flaschardTitle.addEventListener('keydown', e => {
+      if(e.key === 'Enter') {
+         e.preventDefault();
+      }
+   });
+
+   addNewBtn.addEventListener('click', () => {
+      if(flaschardTitle.textContent !== '') {
+         
+         window.location.href = 'pages/edit-questions.html';
+         flaschardTitle.textContent = '';
+      };
+   });
+}
+
+createNewFlashcard();
+
+
+
 
 function getQuestion() {
    const qCont = document.querySelector('.questions-list');
@@ -85,6 +107,9 @@ function plainText(inputField) {
       }
    });
 }
+const flaschardTitle = document.querySelector('.title-container');
+plainText(flaschardTitle)
+
 
 function startPreviousCards() {
    const previous = document.querySelector('.previous');
@@ -100,7 +125,7 @@ function startPreviousCards() {
    }
 
 }
-startPreviousCards();
+// startPreviousCards();
 
 
 
@@ -108,9 +133,9 @@ startPreviousCards();
 
 
 
-plainText(def);
-plainText(ans);
+// plainText(def);
+// plainText(ans);
 
 
-startQuiz();
-getQuestion();
+// startQuiz();
+// getQuestion();

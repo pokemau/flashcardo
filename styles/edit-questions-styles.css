@@ -38,7 +38,7 @@ body {
    justify-content: center;
    width: 6em;
    height: 2.5em;
-   transition: .2s;
+   transition: .1s;
    margin: 0 .2em;
 }
 .link-container:hover {
@@ -51,103 +51,108 @@ body {
    font-size: 1.1em;
 }
 
-/* body */
-.body-container {
+/* main body */
+.main-container {
    display: flex;
+   justify-content: center;
+   width: 30em;
+   margin: 1em;
+}
+.site-body-container {
+   display: flex;
+   justify-content: center;
 }
 
-/* left body */
-.left-container {
-   width: 50%;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
+/* input fields */
+.def-container {
+   width: 30em;
+   min-height: 8em;
+   background-color: #fff9ee;
+   padding: .5em;
+   border-radius: 5px;
+   margin-bottom: .8em;
+   box-shadow: 0 0 10px rgb(177, 177, 177);
+   text-decoration: none;
+   color: black;
 }
-.left-title {
-   margin-bottom: 1em;
+[contenteditable]:focus {
+   outline: 0px solid transparent;
 }
-.title-container {
+[def-placeholder]:empty:before {
+   content: attr(def-placeholder);
+   color: rgb(0, 0, 0);
+   opacity: .3;
+   cursor: text;
+}
+
+.answer-container {
    width: 30em;
    min-height: 2.5em;
    background-color: #fff9ee;
    padding: .5em;
    border-radius: 5px;
-   margin-bottom: 1em;
+   margin-bottom: .6em;
    box-shadow: 0 0 10px rgb(177, 177, 177);
 }
-[contenteditable]:focus {
-   outline: 0px solid transparent;
-}
-[title-placeholder]:empty:before {
-   content: attr(title-placeholder);
+[ans-placeholder]:empty:before {
+   content: attr(ans-placeholder);
    color: rgb(0, 0, 0);
    opacity: .3;
    cursor: text;
 }
-/* create new flashcard button */
-.add-title-btn {
+
+/* show questions container */
+.question-container {
+   width: 43em;
+   margin: 1em;
+}
+.questions-list {
+   word-wrap: break-word;
+}
+.question-bg {
+   background-color: #fff9ee;
+   min-height: 20em;
+   border-radius: 5px;
+   box-shadow: 0 0 10px rgb(177, 177, 177);
+   padding: .5em;
+}
+
+/* buttons */
+.startbtn-container {
+   margin-top: 1em;
+}
+#start-btn, .add-btn {
+   color: rgb(241, 238, 232);
    cursor: pointer;
    border-radius: 5px;
    border: none;
+   font-size: 1em;
    width: 10em;
    height: 3em;
-   color: rgb(226, 222, 222);
+   background-color: #3061aa;
    box-shadow: 0 0 10px rgb(177, 177, 177);
    transition: .1s;
-   background-color: #3061aa;
 }
-.add-title-btn:hover {
+#start-btn:hover, .add-btn:hover {
    background-color: #2b70d8;
 }
 
-/* right body */
-.right-container {
-   width: 50%;
+/* previous flashcards */
+.previous-questions-container {
+   margin-top: 3em;
 }
-.right-title {
-   margin-bottom: 1em;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-}
-
-.previous-cards-container {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-}
-
-.question {
-   width: 85%;
-   min-height: 4em;
-   padding: .4em;
+.previous {
+   background-color: rgb(255, 255, 255);
    border-radius: 5px;
-   margin-bottom: 1em;
    box-shadow: 0 0 10px rgb(177, 177, 177);
-   cursor: pointer;
-   background-color: #fff9ee;
-   display: flex;
-   align-items: center;
+   width: 30em;
+   height: 4em;
+   margin-top: .5em;
+   padding: .5em;
+   word-wrap: break-word;
    transition: .1s;
-}
-.question:hover {
-   background-color: #e9daba;
-}
-
-.del-btn-container {
-   margin-left: auto;
-}
-.del-btn {
    cursor: pointer;
-   border-radius: 5px;
-   border: none;
-   width: 3em;
-   height: 3em;
-   color: rgb(226, 222, 222);
-   box-shadow: 0 0 10px rgb(177, 177, 177);
-   transition: .1s;
-   background-color: #3061aa;
 }
-.del-btn:hover {
-   background-color: #3da3e7;
-   }
+.previous:hover {
+   background-color: rgb(231, 231, 231);
+}
