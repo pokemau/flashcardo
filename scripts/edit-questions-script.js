@@ -1,5 +1,6 @@
 const questions = {}; //object for questions
-const questionArr = [];
+const flashcardSetsArr = [];
+window.localStorage.setItem('flashcardSets', JSON.stringify(flashcardSetsArr));
 
 function getQuestion() {
    const qCont = document.querySelector('.questions-list');
@@ -18,8 +19,10 @@ function getQuestion() {
          const q = document.createElement('p');
          
          q.textContent = `${numCount}. ${ansCont.textContent} - ${defCont.textContent}`;
+
+
          questions[ansCont.textContent] = defCont.textContent;
-         questionArr.push(ansCont.textContent);
+         //questionArr.push(ansCont.textContent);
          defCont.textContent = '';
          ansCont.textContent = '';
 
@@ -35,21 +38,35 @@ function getQuestion() {
       if(e.key === 'Enter') {
          e.preventDefault();
          addQuestion();
+
       }
    });
 };
+
 
 function startQuiz() {
    const startBtn = document.getElementById('start-btn');
 
-   startBtn.addEventListener('click', ()=> {
-      if(Object.keys(questions).length != 0) {
-         window.localStorage.setItem('questions', JSON.stringify(questions));
-         window.localStorage.setItem('quesArr', JSON.stringify(questionArr));
-         window.location.href = 'flashcard.html';
+
+   startBtn.addEventListener('click', () => {
+      if(Object.keys(questions).length !== 0) {
+         const flashcardTitle = window.localStorage.getItem('flashcardTitle');
+
+         //add title to sets array
+         const flashcardSets = JSON.parse(window.localStorage.getItem('flashcardSets'));
+         flashcardSets.push(flashcardTitle);
+         window.localStorage.setItem('flashcardSets', JSON.stringify(flashcardSets));
+         flashcardSetsArr.push(flashcardTitle)
+
+         //add questions to localstorage
+         window.localStorage.setItem(flashcardTitle, JSON.stringify(questions));
+         
+
+         // window.location.href = 'flashcard.html';
       }
    });
-};
+}
+
 
 //allow only to paste plain text to input fields
 const def = document.querySelector('.def-container');

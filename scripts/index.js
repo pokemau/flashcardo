@@ -5,6 +5,9 @@ function createNewFlashcard() {
    const flaschardTitle = document.querySelector('.title-container');
    const addNewBtn = document.querySelector('.add-title-btn');
 
+   plainText(flaschardTitle);
+
+
    flaschardTitle.addEventListener('keydown', e => {
       if(e.key === 'Enter') {
          e.preventDefault();
@@ -13,67 +16,14 @@ function createNewFlashcard() {
 
    addNewBtn.addEventListener('click', () => {
       if(flaschardTitle.textContent !== '') {
-         
+         const title = flaschardTitle.textContent;
+         window.localStorage.setItem('flashcardTitle', title);
          window.location.href = './pages/edit-questions.html';
          flaschardTitle.textContent = '';
       };
    });
 }
 
-createNewFlashcard();
-
-
-
-
-function getQuestion() {
-   const qCont = document.querySelector('.questions-list');
-   const addBtn = document.querySelector('.add-btn');
-   //input fields
-   const inputField = document.querySelector('.input-fields');
-   const defCont = document.querySelector('.def-container');
-   const ansCont = document.querySelector('.answer-container');
-
-   let numCount = 1;
-
-   function addQuestion() {
-      if(defCont.textContent != '' && ansCont.textContent != '') {
-         const qDiv = document.createElement('div');
-         qDiv.classList.add('qDiv');
-         const q = document.createElement('p');
-         
-         q.textContent = `${numCount}. ${ansCont.textContent} - ${defCont.textContent}`;
-         questions[ansCont.textContent] = defCont.textContent;
-         questionArr.push(ansCont.textContent);
-         defCont.textContent = '';
-         ansCont.textContent = '';
-
-         qDiv.append(q);
-         qCont.append(qDiv);
-         numCount++;
-      };      
-   }
-   //button and text field event listener
-   //save question to object and show on page
-   addBtn.addEventListener('click', addQuestion);
-   inputField.addEventListener('keydown', e => {
-      if(e.key === 'Enter') {
-         e.preventDefault();
-         addQuestion();
-      }
-   });
-};
-
-function startQuiz() {
-   const startBtn = document.getElementById('start-btn');
-
-   startBtn.addEventListener('click', ()=> {
-      if(Object.keys(questions).length != 0) {
-         window.localStorage.setItem('questions', JSON.stringify(questions));
-         window.localStorage.setItem('quesArr', JSON.stringify(questionArr));
-         window.location.href = 'flashcard.html';
-      }
-   });
-};
 
 //allow only to paste plain text to input fields
 const def = document.querySelector('.def-container');
@@ -107,35 +57,34 @@ function plainText(inputField) {
       }
    });
 }
-const flaschardTitle = document.querySelector('.title-container');
-plainText(flaschardTitle)
 
 
-function startPreviousCards() {
-   const previous = document.querySelector('.previous');
-   const prevQuestions = JSON.parse(window.localStorage.getItem('questions'));
-   const prevQuesArr = JSON.parse(window.localStorage.getItem('quesArr'));
+function showPreviousSets() {
+   const sets = JSON.parse(window.localStorage.getItem('flashcardSets'));
+   const prevContainer = document.querySelector('.previous-cards-container');
 
-   if(prevQuestions !== null) {
-      const firstQues = prevQuesArr[0]
-      previous.innerHTML = `${firstQues} - ${prevQuestions[firstQues]}`;
-      previous.addEventListener('click', () => {
-         window.location.href = 'flashcard.html';
+   if(sets !== null) {
+      sets.forEach(el => {
+         const question = document.createElement('div');
+         const delContainer = document.createElement('div');
+         const delBtn = document.createElement('button');
+   
+         question.classList.add('question');
+         question.textContent = el;
+         delContainer.classList.add('del-btn-container');
+         delBtn.classList.add('del-btn');
+         delBtn.textContent = 'del';
+   
+         delContainer.append(delBtn);
+         question.append(delContainer);
+         prevContainer.append(question);
       });
    }
 
+
+
 }
-// startPreviousCards();
 
 
-
-
-
-
-
-// plainText(def);
-// plainText(ans);
-
-
-// startQuiz();
-// getQuestion();
+showPreviousSets();
+createNewFlashcard();

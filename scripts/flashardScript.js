@@ -1,5 +1,7 @@
-const questions = JSON.parse(localStorage.getItem('questions'));
-const quesArr = JSON.parse(localStorage.getItem('quesArr'));
+const flashcardTitle = window.localStorage.getItem('flashcardTitle');
+const questions = JSON.parse(localStorage.getItem(flashcardTitle));
+
+console.log(questions)
 
 const fcDef = document.querySelector('.flashcard-def');
 const fcAns = document.querySelector('.flashcard-ans');
