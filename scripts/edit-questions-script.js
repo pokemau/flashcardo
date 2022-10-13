@@ -1,6 +1,9 @@
 const questions = {}; //object for questions
 const flashcardSetsArr = [];
-window.localStorage.setItem('flashcardSets', JSON.stringify(flashcardSetsArr));
+if(localStorage.getItem('flashcardSets') === null) {
+   window.localStorage.setItem('flashcardSets', JSON.stringify(flashcardSetsArr));
+}
+
 
 function getQuestion() {
    const qCont = document.querySelector('.questions-list');
