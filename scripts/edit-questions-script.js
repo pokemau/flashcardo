@@ -65,7 +65,7 @@ function startQuiz() {
          window.localStorage.setItem(flashcardTitle, JSON.stringify(questions));
          
 
-         // window.location.href = 'flashcard.html';
+         window.location.href = '../pages/flashcard.html';
       }
    });
 }

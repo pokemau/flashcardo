@@ -46,16 +46,18 @@ body {
    display: flex;
    justify-content: center;
 }
-.next-btn {
+.btn {
    border-radius: 5px;
    border: none;
    font-size: 1em;
    width: 10em;
    height: 3em;
-   background-color: #D77A61;
+   background-color: #3061aa;
    box-shadow: 0 0 10px rgb(177, 177, 177);
-   transition: .2s;
+   transition: .1s;
+   margin: 1em;
+   color: rgb(238, 238, 238);
 }
-.next-btn:hover {
-   background-color: #ce674b;
+.btn:hover {
+   background-color: #2b70d8;
 }
