@@ -27,7 +27,6 @@ body {
    margin: 1em;
    padding: 1em;
    cursor: pointer;
-   transition: .2s;
 }
 .flashcard-def {
    font-size: 2em;
@@ -35,9 +34,6 @@ body {
 .flashcard-ans {
    margin-top: 5em;
    font-size: 1em;
-}
-.flashcard:hover {
-   background-color: rgb(238, 238, 238);
 }
 
 /* next button*/

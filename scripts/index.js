@@ -11,6 +11,12 @@ function createNewFlashcard() {
    flaschardTitle.addEventListener('keydown', e => {
       if(e.key === 'Enter') {
          e.preventDefault();
+         if(flaschardTitle.textContent !== '') {
+            const title = flaschardTitle.textContent;
+            window.localStorage.setItem('flashcardTitle', title);
+            window.location.href = './pages/edit-questions.html';
+            flaschardTitle.textContent = '';
+         };
       }
    });
 

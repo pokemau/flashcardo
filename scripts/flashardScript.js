@@ -1,35 +1,39 @@
 const flashcardTitle = window.localStorage.getItem('flashcardTitle');
-
+const cardDef = document.querySelector('.flashcard-def');
+const cardAns = document.querySelector('.flashcard-ans');
 const questions = JSON.parse(window.localStorage.getItem(flashcardTitle));
+const quesArr = Object.keys(questions);
 
-function showQuestion() {
-   const cardDef = document.querySelector('.flashcard-def');
-   const cardAns = document.querySelector('.flashcard-ans');
+function showCard() {
 
+   const showAns = document.querySelector('.show-ans-btn');
 
-   const ansArr = Object.keys(questions);
-
-   getRandomQuestion(cardDef, cardAns, ansArr);
-
+   if(quesArr.length > 0) {
+      const {qAns, qDef} = getRandomQuestion();
+      cardDef.textContent = qDef;
+      showAns.addEventListener('click', () => {
+         cardAns.textContent = qAns;
+      });
+   }
 }
 
-function getRandomQuestion(cardDef, cardAns, ansArr) {
-   const randomNum = Math.floor(Math.random() * ansArr.length);
-   const showAnsBtn = document.querySelector('.show-ans-btn');
+function getRandomQuestion() {
+   const randNum = Math.floor(Math.random() * quesArr.length);
+   const qAns = quesArr[randNum];
+   const qDef = questions[qAns]
+   quesArr.splice(randNum, 1);
+   return {qAns, qDef};
+}
+
+function nextQuestion() {
    const nextBtn = document.querySelector('.next-btn');
-
-   cardDef.textContent = questions[ansArr[randomNum]];
-
-   showAnsBtn.addEventListener('click', () => {
-      cardAns.textContent = ansArr[randomNum];
-   });
-
    nextBtn.addEventListener('click', () => {
-      const randomNum = Math.floor(Math.random() * ansArr.length);
-
-      console.log(randomNum)
+      if(quesArr.length > 0) {
+         showCard();
+         cardAns.textContent = '';
+      }
    });
 }
 
-
-showQuestion();
+nextQuestion();
+showCard();
