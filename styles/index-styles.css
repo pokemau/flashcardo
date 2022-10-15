@@ -120,7 +120,7 @@ body {
 .question {
    width: 85%;
    min-height: 4em;
-   padding: .4em;
+   padding: 0 .4em;
    border-radius: 5px;
    margin-bottom: 1em;
    box-shadow: 0 0 10px rgb(177, 177, 177);
@@ -132,6 +132,13 @@ body {
 }
 .question:hover {
    background-color: #e9daba;
+}
+
+.question-text {
+   display: flex;
+   align-items: center;
+   width: 85%;
+   height: 4em;
 }
 
 .del-btn-container {

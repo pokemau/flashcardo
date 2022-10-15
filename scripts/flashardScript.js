@@ -15,6 +15,8 @@ function showCard() {
          cardAns.textContent = qAns;
       });
    }
+
+
 }
 
 function getRandomQuestion() {
@@ -31,6 +33,10 @@ function nextQuestion() {
       if(quesArr.length > 0) {
          showCard();
          cardAns.textContent = '';
+      }
+
+      if(quesArr.length === 0) {
+         console.log('no more questions');
       }
    });
 }

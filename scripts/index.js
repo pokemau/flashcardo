@@ -64,32 +64,47 @@ function plainText(inputField) {
    });
 }
 
-
 function showPreviousSets() {
-   const sets = JSON.parse(window.localStorage.getItem('flashcardSets'));
+   let sets = JSON.parse(window.localStorage.getItem('flashcardSets'));
    const prevContainer = document.querySelector('.previous-cards-container');
+
 
    if(sets !== null) {
       sets.forEach(el => {
          const question = document.createElement('div');
+         const questionText = document.createElement('div');
          const delContainer = document.createElement('div');
          const delBtn = document.createElement('button');
    
-         question.classList.add('question');
-         question.textContent = el;
+         question.classList.add('question', el);
+         questionText.textContent = el;
+         questionText.classList.add('question-text');
          delContainer.classList.add('del-btn-container');
          delBtn.classList.add('del-btn');
+         delBtn.type = 'button';
          delBtn.textContent = 'del';
    
+         question.append(questionText)
          delContainer.append(delBtn);
          question.append(delContainer);
          prevContainer.append(question);
+
+         delBtn.addEventListener('click', () => {
+            question.remove();
+            window.localStorage.removeItem(el);
+            sets = sets.filter(e => e !== el);
+            window.localStorage.setItem('flashcardSets', JSON.stringify(sets));
+         });
+         questionText.addEventListener('click', () => {
+            window.localStorage.setItem('flashcardTitle', el);
+            window.location.href ='../pages/flashcard.html';
+         });
+
+
       });
    }
-
-
-
 }
+
 
 
 showPreviousSets();
