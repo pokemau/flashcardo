@@ -95,9 +95,10 @@ function showPreviousSets() {
             sets = sets.filter(e => e !== el);
             window.localStorage.setItem('flashcardSets', JSON.stringify(sets));
          });
+         
          questionText.addEventListener('click', () => {
             window.localStorage.setItem('flashcardTitle', el);
-            window.location.href ='../pages/flashcard.html';
+            window.location.href ='./pages/flashcard.html';
          });
 
 
