@@ -33,10 +33,8 @@ function nextQuestion() {
       if(quesArr.length > 0) {
          showCard();
          cardAns.textContent = '';
-      }
-
-      if(quesArr.length === 0) {
-         console.log('no more questions');
+      } else {
+         window.alert('No more questions');
       }
    });
 }
