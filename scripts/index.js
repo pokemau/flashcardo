@@ -76,7 +76,7 @@ function showPreviousSets() {
          const delContainer = document.createElement('div');
          const delBtn = document.createElement('button');
    
-         question.classList.add('question', el);
+         question.classList.add('question');
          questionText.textContent = el;
          questionText.classList.add('question-text');
          delContainer.classList.add('del-btn-container');
