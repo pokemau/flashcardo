@@ -1,70 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="../styles/edit-questions-styles.css">
-   <title>FLASCHCARDO</title>
-</head>
-<body>
-   <header class="header-container">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/edit-questions-styles.css" />
+    <link rel="stylesheet" href="../styles/index-styles.css" />
+    <title>FLASCHCARDO</title>
+  </head>
+  <body>
+    <header class="header-container">
       <div class="title">
-         <h1>FLASHCARDO</h1>
+        <h1>FLASHCARDO</h1>
       </div>
       <nav class="navbar">
-         <a class="nav-link" href="../index.html">
-            <div class="home-cont link-container">
-               Home
-            </div>
-         </a>
+        <a class="nav-link" href="../index.html">
+          <div class="home-cont link-container">Home</div>
+        </a>
 
-         <a class="nav-link" href="./pages/about.html">
-            <div class="about-cont link-container">
-               About
-            </div>
-         </a>
-
-
+        <a class="nav-link" href="./pages/about.html">
+          <div class="about-cont link-container">About</div>
+        </a>
       </nav>
-   </header>
+    </header>
 
-   <section class="site-body-container">
+    <section class="site-body-container">
       <div class="main-container">
-         <div class="input-fields">
-            <div class="def-container" 
-            contenteditable="true" 
+        <div class="input-fields">
+          <div
+            class="def-container"
+            contenteditable="true"
             def-placeholder="Write your question here"></div>
-      
-            <div class="answer-container" 
+
+          <div
+            class="answer-container"
             contenteditable="true"
             ans-placeholder="Answer here"></div>
 
-            <div class="btn-container">
-               <button class="add-btn" type="button">Add Question</button>
-            </div>
-         </div>
+          <div class="btn-container">
+            <button class="add-btn" type="button">Add Question</button>
+          </div>
+        </div>
       </div>
 
       <div class="question-container">
-         <div class="question-bg">
-            <div class="q-title">
-               <h1>Questions</h1>
-            </div>
-      
-            <div class="questions-list">
-      
-            </div>
-         </div>
-         
-         <div class="startbtn-container">
-            <button id="start-btn" type="button">Start Flashcard</button>
-         </div>
+        <div class="question-bg">
+          <div class="q-title">
+            <h1>Questions</h1>
+          </div>
+
+          <div class="questions-list"></div>
+        </div>
+
+        <div class="startbtn-container">
+          <button id="start-btn" type="button">Start Flashcard</button>
+        </div>
       </div>
+    </section>
 
-   </section>
-   
-
-   <script src="../scripts/edit-questions-script.js"></script>
-</body>
+    <script src="../scripts/edit-questions-script.js"></script>
+  </body>
 </html>

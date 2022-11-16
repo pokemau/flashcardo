@@ -1,11 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #dce7de;
+  font-family: "Inter", sans-serif;
+  color: black;
+}
+
 .about-container {
-   width: 70vw;
-   margin: auto;
-   text-align: center;
+  width: 70vw;
+  margin: auto;
+  text-align: center;
 }
 .about-container h1 {
-   font-size: 2em;
+  font-size: 2em;
 }
 .about-container p {
-   font-size: 1em;
+  font-size: 1em;
 }

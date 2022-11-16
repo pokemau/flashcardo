@@ -1,59 +1,57 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=Lato:wght@400;700;900&family=Noto+Sans+Mono:wght@400;500;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=Lato:wght@400;700;900&family=Noto+Sans+Mono:wght@400;500;700;800&display=swap");
 
 * {
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 body {
-   background-color: rgb(240, 234, 223);
-   font-family: 'Josefin Sans', sans-serif;
-   font-family: 'Lato', sans-serif;
-   font-family: 'Noto Sans Mono', monospace;
-   color: black;
+  background-color: #dce7de;
+  font-family: "Inter", sans-serif;
+  color: black;
 }
 
 /* flashcard section */
 .flashcard-container {
-   display: flex;
-   justify-content: center;
- }
+  display: flex;
+  justify-content: center;
+}
 .flashcard {
-   width: 75em;
-   min-height: 15em;
-   background-color: white;
-   box-shadow: 0 0 10px rgb(202, 199, 199);
-   border-radius: 5px;
-   margin: 1em;
-   padding: 1em;
-   cursor: pointer;
+  width: 75em;
+  min-height: 15em;
+  background-color: white;
+  box-shadow: 0 0 10px rgb(202, 199, 199);
+  border-radius: 5px;
+  margin: 1em;
+  padding: 1em;
+  cursor: pointer;
 }
 .flashcard-def {
-   font-size: 2em;
+  font-size: 2em;
 }
 .flashcard-ans {
-   margin-top: 5em;
-   font-size: 1em;
+  margin-top: 5em;
+  font-size: 1em;
 }
 
 /* next button*/
 .next-btn-container {
-   margin-top: 1em;
-   display: flex;
-   justify-content: center;
+  margin-top: 1em;
+  display: flex;
+  justify-content: center;
 }
 .btn {
-   border-radius: 5px;
-   border: none;
-   font-size: 1em;
-   width: 10em;
-   height: 3em;
-   background-color: #3061aa;
-   box-shadow: 0 0 10px rgb(177, 177, 177);
-   transition: .1s;
-   margin: 1em;
-   color: rgb(238, 238, 238);
+  border-radius: 5px;
+  border: none;
+  font-size: 1em;
+  width: 10em;
+  height: 3em;
+  background-color: #3061aa;
+  box-shadow: 0 0 10px rgb(177, 177, 177);
+  transition: 0.1s;
+  margin: 1em;
+  color: rgb(238, 238, 238);
 }
 .btn:hover {
-   background-color: #2b70d8;
+  background-color: #2b70d8;
 }
