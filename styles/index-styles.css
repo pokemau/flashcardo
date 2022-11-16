@@ -157,3 +157,33 @@ body {
 .del-btn:hover {
   background-color: #3da3e7;
 }
+
+@media all and (max-width: 480px) {
+  .body-container {
+    flex-direction: column;
+  }
+  .left-container {
+    width: 90vw;
+    margin: 0 auto 2em auto;
+    display: flex;
+    justify-content: center;
+  }
+  .left-title h1 {
+    font-size: 1.8em;
+  }
+  .title-container {
+    width: 80%;
+  }
+
+  /* RIGHT CONTAINER */
+  .right-container {
+    width: 90vw;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .right-title h1 {
+    font-size: 1.8em;
+  }
+}
