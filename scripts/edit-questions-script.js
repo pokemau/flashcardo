@@ -105,6 +105,17 @@ function plainText(inputField) {
   });
 }
 
+function showNav() {
+  const hamburgerIcon = document.querySelector(".hamburger");
+  const navbar = document.querySelector(".navbar");
+
+  hamburgerIcon.addEventListener("click", () => {
+    navbar.classList.toggle("toggleNav");
+    console.log(navbar);
+  });
+}
+showNav();
+
 plainText(def);
 plainText(ans);
 

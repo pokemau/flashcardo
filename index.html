@@ -1,59 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="./styles/index-styles.css">
-   <title>Flashcardo</title>
-</head>
-<body>
-   <header class="header-container">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/index-styles.css" />
+    <title>Flashcardo</title>
+  </head>
+  <body>
+    <header class="header-container">
       <div class="title">
-         <h1>FLASHCARDO</h1>
+        <h1>FLASHCARDO</h1>
+      </div>
+      <div class="hamburger">
+        <img src="./images/hamburger.png" alt="hamburger icon" />
       </div>
       <nav class="navbar">
-         <a class="nav-link" href="./index.html">
-            <div class="home-cont link-container">
-               Home
-            </div>
-         </a>
+        <a class="nav-link" href="./index.html">
+          <div class="home-cont link-container">Home</div>
+        </a>
 
-         <a class="nav-link" href="./pages/about.html">
-            <div class="about-cont link-container">
-               About
-            </div>
-         </a>
+        <a class="nav-link" href="./pages/about.html">
+          <div class="about-cont link-container">About</div>
+        </a>
       </nav>
-   </header>
+    </header>
 
-   <div class="body-container">
+    <div class="body-container">
       <div class="left-container">
-         <div class="left-title">
-            <h1>Create New Flashcard</h1>
-         </div>
+        <div class="left-title">
+          <h1>Create New Flashcard</h1>
+        </div>
 
-         <div class="title-container" 
-            contenteditable="true"
-            title-placeholder="Enter Title..."></div>
+        <div
+          class="title-container"
+          contenteditable="true"
+          title-placeholder="Enter Title..."></div>
 
-         <div class="add-title-container">
-            <button class="add-title-btn" type="button">Create New</button>
-         </div>
+        <div class="add-title-container">
+          <button class="add-title-btn" type="button">Create New</button>
+        </div>
       </div>
 
       <div class="right-container">
-         <div class="right-title">
-            <h1>Previous Flashcards</h1>
-         </div>
+        <div class="right-title">
+          <h1>Previous Flashcards</h1>
+        </div>
 
-         <div class="previous-cards-container">
-            
-         </div>
-
+        <div class="previous-cards-container"></div>
       </div>
-   </div>
+    </div>
 
-   <script src="./scripts/index.js"></script>
-</body>
+    <script src="./scripts/index.js"></script>
+  </body>
 </html>
