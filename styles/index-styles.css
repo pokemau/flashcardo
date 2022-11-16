@@ -159,11 +159,21 @@ body {
 }
 
 @media all and (max-width: 480px) {
+  /* NAVBAR */
+  .header-container {
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  /* BODY */
   .body-container {
     flex-direction: column;
   }
+
+  /* LEFT CONTAINER */
   .left-container {
-    width: 90vw;
+    width: 100vw;
     margin: 0 auto 2em auto;
     display: flex;
     justify-content: center;
@@ -186,4 +196,29 @@ body {
   .right-title h1 {
     font-size: 1.8em;
   }
+
+  /* QUESTIONS EDITOR */
+  .site-body-container {
+    width: 100vw;
+    flex-direction: column;
+  }
+  .main-container {
+    width: 90%;
+    margin: auto;
+  }
+  .input-fields {
+    width: 100%;
+  }
+  .def-container,
+  .answer-container {
+    width: 100%;
+  }
+  .question-container {
+    width: 90vw;
+  }
+  .question-bg {
+    width: 100%;
+  }
+
+  /* FLASHCARDS */
 }
