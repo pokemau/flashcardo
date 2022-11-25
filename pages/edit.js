@@ -1,17 +1,22 @@
 import styles from "../styles/Edit.module.css";
 import Head from "next/head";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 const EditQuestions = () => {
   const router = useRouter();
+
+  // localstorage items
+  const [currTitle, setCurrTitle] = useState("");
+  const [titleSets, setTitleSets] = useState([]);
+  const [prevTitleSets, setPrevTitleSets] = useState([]);
 
   const [questionsList, setQuestionsList] = useState([]);
   const [def, setDef] = useState("");
   const [ans, setAns] = useState("");
   const [numCount, setNumCount] = useState(1);
 
-  // add question button handler
+  // add question
   function handleAddQues(e) {
     e.preventDefault();
 
@@ -25,16 +30,20 @@ const EditQuestions = () => {
       setAns("");
     }
   }
-  // start flashcard btn
+  // start flashcard
   function handleStart(e) {
     e.preventDefault();
-    const currTitle = localStorage.getItem("currTitle");
+
     if (questionsList.length > 0) {
       localStorage.setItem(currTitle, JSON.stringify(questionsList));
-      router.push("/flashcard");
+
+      setTitleSets([...titleSets, currTitle]);
+
+      // router.push("/flashcard");
     }
   }
-  // function handle delete question
+
+  // delete questions
   function handleDelQues(event, question) {
     event.preventDefault();
     setQuestionsList(
@@ -45,6 +54,20 @@ const EditQuestions = () => {
       )
     );
   }
+
+  // get localstorage items
+  useEffect(() => {
+    setCurrTitle(localStorage.getItem("currTitle"));
+    setTitleSets(JSON.parse(localStorage.getItem("titleSets")));
+  }, []);
+
+  // set title sets
+  useEffect(() => {
+    if (titleSets.length > 0) {
+      localStorage.setItem("titleSets", JSON.stringify(titleSets));
+      console.log("titleset useeffect");
+    }
+  }, [titleSets]);
 
   return (
     <>
