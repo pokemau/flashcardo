@@ -21,23 +21,15 @@ export default function Home() {
     }
   }
 
-  // test func
-  function test(e) {
-    console.log(titleSets);
-  }
-
   // get items from localstorage
   useEffect(() => {
-    if (localStorage.getItem("titleSets") !== null) {
+    if (localStorage.getItem("titleSets")) {
       const tSets = JSON.parse(localStorage.getItem("titleSets"));
       setTitleSets(tSets);
+    } else {
+      localStorage.setItem("titleSets", JSON.stringify([]));
     }
   }, []);
-
-  // set title sets
-  // useEffect(() => {
-  //   localStorage.setItem("titleSets", JSON.stringify(titleSets));
-  // }, [titleSets]);
 
   return (
     <>
@@ -45,9 +37,6 @@ export default function Home() {
         <title>Flashcardo | Home</title>
       </Head>
       <div className={styles["body-container"]}>
-        <button type="button" onClick={test}>
-          test
-        </button>
         <div className={styles["create-container"]}>
           <h1>Create New Flashcard</h1>
           <input
