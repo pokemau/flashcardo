@@ -106,20 +106,21 @@ const EditQuestions = () => {
           <div className="questions-cont">
             <h1>Questions</h1>
 
-            {questionsList.map((question, index) => (
-              <div className="ques-cont" key={index}>
-                <p>
-                  {index + 1}) {question.ans} - {question.def}
-                </p>
-                <button
-                  className="del-ques-btn"
-                  onClick={() => {
-                    handleDelQues(event, question);
-                  }}>
-                  Del
-                </button>
-              </div>
-            ))}
+            {questionsList &&
+              questionsList.map((question, index) => (
+                <div className="ques-cont" key={index}>
+                  <p>
+                    {index + 1}) {question.ans} - {question.def}
+                  </p>
+                  <button
+                    className="del-ques-btn"
+                    onClick={() => {
+                      handleDelQues(event, question);
+                    }}>
+                    Del
+                  </button>
+                </div>
+              ))}
           </div>
           <div className="start-btn-cont">
             <button className="start-btn" onClick={handleStart}>

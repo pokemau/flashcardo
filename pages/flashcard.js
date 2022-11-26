@@ -1,41 +1,58 @@
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import Head from "next/head";
 
 const Flashcard = () => {
   const [currTitle, setCurrTitle] = useState("");
   const [questionsList, setQuestionsList] = useState([]);
   const [currQuestion, setCurrQuestion] = useState("");
+  const [currAns, setCurrAns] = useState("");
+  const [firstQisRun, setFirstQisRun] = useState(true);
 
-  // get questions
+  // get localstorage items
   useEffect(() => {
-    getRandomQuestion();
     const t = localStorage.getItem("currTitle");
     setCurrTitle(t);
-    if (t) {
-      const qList = JSON.parse(localStorage.getItem(t));
-      setQuestionsList(qList);
-    }
+    setQuestionsList(JSON.parse(localStorage.getItem(t)));
   }, []);
 
-  // test
+  // get first question on render
   useEffect(() => {
-    if (currQuestion && questionsList.length) {
-      console.log(`currQ: ${currQuestion}`);
-      console.log(`qList: ${JSON.stringify(questionsList)}`);
+    if (firstQisRun && questionsList.length) {
+      getFirstQuestion();
+      setFirstQisRun(false);
     }
-  }, [currQuestion, questionsList]);
+  }, [questionsList]);
 
-  // get question
-  function getRandomQuestion() {
-    if (questionsList.length > 0) {
-      const randNum = Math.floor(Math.random() * questionsList.length);
+  // get random num
+  function getRandNum() {
+    const randNum = Math.floor(Math.random() * questionsList.length);
+    return randNum;
+  }
+
+  function getFirstQuestion() {
+    const randNum = getRandNum();
+    if (questionsList.length) {
       setCurrQuestion(questionsList[randNum].def);
-
-      setQuestionsList(
-        questionsList.filter((question) => question.def !== currQuestion)
-      );
+      setCurrAns(questionsList[randNum].ans);
+      setQuestionsList(questionsList.filter((q, index) => index !== randNum));
     }
   }
+
+  // get random question
+  function getRandomQuestion(e) {
+    e.preventDefault();
+    const randNum = getRandNum();
+
+    if (questionsList.length) {
+      setCurrQuestion(questionsList[randNum].def);
+      setCurrAns(questionsList[randNum].ans);
+      setQuestionsList(questionsList.filter((q, index) => index !== randNum));
+    }
+  }
+
+  useEffect(() => {
+    console.log(questionsList, currQuestion, currAns);
+  }, [currQuestion, currAns, questionsList]);
 
   return (
     <>
@@ -45,10 +62,9 @@ const Flashcard = () => {
       <div className="flashcards">
         <h1>Flashcardo</h1>
 
-        <button type="button" onClick={getRandomQuestion}>
+        <button type="button" onClick={(e) => getRandomQuestion(e)}>
           NEXT
         </button>
-
         <p>{currQuestion}</p>
       </div>
     </>

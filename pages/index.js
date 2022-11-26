@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { useRouter } from "next/router";
 
@@ -32,6 +33,13 @@ export default function Home() {
     );
   }
 
+  // push title sets to localstorage
+  useEffect(() => {
+    if (titleSets) {
+      localStorage.setItem("titleSets", JSON.stringify(titleSets));
+    }
+  }, [titleSets]);
+
   // get items from localstorage
   useEffect(() => {
     if (localStorage.getItem("titleSets")) {
@@ -41,13 +49,6 @@ export default function Home() {
       localStorage.setItem("titleSets", JSON.stringify([]));
     }
   }, []);
-
-  // push title sets to localstorage
-  useEffect(() => {
-    if (titleSets) {
-      localStorage.setItem("titleSets", JSON.stringify(titleSets));
-    }
-  }, [titleSets]);
 
   // store curr title to local storage
   useEffect(() => {
@@ -97,7 +98,12 @@ export default function Home() {
                   onClick={() => {
                     delPrevQuestion(title, index);
                   }}>
-                  Del
+                  <Image
+                    src="/images/trash.png"
+                    width={30}
+                    height={30}
+                    alt="trash icon"
+                  />
                 </button>
               </div>
             ))}
