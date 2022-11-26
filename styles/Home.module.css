@@ -1,6 +1,45 @@
-.body-container {
+.body-cont {
   display: flex;
-  width: 80vw;
+  width: 100vw;
   margin: 1em auto;
   justify-content: space-between;
+}
+
+.create-cont {
+  width: 48vw;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.create-input {
+  width: 40%;
+  height: 1.5em;
+  padding: 0.3em;
+  font-size: 1.3em;
+  margin: 0.5em;
+}
+.create-input:focus {
+  outline: none;
+}
+
+.create-new-btn {
+  cursor: pointer;
+  background-color: rgb(240, 187, 89);
+  font-size: 1em;
+  width: 6.3em;
+  height: 2.5em;
+  padding: 0.5em;
+  border: none;
+  border-radius: 5px;
+  transition: 0.1s;
+}
+.create-new-btn:hover {
+  background-color: rgb(230, 179, 84);
+}
+
+.prev-cards-cont {
+  width: 48vw;
+  margin: 0 auto;
 }

@@ -15,7 +15,6 @@ export default function Home() {
 
     if (currTitle) {
       localStorage.setItem("currTitle", currTitle);
-
       router.push("/edit");
       setCurrTitle("");
     }
@@ -28,13 +27,11 @@ export default function Home() {
 
   function delPrevQuestion(title, index) {
     localStorage.removeItem(title);
-
     setTitleSets(
       titleSets.filter((t, tIndex) => t !== title && tIndex !== index)
     );
-
-    // localStorage.setItem("titleSets", JSON.stringify(titleSets));
   }
+
   // get items from localstorage
   useEffect(() => {
     if (localStorage.getItem("titleSets")) {
@@ -45,7 +42,7 @@ export default function Home() {
     }
   }, []);
 
-  // test
+  // push title sets to localstorage
   useEffect(() => {
     if (titleSets) {
       localStorage.setItem("titleSets", JSON.stringify(titleSets));
@@ -64,22 +61,25 @@ export default function Home() {
       <Head>
         <title>Flashcardo | Home</title>
       </Head>
-      <div className={styles["body-container"]}>
-        <div className={styles["create-container"]}>
+      <div className={styles["body-cont"]}>
+        <div className={styles["create-cont"]}>
           <h1>Create New Flashcard</h1>
           <input
+            className={styles["create-input"]}
             value={currTitle}
             type="text"
             onInput={(e) => {
               setCurrTitle(e.target.value);
             }}
           />
-          <div className="create-btn-cont">
-            <button onClick={handleCreateNew}>Create New</button>
-          </div>
+          <button
+            onClick={handleCreateNew}
+            className={styles["create-new-btn"]}>
+            Create New
+          </button>
         </div>
 
-        <div className={styles["previous-flashcards-container"]}>
+        <div className={styles["prev-cards-cont"]}>
           <h1>Previous Flashcards</h1>
           {titleSets &&
             titleSets.map((title, index) => (
