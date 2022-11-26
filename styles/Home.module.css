@@ -27,7 +27,7 @@
 
 .create-new-btn {
   cursor: pointer;
-  background-color: rgb(240, 187, 89);
+  background-color: rgb(80, 189, 58);
   font-size: 1em;
   width: 6.3em;
   height: 2.5em;
@@ -37,7 +37,7 @@
   transition: 0.1s;
 }
 .create-new-btn:hover {
-  background-color: rgb(230, 179, 84);
+  background-color: rgb(62, 170, 40);
 }
 
 /* right container */
@@ -48,8 +48,8 @@
   height: 2.5em;
   margin: 0.3em 0;
   padding-right: 0.3em;
-  background-color: orange;
   border-radius: 5px;
+  border: 1px solid rgb(212, 212, 212);
   transition: 0.2s;
 }
 .question-text {
@@ -58,23 +58,23 @@
   height: 100%;
   display: flex;
   align-items: center;
-  padding-left: 0.3em;
+  padding-left: 0.8em;
   border-radius: 5px;
+  font-size: 1.1em;
 }
-.question-text p:hover {
-  color: rgb(54, 147, 175);
-}
-.question:hover {
-  background-color: rgb(224, 149, 8);
+.question-text:hover {
+  color: rgb(80, 189, 58);
 }
 
 .del-prev-ques-btn {
   cursor: pointer;
   height: 80%;
   width: 3em;
-  border: 1px solid rgb(112, 112, 112);
+  border: none;
   background-color: rgb(228, 228, 228);
+  transition: 0.2s;
+  border-radius: 5px;
 }
 .del-prev-ques-btn:hover {
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(197, 197, 197);
 }

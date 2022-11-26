@@ -103,6 +103,7 @@ export default function Home() {
                     width={30}
                     height={30}
                     alt="trash icon"
+                    className={styles["del-prev-btn-img"]}
                   />
                 </button>
               </div>
