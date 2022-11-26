@@ -1,6 +1,6 @@
 import styles from "../styles/Edit.module.css";
 import Head from "next/head";
-import { use, useEffect, useState } from "react";
+import { useRef, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 const EditQuestions = () => {
@@ -10,6 +10,11 @@ const EditQuestions = () => {
   const [currTitle, setCurrTitle] = useState("");
   const [titleSets, setTitleSets] = useState([]);
 
+  // input refs
+  const inputAnsRef = useRef(null);
+  const inputDefRef = useRef(null);
+
+  // answers, question
   const [questionsList, setQuestionsList] = useState([]);
   const [def, setDef] = useState("");
   const [ans, setAns] = useState("");
@@ -19,14 +24,15 @@ const EditQuestions = () => {
   function handleAddQues(e) {
     e.preventDefault();
 
-    if (def && ans) {
-      setQuestionsList([
-        ...questionsList,
-        { id: numCount, def: def, ans: ans },
-      ]);
+    const d = inputDefRef.current.innerText;
+    const a = inputAnsRef.current.innerText;
+
+    if (d && a) {
+      setQuestionsList([...questionsList, { id: numCount, def: d, ans: a }]);
       setNumCount(numCount + 1);
-      setDef("");
-      setAns("");
+
+      inputDefRef.current.innerText = "";
+      inputAnsRef.current.innerText = "";
     }
   }
   // start flashcard
@@ -71,39 +77,32 @@ const EditQuestions = () => {
         <title>Flashcardo | Edit</title>
       </Head>
       <div className={styles["edit-questions-cont"]}>
-        <div className="left-edit-cont">
-          <div className="def-input-cont">
-            <input
-              value={def}
+        <div className={styles["left-edit-cont"]}>
+          <div className={styles["def-input-cont"]}>
+            <div
               className={styles["def-input"]}
-              type="text"
-              placeholder="Write your question here..."
-              onInput={(e) => {
-                setDef(e.target.value);
-              }}
-            />
+              contentEditable="true"
+              ref={inputDefRef}></div>
           </div>
 
-          <div className="ans-input-cont">
-            <input
-              value={ans}
+          <div className={styles["ans-input-cont"]}>
+            <div
               className={styles["ans-input"]}
-              type="text"
-              placeholder="Answer here..."
-              onInput={(e) => {
-                setAns(e.target.value);
-              }}
-            />
+              contentEditable="true"
+              ref={inputAnsRef}></div>
           </div>
-          <div className="add-ques-btn-cont">
-            <button className="add-ques" type="button" onClick={handleAddQues}>
+          <div className={styles["add-ques-btn-cont"]}>
+            <button
+              className={styles["add-ques-btn"]}
+              type="button"
+              onClick={handleAddQues}>
               Add Question
             </button>
           </div>
         </div>
 
-        <div className="right-edit-cont">
-          <div className="questions-cont">
+        <div className={styles["right-edit-cont"]}>
+          <div className={styles["questions-cont"]}>
             <h1>Questions</h1>
 
             {questionsList &&
@@ -113,7 +112,7 @@ const EditQuestions = () => {
                     {index + 1}) {question.ans} - {question.def}
                   </p>
                   <button
-                    className="del-ques-btn"
+                    className={styles["del-ques-btn"]}
                     onClick={() => {
                       handleDelQues(event, question);
                     }}>
@@ -122,8 +121,8 @@ const EditQuestions = () => {
                 </div>
               ))}
           </div>
-          <div className="start-btn-cont">
-            <button className="start-btn" onClick={handleStart}>
+          <div className={styles["start-btn-cont"]}>
+            <button className={styles["start-btn"]} onClick={handleStart}>
               Start
             </button>
           </div>

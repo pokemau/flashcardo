@@ -1,3 +1,47 @@
 .edit-questions-cont {
   display: flex;
+  width: 80vw;
+  margin: auto;
+}
+
+.left-edit-cont,
+.right-edit-cont {
+  width: 50%;
+  margin: auto;
+}
+
+.def-input {
+  width: 90%;
+  min-height: 10em;
+  border: 1px solid rgb(177, 177, 177);
+  padding: 0.5em;
+  font-size: 1.2em;
+  margin: 1em 0 0.5em 0;
+}
+.def-input:focus,
+.ans-input:focus {
+  outline: none;
+}
+
+.ans-input {
+  width: 90%;
+  font-size: 1.2em;
+  border: 1px solid rgb(177, 177, 177);
+  padding: 0.3em 0.4em;
+  margin-bottom: 0.5em;
+}
+
+.add-ques-btn {
+  width: 20%;
+  height: 2.2em;
+  font-size: 1em;
+  border: none;
+  background-color: rgb(58, 160, 37);
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 0.2em;
+  transition: 0.2s;
+}
+.add-ques-btn:hover {
+  background-color: rgb(72, 184, 50);
 }
