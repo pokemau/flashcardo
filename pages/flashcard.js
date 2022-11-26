@@ -1,4 +1,4 @@
-import { use, useEffect, useState } from "react";
+import { useRef, useEffect, useState } from "react";
 import Head from "next/head";
 
 const Flashcard = () => {
@@ -6,7 +6,8 @@ const Flashcard = () => {
   const [questionsList, setQuestionsList] = useState([]);
   const [currQuestion, setCurrQuestion] = useState("");
   const [currAns, setCurrAns] = useState("");
-  const [firstQisRun, setFirstQisRun] = useState(true);
+  const firstQisRun = useRef(true);
+  const ansRef = useRef(null);
 
   // get localstorage items
   useEffect(() => {
@@ -17,9 +18,9 @@ const Flashcard = () => {
 
   // get first question on render
   useEffect(() => {
-    if (firstQisRun && questionsList.length) {
+    if (firstQisRun.current && questionsList.length) {
       getFirstQuestion();
-      setFirstQisRun(false);
+      firstQisRun.current = false;
     }
   }, [questionsList]);
 
@@ -29,6 +30,14 @@ const Flashcard = () => {
     return randNum;
   }
 
+  // show answer
+  function showAns(e) {
+    e.preventDefault();
+
+    ansRef.current.innerText = currAns;
+  }
+
+  // get first question
   function getFirstQuestion() {
     const randNum = getRandNum();
     if (questionsList.length) {
@@ -47,12 +56,9 @@ const Flashcard = () => {
       setCurrQuestion(questionsList[randNum].def);
       setCurrAns(questionsList[randNum].ans);
       setQuestionsList(questionsList.filter((q, index) => index !== randNum));
+      ansRef.current.innerText = "";
     }
   }
-
-  useEffect(() => {
-    console.log(questionsList, currQuestion, currAns);
-  }, [currQuestion, currAns, questionsList]);
 
   return (
     <>
@@ -65,7 +71,11 @@ const Flashcard = () => {
         <button type="button" onClick={(e) => getRandomQuestion(e)}>
           NEXT
         </button>
+        <button type="button" onClick={(e) => showAns(e)}>
+          SHOW ANSWER
+        </button>
         <p>{currQuestion}</p>
+        <p ref={ansRef}></p>
       </div>
     </>
   );
