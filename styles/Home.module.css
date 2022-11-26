@@ -1,12 +1,13 @@
 .body-cont {
+  width: 80vw;
   display: flex;
-  width: 100vw;
   margin: 1em auto;
-  justify-content: space-between;
 }
 
-.create-cont {
-  width: 48vw;
+/* left container */
+.create-cont,
+.prev-cards-cont {
+  width: 40%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -14,7 +15,7 @@
 }
 
 .create-input {
-  width: 40%;
+  width: 60%;
   height: 1.5em;
   padding: 0.3em;
   font-size: 1.3em;
@@ -39,7 +40,32 @@
   background-color: rgb(230, 179, 84);
 }
 
-.prev-cards-cont {
-  width: 48vw;
-  margin: 0 auto;
+/* right container */
+.question {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  height: 2.5em;
+  margin: 0.3em 0;
+  padding-right: 0.3em;
+  background-color: orange;
+  border-radius: 5px;
+}
+.question-text {
+  cursor: pointer;
+  width: 90%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 0.3em;
+  border-radius: 5px;
+}
+.question:hover {
+  background-color: yellowgreen;
+}
+
+.del-prev-ques-btn {
+  cursor: pointer;
+  height: 80%;
+  width: 3em;
 }

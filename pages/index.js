@@ -83,26 +83,22 @@ export default function Home() {
           <h1>Previous Flashcards</h1>
           {titleSets &&
             titleSets.map((title, index) => (
-              <div
-                className="previous-title-sets-cont"
-                key={Math.random() * 1000}>
-                <div className="question">
-                  <div
-                    className="question-text"
-                    onClick={() => {
-                      goToQuestion(title);
-                    }}>
-                    <p>{title}</p>
-                  </div>
-                  <button
-                    className="del-prev-ques-btn"
-                    type="button"
-                    onClick={() => {
-                      delPrevQuestion(title, index);
-                    }}>
-                    Del
-                  </button>
+              <div className={styles.question} key={Math.random() * 1000}>
+                <div
+                  className={styles["question-text"]}
+                  onClick={() => {
+                    goToQuestion(title);
+                  }}>
+                  <p>{title}</p>
                 </div>
+                <button
+                  className={styles["del-prev-ques-btn"]}
+                  type="button"
+                  onClick={() => {
+                    delPrevQuestion(title, index);
+                  }}>
+                  Del
+                </button>
               </div>
             ))}
         </div>
