@@ -9,7 +9,6 @@ const EditQuestions = () => {
   // localstorage items
   const [currTitle, setCurrTitle] = useState("");
   const [titleSets, setTitleSets] = useState([]);
-  const [prevTitleSets, setPrevTitleSets] = useState([]);
 
   const [questionsList, setQuestionsList] = useState([]);
   const [def, setDef] = useState("");
@@ -36,10 +35,8 @@ const EditQuestions = () => {
 
     if (questionsList.length > 0) {
       localStorage.setItem(currTitle, JSON.stringify(questionsList));
-
       setTitleSets([...titleSets, currTitle]);
-
-      // router.push("/flashcard");
+      router.push("/flashcard");
     }
   }
 
@@ -65,7 +62,6 @@ const EditQuestions = () => {
   useEffect(() => {
     if (titleSets.length > 0) {
       localStorage.setItem("titleSets", JSON.stringify(titleSets));
-      console.log("titleset useeffect");
     }
   }, [titleSets]);
 
