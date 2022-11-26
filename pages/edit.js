@@ -60,7 +60,7 @@ const EditQuestions = () => {
 
   // set title sets
   useEffect(() => {
-    if (titleSets.length > 0) {
+    if (titleSets.length) {
       localStorage.setItem("titleSets", JSON.stringify(titleSets));
     }
   }, [titleSets]);

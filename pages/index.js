@@ -7,8 +7,7 @@ import { useState, useEffect, useRef } from "react";
 export default function Home() {
   const router = useRouter();
   const [currTitle, setCurrTitle] = useState("");
-  const [titleSets, setTitleSets] = useState([]);
-  const didMount = useRef(false);
+  const [titleSets, setTitleSets] = useState(null);
 
   // create new
   function handleCreateNew(e) {
@@ -28,17 +27,18 @@ export default function Home() {
   }
 
   function delPrevQuestion(title, index) {
+    localStorage.removeItem(title);
+
     setTitleSets(
       titleSets.filter((t, tIndex) => t !== title && tIndex !== index)
     );
 
-    localStorage.setItem("titleSets", JSON.stringify(titleSets));
+    // localStorage.setItem("titleSets", JSON.stringify(titleSets));
   }
   // get items from localstorage
   useEffect(() => {
     if (localStorage.getItem("titleSets")) {
       const tSets = JSON.parse(localStorage.getItem("titleSets"));
-
       setTitleSets(tSets);
     } else {
       localStorage.setItem("titleSets", JSON.stringify([]));
@@ -47,7 +47,9 @@ export default function Home() {
 
   // test
   useEffect(() => {
-    console.log(`3: ${titleSets}`);
+    if (titleSets) {
+      localStorage.setItem("titleSets", JSON.stringify(titleSets));
+    }
   }, [titleSets]);
 
   // store curr title to local storage
@@ -79,29 +81,30 @@ export default function Home() {
 
         <div className={styles["previous-flashcards-container"]}>
           <h1>Previous Flashcards</h1>
-          {titleSets.map((title, index) => (
-            <div
-              className="previous-title-sets-cont"
-              key={Math.random() * 1000}>
-              <div className="question">
-                <div
-                  className="question-text"
-                  onClick={() => {
-                    goToQuestion(title);
-                  }}>
-                  <p>{title}</p>
+          {titleSets &&
+            titleSets.map((title, index) => (
+              <div
+                className="previous-title-sets-cont"
+                key={Math.random() * 1000}>
+                <div className="question">
+                  <div
+                    className="question-text"
+                    onClick={() => {
+                      goToQuestion(title);
+                    }}>
+                    <p>{title}</p>
+                  </div>
+                  <button
+                    className="del-prev-ques-btn"
+                    type="button"
+                    onClick={() => {
+                      delPrevQuestion(title, index);
+                    }}>
+                    Del
+                  </button>
                 </div>
-                <button
-                  className="del-prev-ques-btn"
-                  type="button"
-                  onClick={() => {
-                    delPrevQuestion(title, index);
-                  }}>
-                  Del
-                </button>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
       </div>
     </>
