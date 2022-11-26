@@ -57,7 +57,7 @@ const Flashcard = () => {
       setCurrAns(questionsList[randNum].ans);
       setQuestionsList(questionsList.filter((q, index) => index !== randNum));
       ansRef.current.innerText = "";
-    }
+    } else window.alert("No More Questions!!");
   }
 
   return (
