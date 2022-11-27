@@ -99,27 +99,29 @@ const EditQuestions = () => {
           <div className={styles["questions-cont"]}>
             <h1>Questions</h1>
 
-            {questionsList &&
-              questionsList.map((question, index) => (
-                <div className={styles["ques-cont"]} key={index}>
-                  <p>
-                    {index + 1}) {question.ans} - {question.def}
-                  </p>
-                  <button
-                    className={styles["del-ques-btn"]}
-                    onClick={() => {
-                      handleDelQues(event, question);
-                    }}>
-                    <Image
-                      src="/images/trash.png"
-                      width={20}
-                      height={20}
-                      alt="trash icon"
-                      className={styles["del-prev-btn-img"]}
-                    />
-                  </button>
-                </div>
-              ))}
+            <div className={styles["all-ques-cont"]}>
+              {questionsList &&
+                questionsList.map((question, index) => (
+                  <div className={styles["ques-cont"]} key={index}>
+                    <p>
+                      {index + 1}) {question.ans} - {question.def}
+                    </p>
+                    <button
+                      className={styles["del-ques-btn"]}
+                      onClick={() => {
+                        handleDelQues(event, question);
+                      }}>
+                      <Image
+                        src="/images/trash.png"
+                        width={20}
+                        height={20}
+                        alt="trash icon"
+                        className={styles["del-prev-btn-img"]}
+                      />
+                    </button>
+                  </div>
+                ))}
+            </div>
           </div>
           <button className={styles["start-btn"]} onClick={handleStart}>
             Start

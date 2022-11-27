@@ -56,6 +56,10 @@
   text-align: center;
   margin-top: 0.5em;
 }
+
+.all-ques-cont {
+  min-height: 30vh;
+}
 .ques-cont {
   display: flex;
   margin: 0.1em 0;
