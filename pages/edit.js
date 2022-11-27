@@ -98,8 +98,7 @@ const EditQuestions = () => {
         <div className={styles["right-edit-cont"]}>
           <div className={styles["questions-cont"]}>
             <h1>Questions</h1>
-
-            <div className={styles["all-ques-cont"]}>
+            <div className={styles["ques-border-line"]}>
               {questionsList &&
                 questionsList.map((question, index) => (
                   <div className={styles["ques-cont"]} key={index}>

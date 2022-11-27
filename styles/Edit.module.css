@@ -56,24 +56,33 @@
   text-align: center;
   margin-top: 0.5em;
 }
+.questions-cont {
+  margin-bottom: 1em;
+}
+.ques-border-line {
+  border: 1px solid rgb(179, 179, 179);
+  border-radius: 5px;
+  min-height: 40vh;
+  max-height: 70vh;
+  padding: 0.5em;
+  overflow: auto;
+}
 
-.all-ques-cont {
-  min-height: 30vh;
-}
+/* each question */
 .ques-cont {
+  word-break: break-all;
+  text-align: start;
   display: flex;
-  margin: 0.1em 0;
-  height: 2.3em;
   align-items: center;
+  min-height: 2em;
+  margin-bottom: 0.2em;
+  border-bottom: 1px solid rgb(221, 221, 221);
 }
-.ques-cont p {
-  font-size: 1.2em;
-}
+
 .del-ques-btn {
   margin-left: auto;
   cursor: pointer;
-  height: 80%;
-  width: 2.5em;
+  min-width: 2.5em;
   border: none;
   background-color: rgb(228, 228, 228);
   transition: 0.2s;
