@@ -1,5 +1,6 @@
 import styles from "../styles/Edit.module.css";
 import Head from "next/head";
+import Image from "next/image";
 import { useRef, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
@@ -78,27 +79,20 @@ const EditQuestions = () => {
       </Head>
       <div className={styles["edit-questions-cont"]}>
         <div className={styles["left-edit-cont"]}>
-          <div className={styles["def-input-cont"]}>
-            <div
-              className={styles["def-input"]}
-              contentEditable="true"
-              ref={inputDefRef}></div>
-          </div>
-
-          <div className={styles["ans-input-cont"]}>
-            <div
-              className={styles["ans-input"]}
-              contentEditable="true"
-              ref={inputAnsRef}></div>
-          </div>
-          <div className={styles["add-ques-btn-cont"]}>
-            <button
-              className={styles["add-ques-btn"]}
-              type="button"
-              onClick={handleAddQues}>
-              Add Question
-            </button>
-          </div>
+          <div
+            className={styles["def-input"]}
+            contentEditable="true"
+            ref={inputDefRef}></div>
+          <div
+            className={styles["ans-input"]}
+            contentEditable="true"
+            ref={inputAnsRef}></div>
+          <button
+            className={styles["add-ques-btn"]}
+            type="button"
+            onClick={handleAddQues}>
+            Add Question
+          </button>{" "}
         </div>
 
         <div className={styles["right-edit-cont"]}>
@@ -107,7 +101,7 @@ const EditQuestions = () => {
 
             {questionsList &&
               questionsList.map((question, index) => (
-                <div className="ques-cont" key={index}>
+                <div className={styles["ques-cont"]} key={index}>
                   <p>
                     {index + 1}) {question.ans} - {question.def}
                   </p>
@@ -116,16 +110,20 @@ const EditQuestions = () => {
                     onClick={() => {
                       handleDelQues(event, question);
                     }}>
-                    Del
+                    <Image
+                      src="/images/trash.png"
+                      width={20}
+                      height={20}
+                      alt="trash icon"
+                      className={styles["del-prev-btn-img"]}
+                    />
                   </button>
                 </div>
               ))}
           </div>
-          <div className={styles["start-btn-cont"]}>
-            <button className={styles["start-btn"]} onClick={handleStart}>
-              Start
-            </button>
-          </div>
+          <button className={styles["start-btn"]} onClick={handleStart}>
+            Start
+          </button>
         </div>
       </div>
     </>

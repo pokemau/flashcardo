@@ -100,8 +100,8 @@ export default function Home() {
                   }}>
                   <Image
                     src="/images/trash.png"
-                    width={30}
-                    height={30}
+                    width={20}
+                    height={20}
                     alt="trash icon"
                     className={styles["del-prev-btn-img"]}
                   />

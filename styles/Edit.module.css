@@ -7,7 +7,7 @@
 .left-edit-cont,
 .right-edit-cont {
   width: 50%;
-  margin: auto;
+  margin: 0 auto;
 }
 
 .def-input {
@@ -42,6 +42,53 @@
   padding: 0.2em;
   transition: 0.2s;
 }
-.add-ques-btn:hover {
+.add-ques-btn:hover,
+.start-btn:hover {
   background-color: rgb(72, 184, 50);
+}
+.add-ques-btn:focus,
+.start-btn:focus {
+  outline: 1px solid black;
+}
+
+/* RIGHT CONTAINER */
+.right-edit-cont {
+  text-align: center;
+  margin-top: 0.5em;
+}
+.ques-cont {
+  display: flex;
+  margin: 0.1em 0;
+  height: 2.3em;
+  align-items: center;
+}
+.ques-cont p {
+  font-size: 1.2em;
+}
+.del-ques-btn {
+  margin-left: auto;
+  cursor: pointer;
+  height: 80%;
+  width: 2.5em;
+  border: none;
+  background-color: rgb(228, 228, 228);
+  transition: 0.2s;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.del-ques-btn:hover {
+  background-color: rgb(197, 197, 197);
+}
+
+.start-btn {
+  cursor: pointer;
+  width: 15%;
+  height: 2em;
+  font-size: 1em;
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(58, 160, 37);
+  transition: 0.2s;
 }

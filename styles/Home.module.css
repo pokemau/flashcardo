@@ -69,12 +69,20 @@
 .del-prev-ques-btn {
   cursor: pointer;
   height: 80%;
-  width: 3em;
+  width: 2.5em;
   border: none;
   background-color: rgb(228, 228, 228);
   transition: 0.2s;
   border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .del-prev-ques-btn:hover {
   background-color: rgb(197, 197, 197);
 }
+/* 
+.del-prev-btn-img {
+  width: 1.5em;
+  height: 1.5em;
+} */
