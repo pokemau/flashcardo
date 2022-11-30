@@ -10,3 +10,14 @@ body {
   color: #333;
   font-family: "Nunito";
 }
+
+/* ABOUT */
+.about-cont {
+  width: 80vw;
+  margin: 1em auto;
+  text-align: center;
+}
+.about-cont p {
+  margin-top: 0.4em;
+  font-size: 1.2em;
+}
