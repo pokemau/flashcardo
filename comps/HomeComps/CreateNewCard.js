@@ -18,7 +18,7 @@ const CreateNew = ({ currTitle, setCurrTitle }) => {
 
   return (
     <>
-      <div className={styles["create-cont"]}>
+      <div className="">
         <h1>Create New Flashcard</h1>
         <input
           className={styles["create-input"]}

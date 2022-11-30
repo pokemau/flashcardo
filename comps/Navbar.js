@@ -4,14 +4,18 @@ import styles from "../styles/Navbar.module.css";
 const Navbar = () => {
   return (
     <>
-      <nav className={styles.navbar}>
-        <div className={styles.logo}>
+      <nav className="w-[100vw] flex justify-between items-center py-3 px-5 border-b-2 border-[#ddd] md:w-[80vw] md:m-auto">
+        <div className="text-2xl font-[900] md:text-4xl">
           <h1>FLASHCARDO</h1>
         </div>
 
-        <div className={styles["nav-links"]}>
-          <Link href="/">Home</Link>
-          <Link href="/about">About</Link>
+        <div className="flex">
+          <Link className="nav-link" href="/">
+            Home
+          </Link>
+          <Link className="nav-link" href="/about">
+            About
+          </Link>
         </div>
       </nav>
     </>

@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 
 // components
 import PreviousCards from "../comps/HomeComps/PreviousCards";
-import CreateNew from "../comps/HomeComps/CreateNewCard";
+import CreateNewCard from "../comps/HomeComps/CreateNewCard";
 
 export default function Home() {
   const [currTitle, setCurrTitle] = useState("");
@@ -40,8 +40,8 @@ export default function Home() {
       <Head>
         <title>Flashcardo | Home</title>
       </Head>
-      <div className={styles["body-cont"]}>
-        <CreateNew currTitle={currTitle} setCurrTitle={setCurrTitle} />
+      <div className="w-[80vw] flex my-5 mx-auto">
+        <CreateNewCard currTitle={currTitle} setCurrTitle={setCurrTitle} />
 
         <PreviousCards
           titleSets={titleSets}

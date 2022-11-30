@@ -1,14 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap");
 
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply p-0 m-0 box-border;
+  }
+  body {
+    @apply bg-[#f2f2f2] font-[nunito];
+  }
 }
-body {
-  background: #f2f2f2;
-  color: #333;
-  font-family: "Nunito";
+
+@layer components {
+  .nav-link {
+    @apply mx-1 hover:bg-gray-200 flex items-center 
+    justify-center h-8 w-14 md:w-16 rounded transition-all;
+  }
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* ABOUT */
