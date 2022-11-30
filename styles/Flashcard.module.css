@@ -1,0 +1,21 @@
+.curr-title {
+  text-align: center;
+  margin: 0.2em 0;
+}
+
+.question-cont {
+  border: 1px solid rgb(201, 201, 201);
+  border-radius: 5px;
+  padding: 0.5em;
+  width: 80vw;
+  height: 10em;
+  margin: auto;
+}
+
+.def-text {
+  font-size: 2em;
+}
+
+.ans-text {
+  font-size: 2em;
+}

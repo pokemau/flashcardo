@@ -1,6 +1,8 @@
 import { useRef, useEffect, useState } from "react";
 import Head from "next/head";
 
+import styles from "../styles/Flashcard.module.css";
+
 const Flashcard = () => {
   const [currTitle, setCurrTitle] = useState("");
   const [questionsList, setQuestionsList] = useState([]);
@@ -66,16 +68,17 @@ const Flashcard = () => {
         <title>Flashcardo | {currTitle}</title>
       </Head>
       <div className="flashcards">
-        <h1>Flashcardo</h1>
-
+        <h1 className={styles["curr-title"]}>{currTitle}</h1>
+        <div className={styles["question-cont"]}>
+          <p className={styles["def-text"]}>{currQuestion}</p>
+          <p className={styles["ans-text"]} ref={ansRef}></p>
+        </div>
         <button type="button" onClick={(e) => getRandomQuestion(e)}>
           NEXT
         </button>
         <button type="button" onClick={(e) => showAns(e)}>
           SHOW ANSWER
         </button>
-        <p>{currQuestion}</p>
-        <p ref={ansRef}></p>
       </div>
     </>
   );
