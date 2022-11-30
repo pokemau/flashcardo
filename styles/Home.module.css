@@ -27,7 +27,7 @@
 
 .create-new-btn {
   cursor: pointer;
-  background-color: rgb(58, 160, 37);
+  background-color: rgb(219, 135, 24);
   font-size: 1em;
   width: 6.3em;
   height: 2.5em;
@@ -37,7 +37,7 @@
   transition: 0.1s;
 }
 .create-new-btn:hover {
-  background-color: rgb(72, 184, 50);
+  background-color: rgb(214, 124, 21);
 }
 
 /* right container */
@@ -63,7 +63,7 @@
   font-size: 1.1em;
 }
 .question-text:hover {
-  color: rgb(80, 189, 58);
+  color: rgb(219, 135, 24);
 }
 
 .del-prev-ques-btn {

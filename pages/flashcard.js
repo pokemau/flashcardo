@@ -73,12 +73,21 @@ const Flashcard = () => {
           <p className={styles["def-text"]}>{currQuestion}</p>
           <p className={styles["ans-text"]} ref={ansRef}></p>
         </div>
-        <button type="button" onClick={(e) => getRandomQuestion(e)}>
-          NEXT
-        </button>
-        <button type="button" onClick={(e) => showAns(e)}>
-          SHOW ANSWER
-        </button>
+
+        <div className={styles["buttons-cont"]}>
+          <button
+            className={styles["next-btn"]}
+            type="button"
+            onClick={(e) => getRandomQuestion(e)}>
+            Next
+          </button>
+          <button
+            className={styles["show-ans-btn"]}
+            type="button"
+            onClick={(e) => showAns(e)}>
+            Show Answer
+          </button>
+        </div>
       </div>
     </>
   );
