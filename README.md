@@ -1,3 +1,3 @@
 # Flashcardo
-Flashcard app
+## Next JS
 https://better-flashcardo.vercel.app/
