@@ -10,6 +10,20 @@
   margin: 0 auto;
 }
 
+/* BLANK INPUT FIELDS */
+.def-input:empty:before {
+  content: attr(def-placeholder);
+  color: rgb(0, 0, 0);
+  opacity: 0.3;
+  cursor: text;
+}
+.ans-input:empty:before {
+  content: attr(ans-placeholder);
+  color: rgb(0, 0, 0);
+  opacity: 0.3;
+  cursor: text;
+}
+
 .def-input {
   width: 90%;
   min-height: 10em;
@@ -17,6 +31,7 @@
   padding: 0.5em;
   font-size: 1.2em;
   margin: 1em 0 0.5em 0;
+  border-radius: 5px;
 }
 .def-input:focus,
 .ans-input:focus {
@@ -29,6 +44,7 @@
   border: 1px solid rgb(177, 177, 177);
   padding: 0.3em 0.4em;
   margin-bottom: 0.5em;
+  border-radius: 5px;
 }
 
 .add-ques-btn {

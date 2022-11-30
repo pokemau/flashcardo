@@ -32,17 +32,19 @@ const InputFields = ({
         <div
           className={styles["def-input"]}
           contentEditable="true"
-          ref={inputDefRef}></div>
+          ref={inputDefRef}
+          def-placeholder="Write your question here..."></div>
         <div
           className={styles["ans-input"]}
           contentEditable="true"
-          ref={inputAnsRef}></div>
+          ref={inputAnsRef}
+          ans-placeholder="Answer here..."></div>
         <button
           className={styles["add-ques-btn"]}
           type="button"
           onClick={handleAddQues}>
           Add Question
-        </button>{" "}
+        </button>
       </div>
     </>
   );
