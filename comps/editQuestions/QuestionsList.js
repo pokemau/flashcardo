@@ -62,7 +62,10 @@ const QuestionsList = ({
               ))}
           </div>
         </div>
-        <button className={styles["start-btn"]} onClick={handleStart}>
+        <button
+          className={styles["start-btn"]}
+          onClick={handleStart}
+          type="button">
           Start
         </button>
       </div>
