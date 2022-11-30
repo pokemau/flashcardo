@@ -39,7 +39,7 @@ const PreviousCards = ({ titleSets, setTitleSets, setCurrTitle }) => {
                   delPrevQuestion(title, index);
                 }}>
                 <Image
-                  src="/images/trash.png"
+                  src="/assets/trash.png"
                   width={20}
                   height={20}
                   alt="trash icon"

@@ -51,7 +51,7 @@ const QuestionsList = ({
                       handleDelQues(event, question);
                     }}>
                     <Image
-                      src="/images/trash.png"
+                      src="/assets/trash.png"
                       width={20}
                       height={20}
                       alt="trash icon"
