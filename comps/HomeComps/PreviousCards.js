@@ -20,20 +20,22 @@ const PreviousCards = ({ titleSets, setTitleSets, setCurrTitle }) => {
   }
   return (
     <>
-      <div className={styles["prev-cards-cont"]}>
-        <h1>Previous Flashcards</h1>
+      <div className="w-full mx-auto flex flex-col items-center">
+        <h1 className="text-2xl font-bold mt-4 mb-2">Previous Flashcards</h1>
         {titleSets &&
           titleSets.map((title, index) => (
-            <div className={styles.question} key={Math.random() * 1000}>
+            <div
+              className="flex items-center w-[70%] h-10 rounded pr-1 border-[1px] border-[#d4d4d4] mb-2 lg:w-[30vw]"
+              key={Math.random() * 1000}>
               <div
-                className={styles["question-text"]}
+                className="cursor-pointer flex items-center pl-4 rounded text-lg w-[90%] hover:text-[#954ca0] hover:font-bold transition-all duration-100"
                 onClick={() => {
                   goToQuestion(title);
                 }}>
                 <p>{title}</p>
               </div>
               <button
-                className={styles["del-prev-ques-btn"]}
+                className="cursor-pointer h-[80%] w-8 border-none bg-[#e4e4e4] transition-all duration-100 flex items-center justify-center rounded ml-auto hover:bg-[#c5c5c5]"
                 type="button"
                 onClick={() => {
                   delPrevQuestion(title, index);

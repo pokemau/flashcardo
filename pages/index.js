@@ -40,7 +40,7 @@ export default function Home() {
       <Head>
         <title>Flashcardo | Home</title>
       </Head>
-      <div className="w-[80vw] flex my-5 mx-auto">
+      <div className="w-[100vw] my-5 mx-auto">
         <CreateNewCard currTitle={currTitle} setCurrTitle={setCurrTitle} />
 
         <PreviousCards

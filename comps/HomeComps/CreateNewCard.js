@@ -3,7 +3,7 @@ import styles from "../../styles/Home.module.css";
 
 import { useRouter } from "next/router";
 
-const CreateNew = ({ currTitle, setCurrTitle }) => {
+const CreateNewCard = ({ currTitle, setCurrTitle }) => {
   const router = useRouter();
   // create new
   function handleCreateNew(e) {
@@ -18,17 +18,19 @@ const CreateNew = ({ currTitle, setCurrTitle }) => {
 
   return (
     <>
-      <div className="">
-        <h1>Create New Flashcard</h1>
+      <div className="w-[100vw] flex flex-col items-center">
+        <h1 className="text-2xl font-bold">Create New Flashcard</h1>
         <input
-          className={styles["create-input"]}
+          className="flex h-8 w-[65%] m-2 border-[1px] border-[#a8a8a8] md:w-[50%] lg:w-[30%] p-2"
           value={currTitle}
           type="text"
           onInput={(e) => {
             setCurrTitle(e.target.value);
           }}
         />
-        <button onClick={handleCreateNew} className={styles["create-new-btn"]}>
+        <button
+          onClick={handleCreateNew}
+          className="cursor-pointer bg-[#b989c2] py-1 px-2 text-lg rounded my-[5px] hover:bg-[#a77aaf] transition-all duration-100">
           Create New
         </button>
       </div>
@@ -36,4 +38,4 @@ const CreateNew = ({ currTitle, setCurrTitle }) => {
   );
 };
 
-export default CreateNew;
+export default CreateNewCard;
