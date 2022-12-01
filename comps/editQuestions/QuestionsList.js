@@ -48,7 +48,7 @@ const QuestionsList = ({
                     {index + 1}) {question.ans} - {question.def}
                   </p>
                   <button
-                    className="ml-auto cursor-pointer min-w[2.5em] border-none transition-all duration-100 rounded flex items-center justify-center bg-[#e4e4e4] p-1 hover:bg-[#d8d8d8]"
+                    className="ml-auto cursor-pointer min-w-[2.5em] border-none transition-all duration-100 rounded flex items-center justify-center bg-[#e4e4e4] p-1 hover:bg-[#d8d8d8]"
                     onClick={() => {
                       handleDelQues(event, question);
                     }}>
