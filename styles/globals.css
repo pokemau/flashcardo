@@ -18,6 +18,9 @@
     @apply mx-1 hover:bg-gray-200 flex items-center 
     justify-center h-8 w-14 md:w-16 rounded transition-all;
   }
+  .empty-input {
+    @apply empty:before:content-[attr(input-placeholder)] empty:before:opacity-30;
+  }
 }
 
 * {

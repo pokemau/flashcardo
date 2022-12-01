@@ -21,7 +21,7 @@ const CreateNewCard = ({ currTitle, setCurrTitle }) => {
       <div className="w-[100vw] flex flex-col items-center">
         <h1 className="text-2xl font-bold">Create New Flashcard</h1>
         <input
-          className="flex h-8 w-[65%] m-2 border-[1px] border-[#a8a8a8] md:w-[50%] lg:w-[30%] p-2"
+          className="flex h-8 w-[65%] m-2 border-[1px] border-[#a8a8a8] md:w-[50%] lg:w-[30%] p-2 focus:outline-none"
           value={currTitle}
           type="text"
           onInput={(e) => {

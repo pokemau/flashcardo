@@ -38,7 +38,7 @@ const EditQuestions = () => {
       <Head>
         <title>Flashcardo | Edit</title>
       </Head>
-      <div className={styles["edit-questions-cont"]}>
+      <div className="mt-1 w-full m-auto lg:flex">
         <InputFields
           inputDefRef={inputDefRef}
           inputAnsRef={inputAnsRef}
