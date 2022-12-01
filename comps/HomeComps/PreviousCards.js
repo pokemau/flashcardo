@@ -1,6 +1,3 @@
-// css
-import styles from "../../styles/Home.module.css";
-
 import Image from "next/image";
 import { useRouter } from "next/router";
 
@@ -45,7 +42,6 @@ const PreviousCards = ({ titleSets, setTitleSets, setCurrTitle }) => {
                   width={20}
                   height={20}
                   alt="trash icon"
-                  className={styles["del-prev-btn-img"]}
                 />
               </button>
             </div>

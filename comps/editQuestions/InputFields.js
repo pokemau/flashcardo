@@ -1,5 +1,3 @@
-import styles from "../../styles/Edit.module.css";
-
 import { useState } from "react";
 
 const InputFields = ({

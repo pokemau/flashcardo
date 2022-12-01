@@ -1,8 +1,5 @@
-import styles from "../styles/Edit.module.css";
 import Head from "next/head";
-import Image from "next/image";
 import { useRef, useEffect, useState } from "react";
-import { useRouter } from "next/router";
 
 // components
 import InputFields from "../comps/editQuestions/InputFields";
