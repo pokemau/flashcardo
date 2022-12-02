@@ -1,5 +1,6 @@
-import Image from "next/image";
 import { useRouter } from "next/router";
+import { AiFillEdit } from "react-icons/ai";
+import { BsFillTrashFill } from "react-icons/bs";
 
 const QuestionsList = ({
   questionsList,
@@ -45,18 +46,24 @@ const QuestionsList = ({
                   <p>
                     {index + 1}) {question.ans} - {question.def}
                   </p>
-                  <button
-                    className="ml-auto cursor-pointer min-w-[2.5em] border-none transition-all duration-100 rounded flex items-center justify-center bg-[#e4e4e4] p-1 hover:bg-[#d8d8d8]"
-                    onClick={() => {
-                      handleDelQues(event, question);
-                    }}>
-                    <Image
-                      src="/assets/trash.png"
-                      width={20}
-                      height={20}
-                      alt="trash icon"
-                    />
-                  </button>
+
+                  <div className="flex ml-auto">
+                    {/* <button
+                      className="question-list-btn"
+                      onClick={() => {
+                        handleEditQues(event, question);
+                      }}>
+                      <AiFillEdit />
+                    </button> */}
+
+                    <button
+                      className="question-list-btn"
+                      onClick={() => {
+                        handleDelQues(event, question);
+                      }}>
+                      <BsFillTrashFill />
+                    </button>
+                  </div>
                 </div>
               ))}
           </div>

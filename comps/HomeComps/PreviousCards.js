@@ -1,5 +1,7 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { AiFillEdit } from "react-icons";
+import { BsFillTrashFill } from "react-icons/bs";
 
 const PreviousCards = ({ titleSets, setTitleSets, setCurrTitle }) => {
   const router = useRouter();
@@ -31,18 +33,14 @@ const PreviousCards = ({ titleSets, setTitleSets, setCurrTitle }) => {
                 }}>
                 <p>{title}</p>
               </div>
+
               <button
-                className="cursor-pointer h-[80%] w-8 border-none bg-[#e4e4e4] transition-all duration-100 flex items-center justify-center rounded ml-auto hover:bg-[#c5c5c5]"
+                className="question-list-btn"
                 type="button"
                 onClick={() => {
                   delPrevQuestion(title, index);
                 }}>
-                <Image
-                  src="/assets/trash.png"
-                  width={20}
-                  height={20}
-                  alt="trash icon"
-                />
+                <BsFillTrashFill />
               </button>
             </div>
           ))}
