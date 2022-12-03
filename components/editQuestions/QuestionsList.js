@@ -1,6 +1,9 @@
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 import { AiFillEdit } from "react-icons/ai";
 import { BsFillTrashFill } from "react-icons/bs";
+
+import useToggle from "../hooks/useToggle";
 
 const QuestionsList = ({
   questionsList,
@@ -10,6 +13,10 @@ const QuestionsList = ({
   setTitleSets,
 }) => {
   const router = useRouter();
+
+  // toggle <bool> if current question is being edited
+  const { value: isEditable, toggleValue: toggleEditable } = useToggle();
+
   // start flashcard
   function handleStart(e) {
     e.preventDefault();
@@ -32,6 +39,14 @@ const QuestionsList = ({
       )
     );
   }
+
+  // set title sets
+  useEffect(() => {
+    if (titleSets.length) {
+      localStorage.setItem("titleSets", JSON.stringify(titleSets));
+    }
+  }, [titleSets]);
+
   return (
     <>
       <div className="text-center lg:w-[50%] lg:mx-auto">
@@ -48,13 +63,11 @@ const QuestionsList = ({
                   </p>
 
                   <div className="flex ml-auto">
-                    {/* <button
+                    <button
                       className="question-list-btn"
-                      onClick={() => {
-                        handleEditQues(event, question);
-                      }}>
+                      onClick={toggleEditable}>
                       <AiFillEdit />
-                    </button> */}
+                    </button>
 
                     <button
                       className="question-list-btn"

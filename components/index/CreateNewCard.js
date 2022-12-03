@@ -1,8 +1,10 @@
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 const CreateNewCard = ({ currTitle, setCurrTitle }) => {
   const router = useRouter();
-  // create new
+
+  // create new flashcard
   function handleCreateNew(e) {
     e.preventDefault();
 
@@ -12,6 +14,13 @@ const CreateNewCard = ({ currTitle, setCurrTitle }) => {
       setCurrTitle("");
     }
   }
+
+  // store curr title to local storage
+  useEffect(() => {
+    if (currTitle !== "") {
+      localStorage.setItem("currTitle", currTitle);
+    }
+  }, [currTitle]);
 
   return (
     <>

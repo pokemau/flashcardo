@@ -2,8 +2,8 @@ import Head from "next/head";
 import { useRef, useEffect, useState } from "react";
 
 // components
-import InputFields from "../comps/editQuestions/InputFields";
-import QuestionsList from "../comps/editQuestions/QuestionsList";
+import InputFields from "../components/editQuestions/InputFields";
+import QuestionsList from "../components/editQuestions/QuestionsList";
 
 const EditQuestions = () => {
   // localstorage items
@@ -22,13 +22,6 @@ const EditQuestions = () => {
     setCurrTitle(localStorage.getItem("currTitle"));
     setTitleSets(JSON.parse(localStorage.getItem("titleSets")));
   }, []);
-
-  // set title sets
-  useEffect(() => {
-    if (titleSets.length) {
-      localStorage.setItem("titleSets", JSON.stringify(titleSets));
-    }
-  }, [titleSets]);
 
   return (
     <>

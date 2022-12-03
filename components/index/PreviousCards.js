@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { useRouter } from "next/router";
 import { AiFillEdit } from "react-icons";
 import { BsFillTrashFill } from "react-icons/bs";
@@ -33,7 +32,6 @@ const PreviousCards = ({ titleSets, setTitleSets, setCurrTitle }) => {
                 }}>
                 <p>{title}</p>
               </div>
-
               <button
                 className="question-list-btn"
                 type="button"

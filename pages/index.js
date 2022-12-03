@@ -3,14 +3,14 @@ import Head from "next/head";
 import { useState, useEffect } from "react";
 
 // components
-import PreviousCards from "../comps/HomeComps/PreviousCards";
-import CreateNewCard from "../comps/HomeComps/CreateNewCard";
+import PreviousCards from "../components/index/PreviousCards";
+import CreateNewCard from "../components/index/CreateNewCard";
 
 export default function Home() {
   const [currTitle, setCurrTitle] = useState("");
   const [titleSets, setTitleSets] = useState(null);
 
-  // push title sets to localstorage
+  // update titlesets if a set is deleted
   useEffect(() => {
     if (titleSets) {
       localStorage.setItem("titleSets", JSON.stringify(titleSets));
@@ -26,13 +26,6 @@ export default function Home() {
       localStorage.setItem("titleSets", JSON.stringify([]));
     }
   }, []);
-
-  // store curr title to local storage
-  useEffect(() => {
-    if (currTitle !== "") {
-      localStorage.setItem("currTitle", currTitle);
-    }
-  }, [currTitle]);
 
   return (
     <>
