@@ -50,11 +50,13 @@ const Flashcard = () => {
   const nextQuestion = () => {
     if (currNum + 1 < questionsList.length)
       setCurrNum((prevNum) => prevNum + 1);
+    else setCurrNum(0);
   };
 
   // previous question
   const prevQuestion = () => {
     if (currNum > 0) setCurrNum((prevNum) => prevNum - 1);
+    else setCurrNum(questionsList.length - 1);
   };
 
   // show answer
