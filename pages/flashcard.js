@@ -9,6 +9,12 @@ const Flashcard = () => {
   const ansRef = useRef(null);
   const [currNum, setCurrNum] = useState(0);
 
+  const test = (e) => {
+    e.preventDefault();
+
+    console.log(currNum);
+  };
+
   // get local storage item
   useEffect(() => {
     const title = localStorage.getItem("currTitle");
@@ -50,13 +56,11 @@ const Flashcard = () => {
   const nextQuestion = () => {
     if (currNum + 1 < questionsList.length)
       setCurrNum((prevNum) => prevNum + 1);
-    else alert("No more Questions");
   };
 
   // previous question
   const prevQuestion = () => {
     if (currNum > 0) setCurrNum((prevNum) => prevNum - 1);
-    else alert("This is the first question.");
   };
 
   // show answer
@@ -71,7 +75,10 @@ const Flashcard = () => {
         <title>Flashcardo | {currTitle}</title>
       </Head>
       <div className="flashcards">
-        <h1 className="text-center font-bold text-2xl my-2">{currTitle}</h1>
+        <h1 className="text-center font-bold text-4xl my-2">{currTitle}</h1>
+        <h1 className="text-center font-bold text-xl mb-2">{`${currNum + 1} / ${
+          questionsList.length
+        }`}</h1>
         <div
           className={`text-center border-[1px] border-[#c9c9c9] rounded p-2 w-[90vw] mx-auto min-h-[10em] flex flex-col justify-between break-words`}>
           <p className="text-lg">{currQuestion}</p>
