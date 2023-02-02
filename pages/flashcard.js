@@ -9,12 +9,6 @@ const Flashcard = () => {
   const ansRef = useRef(null);
   const [currNum, setCurrNum] = useState(0);
 
-  const test = (e) => {
-    e.preventDefault();
-
-    console.log(currNum);
-  };
-
   // get local storage item
   useEffect(() => {
     const title = localStorage.getItem("currTitle");
