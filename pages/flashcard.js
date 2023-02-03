@@ -6,8 +6,8 @@ const Flashcard = () => {
   const [questionsList, setQuestionsList] = useState([]);
   const [currQuestion, setCurrQuestion] = useState("");
   const [currAns, setCurrAns] = useState("");
-  const ansRef = useRef(null);
   const [currNum, setCurrNum] = useState(0);
+  const [showAns, setShowAns] = useState(false);
 
   // get local storage item
   useEffect(() => {
@@ -38,7 +38,6 @@ const Flashcard = () => {
   const updateQuestionInfo = () => {
     setCurrQuestion(questionsList[currNum].def);
     setCurrAns(questionsList[currNum].ans);
-    ansRef.current.innerText = "";
   };
 
   // update current question text
@@ -60,9 +59,9 @@ const Flashcard = () => {
   };
 
   // show answer
-  const showAns = (e) => {
+  const showAnswer = (e) => {
     e.preventDefault();
-    ansRef.current.innerText = currAns;
+    setShowAns((prevShowAns) => !prevShowAns);
   };
 
   return (
@@ -70,15 +69,25 @@ const Flashcard = () => {
       <Head>
         <title>Flashcardo | {currTitle}</title>
       </Head>
+
       <div className="flashcards">
         <h1 className="text-center font-bold text-4xl my-2">{currTitle}</h1>
         <h1 className="text-center font-bold text-xl mb-2">{`${currNum + 1} / ${
           questionsList.length
         }`}</h1>
-        <div
-          className={`text-center border-[1px] border-[#c9c9c9] rounded p-2 w-[90vw] mx-auto min-h-[10em] flex flex-col justify-between break-words`}>
-          <p className="text-lg">{currQuestion}</p>
-          <p className="text-lg font-bold text-[#a15dad]" ref={ansRef}></p>
+
+        <div className="relative w-[80vw] h-[40vh] mx-auto mb-2 text-center ">
+          <div
+            className={`card absolute w-full h-full border-[1px] border-[#c9c9c9] rounded mx-auto min-h-[10em]flex break-words ${
+              showAns ? "card-flip" : null
+            }`}>
+            <div className="front-card absolute w-full h-full bg-orange-200">
+              {currQuestion}
+            </div>
+            <div className="back-card absolute w-full h-full bg-green-200">
+              {currAns}
+            </div>
+          </div>
         </div>
 
         <div className="flex justify-center">
@@ -92,9 +101,9 @@ const Flashcard = () => {
           <button
             className="flashcard-btn"
             type="button"
-            onClick={(e) => showAns(e)}>
-            Show Answer
-          </button>
+            onClick={(e) => showAnswer(e)}>{`${
+            showAns ? "Hide" : "Show"
+          } Answer`}</button>
 
           <button
             className="flashcard-btn px-11"
