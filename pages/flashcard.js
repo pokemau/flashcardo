@@ -81,10 +81,10 @@ const Flashcard = () => {
             className={`card absolute w-full h-full border-[1px] border-[#c9c9c9] rounded mx-auto min-h-[10em]flex break-words ${
               showAns ? "card-flip" : null
             }`}>
-            <div className="front-card absolute w-full h-full bg-orange-200">
+            <div className="front-card absolute w-full h-full text-xl bg-orange-200">
               {currQuestion}
             </div>
-            <div className="back-card absolute w-full h-full bg-green-200">
+            <div className="back-card absolute w-full h-full text-2xl bold bg-green-200">
               {currAns}
             </div>
           </div>
