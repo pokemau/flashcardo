@@ -90,7 +90,7 @@ const Flashcard = () => {
               {currQuestion}
             </div>
             <div className="back-card absolute w-full h-full text-2xl bold bg-green-300">
-              {currAns}
+              {`${showAns ? currAns : ""}`}
             </div>
           </div>
         </div>
