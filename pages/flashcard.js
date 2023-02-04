@@ -46,16 +46,21 @@ const Flashcard = () => {
   }, [currNum]);
 
   // get next question
-  const nextQuestion = () => {
-    if (currNum + 1 < questionsList.length)
+  const nextQuestion = (e) => {
+    e.preventDefault();
+    if (currNum + 1 < questionsList.length) {
       setCurrNum((prevNum) => prevNum + 1);
-    else setCurrNum(0);
+      setShowAns(false);
+    } else setCurrNum(0);
   };
 
   // previous question
-  const prevQuestion = () => {
-    if (currNum > 0) setCurrNum((prevNum) => prevNum - 1);
-    else setCurrNum(questionsList.length - 1);
+  const prevQuestion = (e) => {
+    e.preventDefault();
+    if (currNum > 0) {
+      setCurrNum((prevNum) => prevNum - 1);
+      setShowAns(false);
+    } else setCurrNum(questionsList.length - 1);
   };
 
   // show answer
