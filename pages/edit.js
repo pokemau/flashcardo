@@ -2,8 +2,8 @@ import Head from "next/head";
 import { useRef, useEffect, useState } from "react";
 
 // components
-import InputFields from "../components/editQuestions/InputFields";
-import QuestionsList from "../components/editQuestions/QuestionsList";
+import InputFields from "../components/edit-questions/InputFields";
+import QuestionsList from "../components/edit-questions/QuestionsList";
 
 const EditQuestions = () => {
   // localstorage items
