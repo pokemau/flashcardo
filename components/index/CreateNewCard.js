@@ -22,6 +22,12 @@ const CreateNewCard = ({ currTitle, setCurrTitle }) => {
     }
   }, [currTitle]);
 
+  const checkEnter = (e) => {
+    if (e.key === "Enter") {
+      handleCreateNew(e);
+    }
+  };
+
   return (
     <>
       <div className="w-[100vw] flex flex-col items-center">
@@ -33,6 +39,7 @@ const CreateNewCard = ({ currTitle, setCurrTitle }) => {
           onInput={(e) => {
             setCurrTitle(e.target.value);
           }}
+          onKeyDown={checkEnter}
         />
         <button
           onClick={handleCreateNew}
