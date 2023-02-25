@@ -24,6 +24,16 @@ const InputFields = ({
       inputAnsRef.current.innerText = "";
     }
   }
+
+  const checkEnter = (e) => {
+    const d = inputDefRef.current.innerText;
+    const a = inputAnsRef.current.innerText;
+
+    if (d && a && e.key === "Enter") {
+      handleAddQues(e);
+    }
+  };
+
   return (
     <>
       <div className="mt-4 lg:mt-5 w-[100%] flex flex-col items-center  mb-4 lg:w-[50%] lg:mx-auto">
@@ -31,12 +41,14 @@ const InputFields = ({
           className="w-[90%] mt-2 min-h-[10em] border-[1px] border-[#b1b1b1] rounded text-xl p-2 empty-input"
           contentEditable="true"
           ref={inputDefRef}
-          input-placeholder="Write your question here..."></div>
+          input-placeholder="Write your question here..."
+          onKeyDown={checkEnter}></div>
         <div
           className="empty-input w-[90%] border-[1px] border-[#b1b1b1] rounded mb-4 mt-2 p-2 text-xl"
           contentEditable="true"
           ref={inputAnsRef}
-          input-placeholder="Answer here..."></div>
+          input-placeholder="Answer here..."
+          onKeyDown={checkEnter}></div>
         <button
           className="py-1 px-2 rounded text-lg bg-[#b989c2] hover:bg-[#a77aaf] transition-all duration-100 "
           type="button"

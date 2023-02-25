@@ -22,6 +22,7 @@ const CreateNewCard = ({ currTitle, setCurrTitle }) => {
     }
   }, [currTitle]);
 
+  // check if "Enter" key is pressed
   const checkEnter = (e) => {
     if (e.key === "Enter") {
       handleCreateNew(e);
