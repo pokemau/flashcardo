@@ -53,18 +53,6 @@ const InputFields = ({
           ref={inputAnsRef}
           onKeyDown={checkEnter}></textarea>
 
-        {/* <div
-          className="w-[90%] mt-2 min-h-[10em] border-[1px] border-[#b1b1b1] rounded text-xl p-2 empty-input"
-          contentEditable="true"
-          ref={inputDefRef}
-          input-placeholder="Write your question here..."
-          onKeyDown={checkEnter}></div> */}
-        {/* <div
-          className="empty-input w-[90%] border-[1px] border-[#b1b1b1] rounded mb-4 mt-2 p-2 text-xl"
-          contentEditable="true"
-          ref={inputAnsRef}
-          input-placeholder="Answer here..."
-          onKeyDown={checkEnter}></div> */}
         <button
           className="py-1 px-2 rounded text-lg bg-[#b989c2] hover:bg-[#a77aaf] transition-all duration-100 "
           type="button"
