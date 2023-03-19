@@ -10,12 +10,6 @@ export default function Home() {
   const [currTitle, setCurrTitle] = useState("");
   const [titleSets, setTitleSets] = useState(null);
 
-  const testBtn = (e) => {
-    e.preventDefault();
-
-    console.log(titleSets);
-  };
-
   // update titlesets if a set is deleted
   useEffect(() => {
     if (titleSets) {

@@ -2,8 +2,8 @@ import Head from "next/head";
 import { useRef, useEffect, useState } from "react";
 
 // components
-import InputFields from "../components/edit-questions/InputFields";
-import QuestionsList from "../components/edit-questions/QuestionsList";
+import InputFields from "../components/EditQuestions/InputFields";
+import QuestionsList from "../components/EditQuestions/QuestionsList";
 
 const EditQuestions = () => {
   // localstorage items
@@ -28,6 +28,7 @@ const EditQuestions = () => {
       <Head>
         <title>Flashcardo | Edit</title>
       </Head>
+
       <div className="mt-1 w-full m-auto lg:flex">
         <InputFields
           inputDefRef={inputDefRef}
