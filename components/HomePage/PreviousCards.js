@@ -23,10 +23,10 @@ const PreviousCards = ({ titleSets, setTitleSets, setCurrTitle }) => {
         {titleSets &&
           titleSets.map((title, index) => (
             <div
-              className="flex items-center w-[70%] h-10 rounded pr-1 border-[1px] border-[#d4d4d4] mb-2 lg:w-[30vw]"
+              className="flex items-center w-[70%] h-10 rounded border-[1px] border-[#d4d4d4] mb-2 lg:w-[30vw]"
               key={`${title}${Math.random() * 1000}`}>
               <div
-                className="cursor-pointer flex items-center pl-4 rounded text-lg w-[90%] hover:text-[#954ca0] hover:font-bold transition-all duration-100"
+                className="cursor-pointer flex items-center pl-4 rounded text-lg w-[90%] h-full hover:text-[#954ca0] hover:font-bold transition-all duration-100"
                 onClick={() => {
                   goToFlashcardSet(title);
                 }}>
