@@ -6,13 +6,13 @@ const QuestionCard = ({ showAns, currAns, currQuestion }) => {
           showAns ? "card-flip" : null
         }`}>
         <div className="front-card absolute w-full h-full text-2xl bg-orange-300">
-          <div className="absolute text-lg top-1 left-1 text-gray-600">
+          <div className="absolute text-base top-1 left-1 text-gray-600">
             Question
           </div>
           {currQuestion}
         </div>
         <div className="back-card absolute w-full h-full text-2xl bold bg-green-300">
-          <div className="absolute text-lg top-1 left-1 text-gray-600">
+          <div className="absolute text-base top-1 left-1 text-gray-600">
             Answer
           </div>
           {`${showAns ? currAns : ""}`}
