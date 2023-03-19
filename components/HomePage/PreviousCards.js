@@ -5,7 +5,6 @@ import { BsFillTrashFill } from "react-icons/bs";
 const PreviousCards = ({ titleSets, setTitleSets, setCurrTitle }) => {
   const router = useRouter();
 
-  // select question from previous sets
   function goToFlashcardSet(title) {
     setCurrTitle(title);
     router.push("/flashcard");
