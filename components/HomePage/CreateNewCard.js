@@ -1,11 +1,9 @@
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 
 const CreateNewCard = ({ currTitle, setCurrTitle }) => {
   const router = useRouter();
 
-  // create new flashcard
-  function handleCreateNew(e) {
+  function createNewFlashcardSet(e) {
     e.preventDefault();
 
     if (currTitle) {
@@ -17,7 +15,7 @@ const CreateNewCard = ({ currTitle, setCurrTitle }) => {
 
   function checkIfEnter(e) {
     if (e.key === "Enter") {
-      handleCreateNew(e);
+      createNewFlashcardSet(e);
     }
   }
 
@@ -37,7 +35,7 @@ const CreateNewCard = ({ currTitle, setCurrTitle }) => {
         />
 
         <button
-          onClick={handleCreateNew}
+          onClick={createNewFlashcardSet}
           className="cursor-pointer bg-[#b989c2] py-1 px-2 text-lg rounded my-[5px] hover:bg-[#a77aaf] transition-all duration-100">
           Create New
         </button>
