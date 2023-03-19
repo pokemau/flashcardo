@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { AiFillEdit } from "react-icons/ai";
 import { BsFillTrashFill } from "react-icons/bs";
 
-import useToggle from "../hooks/useToggle";
+import useToggle from "../Hooks/useToggle";
 
 const QuestionsList = ({
   questionsList,
