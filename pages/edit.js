@@ -10,9 +10,7 @@ const EditQuestions = () => {
   const [currTitle, setCurrTitle] = useState("");
   const [titleSets, setTitleSets] = useState([]);
 
-  // input refs
-
-  // answers, question
+  // questions and answers
   const [questionsList, setQuestionsList] = useState([]);
 
   // get localstorage items

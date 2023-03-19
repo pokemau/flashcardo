@@ -18,7 +18,7 @@ const QuestionsList = ({
   const { value: isEditable, toggleValue: toggleEditable } = useToggle();
 
   // start flashcard
-  function handleStart(e) {
+  function startFlashcard(e) {
     e.preventDefault();
 
     if (questionsList.length > 0) {
@@ -29,8 +29,9 @@ const QuestionsList = ({
   }
 
   // delete questions
-  function handleDelQues(event, question) {
-    event.preventDefault();
+  function handleDeleteQuestions(e, question) {
+    e.preventDefault();
+
     setQuestionsList(
       questionsList.filter(
         (ques) =>
@@ -40,7 +41,7 @@ const QuestionsList = ({
     );
   }
 
-  // set title sets
+  // set title sets on local storage
   useEffect(() => {
     if (titleSets.length) {
       localStorage.setItem("titleSets", JSON.stringify(titleSets));
@@ -52,6 +53,7 @@ const QuestionsList = ({
       <div className="text-center lg:w-[50%] lg:mx-auto">
         <div>
           <h1 className="text-2xl font-bold ">Questions</h1>
+
           <div className="w-[90%] mx-auto mb-2 border-[1px] border-[#b3b3b3] min-h-[20vh] rounded p-2 lg:min-h-[30vh] lg:max-h-[75vh] overflow-auto">
             {questionsList &&
               questionsList.map((question, index) => (
@@ -72,7 +74,7 @@ const QuestionsList = ({
                     <button
                       className="question-list-btn"
                       onClick={() => {
-                        handleDelQues(event, question);
+                        handleDeleteQuestions(e, question);
                       }}>
                       <BsFillTrashFill />
                     </button>
@@ -81,9 +83,10 @@ const QuestionsList = ({
               ))}
           </div>
         </div>
+
         <button
           className="cursor-pointer rounded px-4 py-1 bg-[#b989c2] hover:bg-[#a77aaf] transition-all duration-100"
-          onClick={handleStart}
+          onClick={startFlashcard}
           type="button">
           Start
         </button>
