@@ -15,24 +15,17 @@ const CreateNewCard = ({ currTitle, setCurrTitle }) => {
     }
   }
 
-  // store curr title to local storage
-  useEffect(() => {
-    if (currTitle !== "") {
-      localStorage.setItem("currTitle", currTitle);
-    }
-  }, [currTitle]);
-
-  // check if "Enter" key is pressed
-  const checkEnter = (e) => {
+  function checkIfEnter(e) {
     if (e.key === "Enter") {
       handleCreateNew(e);
     }
-  };
+  }
 
   return (
     <>
       <div className="w-[100vw] flex flex-col items-center">
         <h1 className="text-2xl font-bold">Create New Flashcard</h1>
+
         <input
           className="flex h-8 w-[65%] m-2 border-[1px] border-[#a8a8a8] md:w-[50%] lg:w-[30%] p-2 focus:outline-none"
           value={currTitle}
@@ -40,8 +33,9 @@ const CreateNewCard = ({ currTitle, setCurrTitle }) => {
           onInput={(e) => {
             setCurrTitle(e.target.value);
           }}
-          onKeyDown={checkEnter}
+          onKeyDown={checkIfEnter}
         />
+
         <button
           onClick={handleCreateNew}
           className="cursor-pointer bg-[#b989c2] py-1 px-2 text-lg rounded my-[5px] hover:bg-[#a77aaf] transition-all duration-100">
