@@ -3,8 +3,6 @@ import { useEffect } from "react";
 import { AiFillEdit } from "react-icons/ai";
 import { BsFillTrashFill } from "react-icons/bs";
 
-import useToggle from "../Hooks/useToggle";
-
 const QuestionsList = ({
   questionsList,
   setQuestionsList,
@@ -65,11 +63,11 @@ const QuestionsList = ({
                   </p>
 
                   <div className="flex ml-auto">
-                    <button
+                    {/* <button
                       className="question-list-btn"
                       onClick={toggleEditable}>
                       <AiFillEdit />
-                    </button>
+                    </button> */}
 
                     <button
                       className="question-list-btn"
