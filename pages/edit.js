@@ -11,8 +11,6 @@ const EditQuestions = () => {
   const [titleSets, setTitleSets] = useState([]);
 
   // input refs
-  const inputAnsRef = useRef(null);
-  const inputDefRef = useRef(null);
 
   // answers, question
   const [questionsList, setQuestionsList] = useState([]);
@@ -31,8 +29,6 @@ const EditQuestions = () => {
 
       <div className="mt-1 w-full m-auto lg:flex">
         <InputFields
-          inputDefRef={inputDefRef}
-          inputAnsRef={inputAnsRef}
           setQuestionsList={setQuestionsList}
           questionsList={questionsList}
         />
