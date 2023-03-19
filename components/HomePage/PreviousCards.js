@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { AiFillEdit } from "react-icons";
+import { AiFillEdit } from "react-icons/ai";
 import { BsFillTrashFill } from "react-icons/bs";
 
 const PreviousCards = ({ titleSets, setTitleSets, setCurrTitle }) => {
@@ -7,6 +7,7 @@ const PreviousCards = ({ titleSets, setTitleSets, setCurrTitle }) => {
 
   function goToFlashcardSet(title) {
     setCurrTitle(title);
+    localStorage.setItem("currTitle", title);
     router.push("/flashcard");
   }
 
@@ -16,6 +17,13 @@ const PreviousCards = ({ titleSets, setTitleSets, setCurrTitle }) => {
       titleSets.filter((t, tIndex) => t !== title && tIndex !== index)
     );
   }
+
+  // function editFlashcardSet(title) {
+  //   localStorage.setItem("currTitle", title);
+
+  //   router.push("/edit");
+  // }
+
   return (
     <>
       <div className="w-full mx-auto flex flex-col items-center">
@@ -32,6 +40,13 @@ const PreviousCards = ({ titleSets, setTitleSets, setCurrTitle }) => {
                 }}>
                 <p>{title}</p>
               </div>
+
+              {/* <button
+                className="question-list-btn"
+                type="button"
+                onClick={() => editFlashcardSet(title)}>
+                <AiFillEdit />
+              </button> */}
 
               <button
                 className="question-list-btn"
