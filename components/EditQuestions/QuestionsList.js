@@ -12,7 +12,6 @@ const QuestionsList = ({
 }) => {
   const router = useRouter();
 
-  // start flashcard
   function startFlashcard(e) {
     e.preventDefault();
 
@@ -23,7 +22,6 @@ const QuestionsList = ({
     }
   }
 
-  // delete questions
   function handleDeleteQuestions(e, question) {
     e.preventDefault();
 

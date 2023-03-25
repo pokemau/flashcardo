@@ -18,11 +18,11 @@ const PreviousCards = ({ titleSets, setTitleSets, setCurrTitle }) => {
     );
   }
 
-  // function editFlashcardSet(title) {
-  //   localStorage.setItem("currTitle", title);
+  function editFlashcardSet(title) {
+    localStorage.setItem("currTitle", title);
 
-  //   router.push("/edit");
-  // }
+    router.push("/edit");
+  }
 
   return (
     <>
@@ -41,12 +41,12 @@ const PreviousCards = ({ titleSets, setTitleSets, setCurrTitle }) => {
                 <p>{title}</p>
               </div>
 
-              {/* <button
+              <button
                 className="question-list-btn"
                 type="button"
                 onClick={() => editFlashcardSet(title)}>
                 <AiFillEdit />
-              </button> */}
+              </button>
 
               <button
                 className="question-list-btn"
