@@ -41,12 +41,12 @@ const PreviousCards = ({ titleSets, setTitleSets, setCurrTitle }) => {
                 <p>{title}</p>
               </div>
 
-              <button
+              {/* <button
                 className="question-list-btn"
                 type="button"
                 onClick={() => editFlashcardSet(title)}>
                 <AiFillEdit />
-              </button>
+              </button> */}
 
               <button
                 className="question-list-btn"
