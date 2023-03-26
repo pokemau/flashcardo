@@ -1,13 +1,10 @@
-import { useState, useRef } from "react";
-
-const InputFields = ({ questionsList, setQuestionsList }) => {
-  // id tracker
-  const [numCount, setNumCount] = useState(1);
-
-  const inputAnsRef = useRef(null);
-  const inputDefRef = useRef(null);
-
-  function handleAddNewQuestion(e) {
+const InputFields = ({
+  questionsList,
+  setQuestionsList,
+  inputAnsRef,
+  inputDefRef,
+}) => {
+  function addNewQuestion(e) {
     e.preventDefault();
 
     const defRefVal = inputDefRef.current.value;
@@ -16,9 +13,8 @@ const InputFields = ({ questionsList, setQuestionsList }) => {
     if (defRefVal && ansRefVal) {
       setQuestionsList([
         ...questionsList,
-        { id: numCount, def: defRefVal, ans: ansRefVal },
+        { id: generateUID(), def: defRefVal, ans: ansRefVal },
       ]);
-      setNumCount(numCount + 1);
 
       inputDefRef.current.value = "";
       inputAnsRef.current.value = "";
@@ -27,16 +23,24 @@ const InputFields = ({ questionsList, setQuestionsList }) => {
     }
   }
 
-  const checkIfValidSubmit = (e) => {
+  function generateUID() {
+    let firstPart = (Math.random() * 46656) | 0;
+    let secondPart = (Math.random() * 46656) | 0;
+    firstPart = ("000" + firstPart.toString(36)).slice(-3);
+    secondPart = ("000" + secondPart.toString(36)).slice(-3);
+    return firstPart + secondPart;
+  }
+
+  function checkIfEnterKeyIsPressed(e) {
     const defRefVal = inputDefRef.current.value;
     const ansRefVal = inputAnsRef.current.value;
 
     const isEnterKey = e.key === "Enter";
 
     if (defRefVal && ansRefVal && isEnterKey) {
-      handleAddNewQuestion(e);
+      addNewQuestion(e);
     }
-  };
+  }
 
   return (
     <>
@@ -46,19 +50,19 @@ const InputFields = ({ questionsList, setQuestionsList }) => {
           placeholder="Write your question here..."
           className="block h-full min-h-[10em] resize-none w-[90%] mt-2 border-[1px] border-[#b1b1b1] rounded text-xl p-2"
           ref={inputDefRef}
-          onKeyDown={checkIfValidSubmit}></textarea>
+          onKeyDown={checkIfEnterKeyIsPressed}></textarea>
 
         <textarea
           name="ans-form"
           placeholder="Answer here..."
           className="resize-none w-[90%] border-[1px] border-[#b1b1b1] rounded mb-4 mt-2 p-2 text-xl"
           ref={inputAnsRef}
-          onKeyDown={checkIfValidSubmit}></textarea>
+          onKeyDown={checkIfEnterKeyIsPressed}></textarea>
 
         <button
           className="py-1 px-2 rounded text-lg bg-[#b989c2] hover:bg-[#a77aaf] transition-all duration-100 "
           type="button"
-          onClick={handleAddNewQuestion}>
+          onClick={addNewQuestion}>
           Add Question
         </button>
       </div>

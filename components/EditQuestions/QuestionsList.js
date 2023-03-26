@@ -9,6 +9,8 @@ const QuestionsList = ({
   currTitle,
   titleSets,
   setTitleSets,
+  inputDefRef,
+  inputAnsRef,
 }) => {
   const router = useRouter();
 
@@ -32,6 +34,12 @@ const QuestionsList = ({
           (question.def && question.ans && question.id)
       )
     );
+  }
+
+  function editSelectedQuestion(question, index) {
+    console.log(index);
+    inputDefRef.current.value = question.def;
+    inputAnsRef.current.value = question.ans;
   }
 
   // set title sets on local storage
@@ -60,13 +68,13 @@ const QuestionsList = ({
                   <div className="flex ml-auto">
                     {/* <button
                       className="question-list-btn"
-                      onClick={toggleEditable}>
+                      onClick={() => editSelectedQuestion(question, index)}>
                       <AiFillEdit />
                     </button> */}
 
                     <button
                       className="question-list-btn"
-                      onClick={() => {
+                      onClick={(e) => {
                         handleDeleteQuestions(e, question);
                       }}>
                       <BsFillTrashFill />
