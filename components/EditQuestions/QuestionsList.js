@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { AiFillEdit } from "react-icons/ai";
 import { BsFillTrashFill } from "react-icons/bs";
+import { generateUID } from "../Utils/generateId";
 
 const QuestionsList = ({
   questionsList,
@@ -19,7 +20,7 @@ const QuestionsList = ({
 
     if (questionsList.length) {
       localStorage.setItem(currTitle, JSON.stringify(questionsList));
-      setTitleSets([...titleSets, currTitle]);
+      setTitleSets([...titleSets, { id: generateUID(), title: currTitle }]);
       router.push("/flashcard");
     }
   }
