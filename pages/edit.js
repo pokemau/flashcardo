@@ -19,11 +19,6 @@ const EditQuestions = () => {
 
   // get local storage items
   useEffect(() => {
-    const title = localStorage.getItem("currTitle");
-    const questions = JSON.parse(localStorage.getItem(title));
-
-    if (questions) setQuestionsList([...questions]);
-
     setCurrTitle(localStorage.getItem("currTitle"));
     setTitleSets(JSON.parse(localStorage.getItem("titleSets")));
 

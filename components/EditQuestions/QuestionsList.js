@@ -17,7 +17,7 @@ const QuestionsList = ({
   function startFlashcard(e) {
     e.preventDefault();
 
-    if (questionsList.length > 0) {
+    if (questionsList.length) {
       localStorage.setItem(currTitle, JSON.stringify(questionsList));
       setTitleSets([...titleSets, currTitle]);
       router.push("/flashcard");
