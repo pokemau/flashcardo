@@ -11,11 +11,11 @@ const PreviousCards = ({ titleSets, setTitleSets, setCurrTitle }) => {
     router.push("/flashcard");
   }
 
-  function deleteFlashcardSet(titleSet) {
+  function deleteFlashcardSet(title, index) {
+    localStorage.removeItem(title);
+
     setTitleSets(
-      titleSets.filter(
-        (title) => (title.id && title.title) !== (titleSet.id && titleSet.title)
-      )
+      titleSets.filter((t, tIndex) => t !== title && tIndex !== index)
     );
 
     localStorage.setItem("titleSets", JSON.stringify(titleSets));
@@ -32,16 +32,16 @@ const PreviousCards = ({ titleSets, setTitleSets, setCurrTitle }) => {
       <div className="w-full mx-auto flex flex-col items-center">
         <h1 className="text-2xl font-bold mt-4 mb-2">Previous Flashcards</h1>
         {titleSets &&
-          titleSets.map((titleSet) => (
+          titleSets.map((title, index) => (
             <div
               className="flex items-center w-[70%] h-10 pr-1 rounded border-[1px] border-[#d4d4d4] mb-2 lg:w-[30vw] hover:border-[2px]"
-              key={titleSet}>
+              key={title}>
               <div
                 className="cursor-pointer flex items-center pl-4 rounded text-lg w-[90%] h-full hover:text-[#954ca0] hover:font-bold transition-all duration-100"
                 onClick={() => {
-                  goToFlashcardSet(titleSet);
+                  goToFlashcardSet(title);
                 }}>
-                <p>{titleSet}</p>
+                <p>{title}</p>
               </div>
 
               {/* <button
@@ -55,7 +55,7 @@ const PreviousCards = ({ titleSets, setTitleSets, setCurrTitle }) => {
                 className="question-list-btn"
                 type="button"
                 onClick={() => {
-                  deleteFlashcardSet(titleSet);
+                  deleteFlashcardSet(title, index);
                 }}>
                 <BsFillTrashFill />
               </button>
