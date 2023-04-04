@@ -9,13 +9,14 @@ const CreateNewCard = ({
 }) => {
   const router = useRouter();
 
-  // const [titleSets, setTitleSets] = useState([]);
   const [titleMsg, setTitleMsg] = useState("");
 
   function createNewFlashcardSet(e) {
     e.preventDefault();
 
-    if (currTitle && !titleSets.includes(currTitle)) {
+    const alreadyExists = titleSets.includes(currTitle);
+
+    if (currTitle && !alreadyExists) {
       localStorage.setItem("currTitle", currTitle);
       router.push("/edit");
       setCurrTitle("");
@@ -25,7 +26,7 @@ const CreateNewCard = ({
       setTimeout(() => {
         setTitleMsg("");
       }, 800);
-    } else if (currTitle && titleSets.includes(currTitle)) {
+    } else if (currTitle && alreadyExists) {
       setTitleMsg("Title already exists.");
       setTimeout(() => {
         setTitleMsg("");
