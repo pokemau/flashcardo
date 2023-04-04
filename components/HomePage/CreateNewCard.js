@@ -1,15 +1,39 @@
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 const CreateNewCard = ({ currTitle, setCurrTitle }) => {
   const router = useRouter();
 
+  const [titleSets, setTitleSets] = useState([]);
+  const [titleMsg, setTitleMsg] = useState("");
+
+  useEffect(() => {
+    const localStorageSets = JSON.parse(localStorage.getItem("titleSets"));
+
+    if (localStorageSets !== null) {
+      console.log(localStorageSets);
+      setTitleSets(localStorageSets);
+    }
+  }, []);
+
   function createNewFlashcardSet(e) {
     e.preventDefault();
 
-    if (currTitle) {
+    if (currTitle && !titleSets.includes(currTitle)) {
       localStorage.setItem("currTitle", currTitle);
       router.push("/edit");
       setCurrTitle("");
+    }
+    if (!currTitle) {
+      setTitleMsg("Title cannot be blank.");
+      setTimeout(() => {
+        setTitleMsg("");
+      }, 800);
+    } else if (currTitle && titleSets.includes(currTitle)) {
+      setTitleMsg("Title already exists.");
+      setTimeout(() => {
+        setTitleMsg("");
+      }, 800);
     }
   }
 
@@ -33,6 +57,8 @@ const CreateNewCard = ({ currTitle, setCurrTitle }) => {
           }}
           onKeyDown={checkIfEnter}
         />
+
+        <div className="text-red-600">{titleMsg}</div>
 
         <button
           onClick={createNewFlashcardSet}

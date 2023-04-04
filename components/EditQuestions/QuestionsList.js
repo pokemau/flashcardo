@@ -20,7 +20,7 @@ const QuestionsList = ({
 
     if (questionsList.length) {
       localStorage.setItem(currTitle, JSON.stringify(questionsList));
-      setTitleSets([...titleSets, { id: generateUID(), title: currTitle }]);
+      setTitleSets([...titleSets, currTitle]);
       router.push("/flashcard");
     }
   }
