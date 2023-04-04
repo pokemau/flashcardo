@@ -12,16 +12,6 @@ const CreateNewCard = ({
   // const [titleSets, setTitleSets] = useState([]);
   const [titleMsg, setTitleMsg] = useState("");
 
-  // update title sets
-  useEffect(() => {
-    const localStorageSets = JSON.parse(localStorage.getItem("titleSets"));
-
-    if (localStorageSets !== null) {
-      console.log(localStorageSets);
-      setTitleSets(localStorageSets);
-    }
-  }, []);
-
   function createNewFlashcardSet(e) {
     e.preventDefault();
 
