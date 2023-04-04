@@ -25,6 +25,8 @@ export default function Home() {
     } else {
       localStorage.setItem("titleSets", JSON.stringify([]));
     }
+
+    localStorage.setItem("currTitle", "");
   }, []);
 
   return (
