@@ -27,7 +27,7 @@ const CreateNewCard = ({
         setTitleMsg("");
       }, 800);
     } else if (currTitle && alreadyExists) {
-      setTitleMsg("Title already exists.");
+      setTitleMsg("Title already exists, select a new one.");
       setTimeout(() => {
         setTitleMsg("");
       }, 800);
