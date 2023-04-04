@@ -33,7 +33,12 @@ export default function Home() {
         <title>Flashcardo | Home</title>
       </Head>
       <div className="w-[100vw] my-5 mx-auto">
-        <CreateNewCard currTitle={currTitle} setCurrTitle={setCurrTitle} />
+        <CreateNewCard
+          titleSets={titleSets}
+          setTitleSets={setTitleSets}
+          currTitle={currTitle}
+          setCurrTitle={setCurrTitle}
+        />
 
         <PreviousCards
           titleSets={titleSets}

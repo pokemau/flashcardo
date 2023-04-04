@@ -1,12 +1,18 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
-const CreateNewCard = ({ currTitle, setCurrTitle }) => {
+const CreateNewCard = ({
+  titleSets,
+  setTitleSets,
+  currTitle,
+  setCurrTitle,
+}) => {
   const router = useRouter();
 
-  const [titleSets, setTitleSets] = useState([]);
+  // const [titleSets, setTitleSets] = useState([]);
   const [titleMsg, setTitleMsg] = useState("");
 
+  // update title sets
   useEffect(() => {
     const localStorageSets = JSON.parse(localStorage.getItem("titleSets"));
 
