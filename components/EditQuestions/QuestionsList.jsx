@@ -2,7 +2,6 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { AiFillEdit } from "react-icons/ai";
 import { BsFillTrashFill } from "react-icons/bs";
-import { generateUID } from "../Utils/generateId";
 
 const QuestionsList = ({
   questionsList,
@@ -38,9 +37,7 @@ const QuestionsList = ({
   }
 
   function editSelectedQuestion(question, index) {
-    console.log(index);
-    inputDefRef.current.value = question.def;
-    inputAnsRef.current.value = question.ans;
+    console.log(question, index);
   }
 
   // set title sets on local storage
@@ -67,11 +64,11 @@ const QuestionsList = ({
                   </p>
 
                   <div className="flex ml-auto">
-                    {/* <button
+                    <button
                       className="question-list-btn"
                       onClick={() => editSelectedQuestion(question, index)}>
                       <AiFillEdit />
-                    </button> */}
+                    </button>
 
                     <button
                       className="question-list-btn"
