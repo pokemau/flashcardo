@@ -1,9 +1,28 @@
-const EditQuestion = ({ question }) => {
+const EditQuestion = ({ question, index, setEditIndex }) => {
   return (
-    <div className="bg-orange-300 p-2 w-[50%]">
-      <p>{question.id}</p>
-      <p>{question.def}</p>
-      <p>{question.ans}</p>
+    <div className=" w-full flex items-center h-full break-words">
+      <p>{index + 1})</p>
+      <div className="flex flex-col w-full gap-2">
+        <div
+          className="edit-form"
+          role="textbox"
+          contentEditable={true}
+          suppressContentEditableWarning={true}>
+          {question.ans}
+        </div>
+
+        <div
+          className="edit-form"
+          role="textbox"
+          contentEditable={true}
+          suppressContentEditableWarning={true}>
+          {question.def}
+        </div>
+
+        <button type="button" onClick={() => setEditIndex(-1)}>
+          Check
+        </button>
+      </div>
     </div>
   );
 };

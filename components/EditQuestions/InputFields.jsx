@@ -1,4 +1,4 @@
-import { generateUID } from "../Utils/generateId";
+import { generateUID } from "../Utils/generateUID";
 
 const InputFields = ({
   questionsList,
@@ -38,7 +38,7 @@ const InputFields = ({
 
   return (
     <>
-      <div className="mt-4 lg:mt-5 w-[100%] flex flex-col items-center  mb-4 lg:w-[50%] lg:mx-auto">
+      <div className="mt-4 lg:mt-5 w-[100%] flex flex-col items-center mb-4 lg:w-[50%] lg:mx-auto">
         <textarea
           name="ques-form"
           placeholder="Write your question here..."
