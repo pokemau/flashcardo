@@ -5,13 +5,23 @@ import { useRef, useEffect, useState } from "react";
 import InputFields from "../components/EditQuestions/InputFields";
 import QuestionsList from "../components/EditQuestions/QuestionsList";
 
+interface TitleSets {
+  [index: number]: string;
+}
+
+interface QuestionsList {
+  id: string;
+  def: string;
+  ans: string;
+}
+
 const EditQuestions = () => {
   // localstorage items
-  const [currTitle, setCurrTitle] = useState("");
-  const [titleSets, setTitleSets] = useState([]);
+  const [currTitle, setCurrTitle] = useState<string>("");
+  const [titleSets, setTitleSets] = useState<TitleSets>([]);
 
   // questions and answers
-  const [questionsList, setQuestionsList] = useState([]);
+  const [questionsList, setQuestionsList] = useState<QuestionsList[]>([]);
 
   // input fields ref
   const inputAnsRef = useRef(null);
