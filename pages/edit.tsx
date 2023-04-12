@@ -29,7 +29,9 @@ const EditQuestions = () => {
 
   // get local storage items
   useEffect(() => {
-    setCurrTitle(localStorage.getItem("currTitle"));
+    const titleFromLocalStorage = localStorage.getItem("currTitle");
+    if (titleFromLocalStorage) setCurrTitle(titleFromLocalStorage);
+
     setTitleSets(JSON.parse(localStorage.getItem("titleSets")));
 
     inputDefRef.current.focus();

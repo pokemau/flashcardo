@@ -9,7 +9,7 @@ import { TitleSets } from "./edit";
 
 export default function Home() {
   const [currTitle, setCurrTitle] = useState<string>("");
-  const [titleSets, setTitleSets] = useState<TitleSets>(null);
+  const [titleSets, setTitleSets] = useState<TitleSets>([]);
 
   // update titlesets if a set is deleted
   useEffect(() => {
@@ -20,8 +20,9 @@ export default function Home() {
 
   // get items from localstorage
   useEffect(() => {
-    if (localStorage.getItem("titleSets")) {
-      const tSets = JSON.parse(localStorage.getItem("titleSets"));
+    const titleSetsFromLocalStorage = localStorage.getItem("titleSets");
+    if (titleSetsFromLocalStorage) {
+      const tSets = JSON.parse(titleSetsFromLocalStorage);
       setTitleSets(tSets);
     } else {
       localStorage.setItem("titleSets", JSON.stringify([]));
