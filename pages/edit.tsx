@@ -4,6 +4,7 @@ import { useRef, useEffect, useState } from "react";
 // components
 import InputFields from "../components/EditQuestions/InputFields";
 import QuestionsList from "../components/EditQuestions/QuestionsList";
+import { InputField } from "../components/Utils/Interfaces/InputFields";
 
 export interface TitleSets {
   [index: number]: string;
@@ -24,17 +25,18 @@ const EditQuestions = () => {
   const [questionsList, setQuestionsList] = useState<QuestionsList[]>([]);
 
   // input fields ref
-  const inputAnsRef = useRef(null);
-  const inputDefRef = useRef(null);
+  const inputAnsRef = useRef<InputField>(null);
+  const inputDefRef = useRef<InputField>(null);
 
   // get local storage items
   useEffect(() => {
-    const titleFromLocalStorage = localStorage.getItem("currTitle");
-    if (titleFromLocalStorage) setCurrTitle(titleFromLocalStorage);
+    const titleLocalStorage = localStorage.getItem("currTitle");
+    const titleSetsLocalStorage = localStorage.getItem("titleSets");
 
-    setTitleSets(JSON.parse(localStorage.getItem("titleSets")));
+    if (titleLocalStorage) setCurrTitle(titleLocalStorage);
+    if (titleSetsLocalStorage) setTitleSets(JSON.parse(titleSetsLocalStorage));
 
-    inputDefRef.current.focus();
+    inputDefRef?.current?.focus();
   }, []);
 
   return (
