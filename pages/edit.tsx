@@ -5,11 +5,11 @@ import { useRef, useEffect, useState } from "react";
 import InputFields from "../components/EditQuestions/InputFields";
 import QuestionsList from "../components/EditQuestions/QuestionsList";
 
-interface TitleSets {
+export interface TitleSets {
   [index: number]: string;
 }
 
-interface QuestionsList {
+export interface QuestionsList {
   id: string;
   def: string;
   ans: string;

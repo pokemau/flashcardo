@@ -5,10 +5,11 @@ import { useState, useEffect } from "react";
 // components
 import PreviousCards from "../components/HomePage/PreviousCards";
 import CreateNewCard from "../components/HomePage/CreateNewCard";
+import { TitleSets } from "./edit";
 
 export default function Home() {
-  const [currTitle, setCurrTitle] = useState("");
-  const [titleSets, setTitleSets] = useState(null);
+  const [currTitle, setCurrTitle] = useState<string>("");
+  const [titleSets, setTitleSets] = useState<TitleSets>(null);
 
   // update titlesets if a set is deleted
   useEffect(() => {
