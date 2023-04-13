@@ -31,13 +31,7 @@
 
 @layer utilities {
   .edit-form {
-    @apply m-1 min-h-[3em] p-[.30rem] w-[96%];
-  }
-  .edit-ans-form {
-    @apply min-w-[30%];
-  }
-  .edit-def-form {
-    @apply min-w-[60%];
+    @apply p-[0.30rem] min-h-[3em] w-[98%] m-auto bg-gray-200 hover:cursor-text;
   }
 }
 

@@ -106,6 +106,8 @@ const QuestionsList: React.FC<QuestionsListProps> = ({
                       question={question}
                       index={index}
                       setEditIndex={setEditIndex}
+                      questionsList={questionsList}
+                      setQuestionsList={setQuestionsList}
                     />
                   </>
                 )}
