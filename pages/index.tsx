@@ -10,13 +10,6 @@ export default function Home() {
   const [currTitle, setCurrTitle] = useState<string>("");
   const [titleSets, setTitleSets] = useState<string[]>([]);
 
-  // update titlesets if a set is deleted
-  // useEffect(() => {
-  //   if (titleSets.length) {
-  //     localStorage.setItem("titleSets", JSON.stringify(titleSets));
-  //   }
-  // }, [titleSets]);
-
   // get items from localstorage
   useEffect(() => {
     const titleSetsLocalStorage = localStorage.getItem("titleSets");
