@@ -25,11 +25,10 @@ const PreviousCards: React.FC<PrevCardsProps> = ({
   function deleteFlashcardSet(title: string, index: number) {
     localStorage.removeItem(title);
 
-    setTitleSets(
-      titleSets.filter((t, tIndex) => t !== title && tIndex !== index)
-    );
-
-    localStorage.setItem("titleSets", JSON.stringify(titleSets));
+    const newTitleSets = [...titleSets];
+    newTitleSets.splice(index, 1);
+    setTitleSets(newTitleSets);
+    localStorage.setItem("titleSets", JSON.stringify(newTitleSets));
   }
 
   function editFlashcardSet(title: string) {

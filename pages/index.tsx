@@ -11,21 +11,18 @@ export default function Home() {
   const [titleSets, setTitleSets] = useState<string[]>([]);
 
   // update titlesets if a set is deleted
-  useEffect(() => {
-    if (titleSets) {
-      localStorage.setItem("titleSets", JSON.stringify(titleSets));
-    }
-  }, [titleSets]);
+  // useEffect(() => {
+  //   if (titleSets.length) {
+  //     localStorage.setItem("titleSets", JSON.stringify(titleSets));
+  //   }
+  // }, [titleSets]);
 
   // get items from localstorage
   useEffect(() => {
     const titleSetsLocalStorage = localStorage.getItem("titleSets");
     if (titleSetsLocalStorage) {
-      const tSets = JSON.parse(titleSetsLocalStorage);
-      setTitleSets(tSets);
-    } else {
-      localStorage.setItem("titleSets", JSON.stringify([]));
-    }
+      setTitleSets(JSON.parse(titleSetsLocalStorage));
+    } else localStorage.setItem("titleSets", JSON.stringify([]));
 
     localStorage.setItem("currTitle", "");
   }, []);
