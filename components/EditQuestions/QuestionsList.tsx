@@ -1,24 +1,31 @@
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Dispatch, SetStateAction } from "react";
 import EditQuestion from "./EditQuestion";
 import { AiFillEdit } from "react-icons/ai";
 import { BsFillTrashFill } from "react-icons/bs";
+import { QuestionsList } from "../../pages/edit";
 
-const QuestionsList = ({
+interface QuestionsListProps {
+  questionsList: QuestionsList[];
+  setQuestionsList: Dispatch<SetStateAction<QuestionsList[]>>;
+  currTitle: string;
+  titleSets: string[];
+  setTitleSets: Dispatch<SetStateAction<string[]>>;
+}
+
+const QuestionsList: React.FC<QuestionsListProps> = ({
   questionsList,
   setQuestionsList,
   currTitle,
   titleSets,
   setTitleSets,
-  inputDefRef,
-  inputAnsRef,
 }) => {
   const router = useRouter();
 
   const [editIndex, setEditIndex] = useState(-1);
   const [hoverIndex, setHoverIndex] = useState(-1);
 
-  function startFlashcard(e) {
+  function startFlashcard(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
 
     if (questionsList.length) {
@@ -28,7 +35,10 @@ const QuestionsList = ({
     }
   }
 
-  function handleDeleteQuestions(e, question) {
+  function handleDeleteQuestions(
+    e: React.MouseEvent<HTMLButtonElement>,
+    question: QuestionsList
+  ) {
     e.preventDefault();
 
     setQuestionsList(
@@ -40,7 +50,7 @@ const QuestionsList = ({
     );
   }
 
-  function editSelectedQuestion(question, index) {
+  function editSelectedQuestion(question: QuestionsList, index: number) {
     setEditIndex(index);
   }
 
@@ -100,36 +110,6 @@ const QuestionsList = ({
                   </>
                 )}
               </div>
-              // <div
-              //   className="flex items-center h-auto mb-[0.2em] border-b-[1px] border-[#b3b3b3] w-full"
-              //   key={question.id}>
-              //   {editIndex !== index ? (
-              //     <>
-              //       <div className="bg-orange-300 w-[80%] flex items-center">
-              //         <div className="break-words">
-              //           {index + 1}) {question.ans} - {question.def}
-              //         </div>
-              //       </div>
-              //       <div className="flex ml-auto">
-              //         <button
-              //           className="question-list-btn"
-              //           onClick={() => editSelectedQuestion(question, index)}>
-              //           <AiFillEdit />
-              //         </button>
-
-              //         <button
-              //           className="question-list-btn"
-              //           onClick={(e) => {
-              //             handleDeleteQuestions(e, question);
-              //           }}>
-              //           <BsFillTrashFill />
-              //         </button>
-              //       </div>
-              //     </>
-              //   ) : (
-              //     <EditQuestion question={question} index={index} />
-              //   )}
-              // </div>
             ))}
         </div>
 

@@ -1,4 +1,8 @@
-const EditQuestion = ({ question, index, setEditIndex }) => {
+const EditQuestion: React.FC<EditQuestionProps> = ({
+  question,
+  index,
+  setEditIndex,
+}) => {
   return (
     <div className=" w-full flex items-center h-full break-words">
       <p>{index + 1})</p>
