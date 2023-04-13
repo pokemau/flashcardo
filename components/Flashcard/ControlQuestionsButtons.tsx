@@ -1,6 +1,14 @@
-import { useEffect } from "react";
+import { useEffect, Dispatch, SetStateAction } from "react";
 
-const ControlQuestionsButtons = ({
+interface ControlQuesBtnProps {
+  showAns: boolean;
+  setShowAns: Dispatch<SetStateAction<boolean>>;
+  currNum: number;
+  setCurrNum: Dispatch<SetStateAction<number>>;
+  questionsListLen: number;
+}
+
+const ControlQuestionsButtons: React.FC<ControlQuesBtnProps> = ({
   showAns,
   setShowAns,
   currNum,
@@ -15,7 +23,7 @@ const ControlQuestionsButtons = ({
     };
   });
 
-  function keyboardPressHandler(e) {
+  function keyboardPressHandler(e: KeyboardEvent) {
     const currKey = e.code;
 
     if (currKey === "ArrowRight" || currKey === "KeyD") goToNextQuestion();
@@ -48,21 +56,21 @@ const ControlQuestionsButtons = ({
       <button
         className="flashcard-btn px-11"
         type="button"
-        onClick={(e) => goToPrevQuestion(e)}>
+        onClick={() => goToPrevQuestion()}>
         Previous
       </button>
 
       <button
         className="flashcard-btn"
         type="button"
-        onClick={(e) => showAnswer(e)}>{`${
+        onClick={() => showAnswer()}>{`${
         showAns ? "Hide" : "Show"
       } Answer`}</button>
 
       <button
         className="flashcard-btn px-11"
         type="button"
-        onClick={(e) => goToNextQuestion(e)}>
+        onClick={() => goToNextQuestion()}>
         Next
       </button>
     </div>

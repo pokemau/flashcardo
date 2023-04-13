@@ -5,7 +5,7 @@ import { useRef, useEffect, useState } from "react";
 import InputFields from "../components/EditQuestions/InputFields";
 import QuestionsList from "../components/EditQuestions/QuestionsList";
 
-export interface QuestionsList {
+export interface QuestionsListType {
   id: string;
   def: string;
   ans: string;
@@ -17,7 +17,7 @@ const EditQuestions = () => {
   const [titleSets, setTitleSets] = useState<string[]>([]);
 
   // questions and answers
-  const [questionsList, setQuestionsList] = useState<QuestionsList[]>([]);
+  const [questionsList, setQuestionsList] = useState<QuestionsListType[]>([]);
 
   // input fields ref
   const inputAnsRef = useRef<HTMLTextAreaElement>(null);
@@ -54,8 +54,6 @@ const EditQuestions = () => {
           currTitle={currTitle}
           titleSets={titleSets}
           setTitleSets={setTitleSets}
-          inputAnsRef={inputAnsRef}
-          inputDefRef={inputDefRef}
         />
       </div>
     </>

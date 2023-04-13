@@ -1,3 +1,12 @@
+import { QuestionsListType } from "../../pages/edit";
+import { Dispatch, SetStateAction } from "react";
+
+interface EditQuestionProps {
+  question: QuestionsListType;
+  index: number;
+  setEditIndex: Dispatch<SetStateAction<number>>;
+}
+
 const EditQuestion: React.FC<EditQuestionProps> = ({
   question,
   index,

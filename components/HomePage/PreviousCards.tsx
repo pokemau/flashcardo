@@ -1,17 +1,28 @@
 import { useRouter } from "next/router";
 import { AiFillEdit } from "react-icons/ai";
 import { BsFillTrashFill } from "react-icons/bs";
+import { Dispatch, SetStateAction } from "react";
 
-const PreviousCards = ({ titleSets, setTitleSets, setCurrTitle }) => {
+interface PrevCardsProps {
+  titleSets: string[];
+  setTitleSets: Dispatch<SetStateAction<string[]>>;
+  setCurrTitle: Dispatch<SetStateAction<string>>;
+}
+
+const PreviousCards: React.FC<PrevCardsProps> = ({
+  titleSets,
+  setTitleSets,
+  setCurrTitle,
+}) => {
   const router = useRouter();
 
-  function goToFlashcardSet(title) {
+  function goToFlashcardSet(title: string) {
     setCurrTitle(title);
     localStorage.setItem("currTitle", title);
     router.push("/flashcard");
   }
 
-  function deleteFlashcardSet(title, index) {
+  function deleteFlashcardSet(title: string, index: number) {
     localStorage.removeItem(title);
 
     setTitleSets(
@@ -21,7 +32,7 @@ const PreviousCards = ({ titleSets, setTitleSets, setCurrTitle }) => {
     localStorage.setItem("titleSets", JSON.stringify(titleSets));
   }
 
-  function editFlashcardSet(title) {
+  function editFlashcardSet(title: string) {
     localStorage.setItem("currTitle", title);
 
     router.push("/edit");

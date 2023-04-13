@@ -1,10 +1,10 @@
 import { generateUID } from "../Utils/generateUID";
-import { QuestionsList } from "../../pages/edit";
+import { QuestionsListType } from "../../pages/edit";
 import React from "react";
 
 export interface InputFieldsProps {
-  setQuestionsList: React.Dispatch<React.SetStateAction<QuestionsList[]>>;
-  questionsList: QuestionsList[];
+  setQuestionsList: React.Dispatch<React.SetStateAction<QuestionsListType[]>>;
+  questionsList: QuestionsListType[];
   inputAnsRef: React.RefObject<HTMLTextAreaElement>;
   inputDefRef: React.RefObject<HTMLTextAreaElement>;
 }

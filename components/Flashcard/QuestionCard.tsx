@@ -1,4 +1,14 @@
-const QuestionCard = ({ showAns, currAns, currQuestion }) => {
+interface QuestionCardProps {
+  showAns: boolean;
+  currAns: string;
+  currQuestion: string;
+}
+
+const QuestionCard: React.FC<QuestionCardProps> = ({
+  showAns,
+  currAns,
+  currQuestion,
+}) => {
   return (
     <div className="relative w-[80vw] h-[40vh] mx-auto mb-2 text-center ">
       <div className="card w-full h-full lg:w-[70%] rounded mx-auto min-h-[10em]">

@@ -3,11 +3,11 @@ import Head from "next/head";
 import QuestionCard from "../components/Flashcard/QuestionCard";
 import ControlQuestionsButtons from "../components/Flashcard/ControlQuestionsButtons";
 import { useRouter } from "next/router";
-import { QuestionsList } from "./edit";
+import { QuestionsListType } from "./edit";
 
 const Flashcard = () => {
   const [currTitle, setCurrTitle] = useState("");
-  const [questionsList, setQuestionsList] = useState<QuestionsList[]>([]);
+  const [questionsList, setQuestionsList] = useState<QuestionsListType[]>([]);
   const [currQuestion, setCurrQuestion] = useState("");
   const [currAns, setCurrAns] = useState("");
   const [currNum, setCurrNum] = useState(0);
@@ -20,19 +20,19 @@ const Flashcard = () => {
 
     if (titleLocalStorage) {
       const questionsLocalStorage = localStorage.getItem(titleLocalStorage)!;
-      let questions: QuestionsList[] = JSON.parse(questionsLocalStorage);
+      let questions: QuestionsListType[] = JSON.parse(questionsLocalStorage);
 
       setCurrTitle(titleLocalStorage);
       randomizeQuestions(questions);
     } else router.push("/");
   }, []);
 
-  function randomizeQuestions(questions: QuestionsList[]) {
+  function randomizeQuestions(questions: QuestionsListType[]) {
     let runOnce = 0;
 
     while (questions.length) {
       const randNum = Math.floor(Math.random() * questions.length);
-      const newQuestion: QuestionsList = questions[randNum];
+      const newQuestion: QuestionsListType = questions[randNum];
       console.log(newQuestion);
 
       // set initial currQuestion and currAns

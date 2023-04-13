@@ -3,11 +3,11 @@ import { useEffect, useState, Dispatch, SetStateAction } from "react";
 import EditQuestion from "./EditQuestion";
 import { AiFillEdit } from "react-icons/ai";
 import { BsFillTrashFill } from "react-icons/bs";
-import { QuestionsList } from "../../pages/edit";
+import { QuestionsListType } from "../../pages/edit";
 
 interface QuestionsListProps {
-  questionsList: QuestionsList[];
-  setQuestionsList: Dispatch<SetStateAction<QuestionsList[]>>;
+  questionsList: QuestionsListType[];
+  setQuestionsList: Dispatch<SetStateAction<QuestionsListType[]>>;
   currTitle: string;
   titleSets: string[];
   setTitleSets: Dispatch<SetStateAction<string[]>>;
@@ -37,7 +37,7 @@ const QuestionsList: React.FC<QuestionsListProps> = ({
 
   function handleDeleteQuestions(
     e: React.MouseEvent<HTMLButtonElement>,
-    question: QuestionsList
+    question: QuestionsListType
   ) {
     e.preventDefault();
 
@@ -50,7 +50,7 @@ const QuestionsList: React.FC<QuestionsListProps> = ({
     );
   }
 
-  function editSelectedQuestion(question: QuestionsList, index: number) {
+  function editSelectedQuestion(question: QuestionsListType, index: number) {
     setEditIndex(index);
   }
 

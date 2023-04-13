@@ -1,7 +1,14 @@
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 
-const CreateNewCard = ({
+interface CreateNewCardProps {
+  titleSets: string[];
+  setTitleSets: Dispatch<SetStateAction<string[]>>;
+  currTitle: string;
+  setCurrTitle: Dispatch<SetStateAction<string>>;
+}
+
+const CreateNewCard: React.FC<CreateNewCardProps> = ({
   titleSets,
   setTitleSets,
   currTitle,
@@ -11,9 +18,7 @@ const CreateNewCard = ({
 
   const [titleMsg, setTitleMsg] = useState("");
 
-  function createNewFlashcardSet(e) {
-    e.preventDefault();
-
+  function createNewFlashcardSet() {
     const alreadyExists = titleSets.includes(currTitle);
 
     if (currTitle && !alreadyExists) {
@@ -34,9 +39,9 @@ const CreateNewCard = ({
     }
   }
 
-  function checkIfEnter(e) {
-    if (e.key === "Enter") {
-      createNewFlashcardSet(e);
+  function checkIfEnter(e: React.KeyboardEvent<HTMLInputElement>) {
+    if (e.code === "Enter") {
+      createNewFlashcardSet();
     }
   }
 
@@ -49,7 +54,7 @@ const CreateNewCard = ({
           className="flex h-8 w-[65%] m-2 border-[1px] border-[#a8a8a8] md:w-[50%] lg:w-[30%] p-2 focus:outline-none"
           value={currTitle}
           type="text"
-          onInput={(e) => {
+          onChange={(e) => {
             setCurrTitle(e.target.value);
           }}
           onKeyDown={checkIfEnter}
@@ -58,7 +63,7 @@ const CreateNewCard = ({
         <div className="text-red-600">{titleMsg}</div>
 
         <button
-          onClick={createNewFlashcardSet}
+          onClick={() => createNewFlashcardSet}
           className="cursor-pointer bg-[#b989c2] py-1 px-2 text-lg rounded my-[5px] hover:bg-[#a77aaf] transition-all duration-100">
           Create New
         </button>
