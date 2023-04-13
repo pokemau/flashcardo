@@ -1,16 +1,23 @@
 import { generateUID } from "../Utils/generateUID";
+import { QuestionsList } from "../../pages/edit";
+import React from "react";
 
-const InputFields = ({
+export interface InputFieldsProps {
+  setQuestionsList: React.Dispatch<React.SetStateAction<QuestionsList[]>>;
+  questionsList: QuestionsList[];
+  inputAnsRef: React.RefObject<HTMLTextAreaElement>;
+  inputDefRef: React.RefObject<HTMLTextAreaElement>;
+}
+
+const InputFields: React.FC<InputFieldsProps> = ({
   questionsList,
   setQuestionsList,
   inputAnsRef,
   inputDefRef,
 }) => {
-  function addNewQuestion(e) {
-    e.preventDefault();
-
-    const defRefVal = inputDefRef.current.value;
-    const ansRefVal = inputAnsRef.current.value;
+  function addNewQuestion() {
+    const defRefVal = inputDefRef?.current?.value;
+    const ansRefVal = inputAnsRef?.current?.value;
 
     if (defRefVal && ansRefVal) {
       setQuestionsList([
@@ -21,18 +28,20 @@ const InputFields = ({
       inputDefRef.current.value = "";
       inputAnsRef.current.value = "";
 
-      inputDefRef.current.focus();
+      inputDefRef?.current.focus();
     }
   }
 
-  function checkIfEnterKeyIsPressed(e) {
-    const defRefVal = inputDefRef.current.value;
-    const ansRefVal = inputAnsRef.current.value;
+  function checkIfEnterKeyIsPressed(
+    e: React.KeyboardEvent<HTMLTextAreaElement>
+  ) {
+    const defRefVal = inputDefRef?.current?.value;
+    const ansRefVal = inputAnsRef?.current?.value;
 
     const isEnterKey = e.key === "Enter";
 
     if (defRefVal && ansRefVal && isEnterKey) {
-      addNewQuestion(e);
+      addNewQuestion();
     }
   }
 

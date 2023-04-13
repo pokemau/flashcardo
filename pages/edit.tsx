@@ -4,11 +4,6 @@ import { useRef, useEffect, useState } from "react";
 // components
 import InputFields from "../components/EditQuestions/InputFields";
 import QuestionsList from "../components/EditQuestions/QuestionsList";
-import { InputField } from "../components/Utils/Interfaces/InputFields";
-
-export interface TitleSets {
-  [index: number]: string;
-}
 
 export interface QuestionsList {
   id: string;
@@ -19,14 +14,14 @@ export interface QuestionsList {
 const EditQuestions = () => {
   // localstorage items
   const [currTitle, setCurrTitle] = useState<string>("");
-  const [titleSets, setTitleSets] = useState<TitleSets>([]);
+  const [titleSets, setTitleSets] = useState<string[]>([]);
 
   // questions and answers
   const [questionsList, setQuestionsList] = useState<QuestionsList[]>([]);
 
   // input fields ref
-  const inputAnsRef = useRef<InputField>(null);
-  const inputDefRef = useRef<InputField>(null);
+  const inputAnsRef = useRef<HTMLTextAreaElement>(null);
+  const inputDefRef = useRef<HTMLTextAreaElement>(null);
 
   // get local storage items
   useEffect(() => {

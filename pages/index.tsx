@@ -5,11 +5,10 @@ import { useState, useEffect } from "react";
 // components
 import PreviousCards from "../components/HomePage/PreviousCards";
 import CreateNewCard from "../components/HomePage/CreateNewCard";
-import { TitleSets } from "./edit";
 
 export default function Home() {
   const [currTitle, setCurrTitle] = useState<string>("");
-  const [titleSets, setTitleSets] = useState<TitleSets>([]);
+  const [titleSets, setTitleSets] = useState<string[]>([]);
 
   // update titlesets if a set is deleted
   useEffect(() => {
@@ -20,9 +19,9 @@ export default function Home() {
 
   // get items from localstorage
   useEffect(() => {
-    const titleSetsFromLocalStorage = localStorage.getItem("titleSets");
-    if (titleSetsFromLocalStorage) {
-      const tSets = JSON.parse(titleSetsFromLocalStorage);
+    const titleSetsLocalStorage = localStorage.getItem("titleSets");
+    if (titleSetsLocalStorage) {
+      const tSets = JSON.parse(titleSetsLocalStorage);
       setTitleSets(tSets);
     } else {
       localStorage.setItem("titleSets", JSON.stringify([]));
