@@ -18,6 +18,7 @@ const About = () => {
               src="/images/github-icon.png"
               height={40}
               width={40}
+              alt="Github Icon"
               className="hover:scale-105"
             />
           </Link>
@@ -29,6 +30,7 @@ const About = () => {
               src="/images/linkedin-icon.png"
               height={40}
               width={40}
+              alt="LinkedIn Icon"
               className="hover:scale-105"
             />
           </Link>

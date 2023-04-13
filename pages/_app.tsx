@@ -1,10 +1,11 @@
 import "../styles/globals.css";
 import Head from "next/head";
+import { AppProps } from "next/app";
 
 // components
 import Layout from "../components/HeaderFooter/Layout";
 
-function MyApp({ Component, pageProps }) {
+const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <>
       <Head>
@@ -39,6 +40,6 @@ function MyApp({ Component, pageProps }) {
       </Layout>
     </>
   );
-}
+};
 
 export default MyApp;
