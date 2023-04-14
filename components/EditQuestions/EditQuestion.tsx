@@ -1,6 +1,8 @@
 import { QuestionsListType } from "../../pages/edit";
 import { Dispatch, SetStateAction, useState } from "react";
 
+import { AiOutlineCheck } from "react-icons/ai";
+
 interface EditQuestionProps {
   question: QuestionsListType;
   index: number;
@@ -58,9 +60,14 @@ const EditQuestion: React.FC<EditQuestionProps> = ({
           {question.def}
         </div>
 
-        <button type="button" onClick={() => handleFinishEditQuestion()}>
-          Check
-        </button>
+        <div className="flex items-center justify-center">
+          <button
+            type="button"
+            onClick={() => handleFinishEditQuestion()}
+            className="mt-1 bg-[#b989c2] px-4 py-2 rounded hover:bg-[#a77aaf] font-bold">
+            <AiOutlineCheck />
+          </button>
+        </div>
       </div>
     </div>
   );
