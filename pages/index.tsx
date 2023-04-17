@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import PreviousCards from "../components/HomePage/PreviousCards";
 import CreateNewCard from "../components/HomePage/CreateNewCard";
 
-export default function Home() {
+const Home: React.FC = () => {
   const [currTitle, setCurrTitle] = useState<string>("");
   const [titleSets, setTitleSets] = useState<string[]>([]);
 
@@ -41,4 +41,4 @@ export default function Home() {
       </div>
     </>
   );
-}
+};
