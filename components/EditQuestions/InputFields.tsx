@@ -16,8 +16,8 @@ const InputFields: React.FC<InputFieldsProps> = ({
   inputDefRef,
 }) => {
   function addNewQuestion() {
-    const defRefVal = inputDefRef?.current?.value;
-    const ansRefVal = inputAnsRef?.current?.value;
+    const defRefVal = inputDefRef?.current?.value?.trim();
+    const ansRefVal = inputAnsRef?.current?.value?.trim();
 
     if (defRefVal && ansRefVal) {
       setQuestionsList([
@@ -25,10 +25,10 @@ const InputFields: React.FC<InputFieldsProps> = ({
         { id: generateUID(), def: defRefVal, ans: ansRefVal },
       ]);
 
-      inputDefRef.current.value = "";
-      inputAnsRef.current.value = "";
+      if (inputAnsRef.current) inputAnsRef.current.value = "";
+      if (inputDefRef.current) inputDefRef.current.value = "";
 
-      inputDefRef?.current.focus();
+      inputDefRef?.current?.focus();
     }
   }
 

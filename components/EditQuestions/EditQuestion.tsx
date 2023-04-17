@@ -34,8 +34,9 @@ const EditQuestion: React.FC<EditQuestionProps> = ({
     setEditIndex(-1);
   }
 
+
   return (
-    <div className="w-full h-full break-words p-1 hover:cursor-auto">
+      <div className="w-full h-full break-words p-1 hover:cursor-auto">
       <p className="pt-1">{index + 1})</p>
       <div className="flex flex-col w-full">
         <div className="">
