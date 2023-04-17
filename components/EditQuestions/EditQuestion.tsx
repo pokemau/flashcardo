@@ -22,21 +22,24 @@ const EditQuestion: React.FC<EditQuestionProps> = ({
   const [newDefVal, setNewDefVal] = useState(question.def);
 
   function handleFinishEditQuestion() {
-    const updatedQuestionsList = [...questionsList];
-    updatedQuestionsList[index] = {
-      id: question.id,
-      def: newDefVal,
-      ans: newAnsVal,
-    };
+    const finalNewAnsVal = newAnsVal.trim();
+    const finalNewDefVal = newDefVal.trim();
 
-    setQuestionsList(updatedQuestionsList);
+    if (finalNewAnsVal && finalNewDefVal) {
+      const updatedQuestionsList = [...questionsList];
+      updatedQuestionsList[index] = {
+        id: question.id,
+        def: finalNewDefVal,
+        ans: finalNewAnsVal,
+      };
 
-    setEditIndex(-1);
+      setQuestionsList(updatedQuestionsList);
+      setEditIndex(-1);
+    }
   }
 
-
   return (
-      <div className="w-full h-full break-words p-1 hover:cursor-auto">
+    <div className="w-full h-full break-words p-1 hover:cursor-auto">
       <p className="pt-1">{index + 1})</p>
       <div className="flex flex-col w-full">
         <div className="">
