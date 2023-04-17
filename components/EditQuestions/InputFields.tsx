@@ -15,7 +15,9 @@ const InputFields: React.FC<InputFieldsProps> = ({
   inputAnsRef,
   inputDefRef,
 }) => {
-  function addNewQuestion() {
+  function addNewQuestion(e?: React.MouseEvent<HTMLButtonElement>) {
+    if (e) e.preventDefault();
+
     const defRefVal = inputDefRef?.current?.value?.trim();
     const ansRefVal = inputAnsRef?.current?.value?.trim();
 
