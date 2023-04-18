@@ -44,7 +44,7 @@ const PreviousCards: React.FC<PrevCardsProps> = ({
         {titleSets &&
           titleSets.map((title, index) => (
             <div
-              className="flex items-center w-[70%] h-10 pr-1 rounded border-[1px] border-[#d4d4d4] mb-2 lg:w-[30vw] hover:border-[2px]"
+              className="flex items-center w-[70%] min-h-[2.5rem] pr-1 rounded border-[1px] border-[#d4d4d4] mb-2 lg:w-[30vw] hover:border-[2px]"
               key={title}>
               <div
                 className="cursor-pointer flex items-center pl-4 rounded text-lg w-[90%] h-full hover:text-[#954ca0] hover:font-bold transition-all duration-100"
