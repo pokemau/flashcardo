@@ -1,10 +1,10 @@
 import { QuestionsListType } from "../../pages/edit";
 
-interface ImportQuestionsProps {
+type ImportQuestionsProps = {
   title: string;
   questions: QuestionsListType[];
   titleSets: string[];
-}
+};
 
 const ImportQuestions: React.FC<ImportQuestionsProps> = ({
   title,
