@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { AiFillEdit } from "react-icons/ai";
+import { BiExport } from "react-icons/bi";
 import { BsFillTrashFill } from "react-icons/bs";
 import { Dispatch, SetStateAction, useState } from "react";
 
@@ -33,10 +34,15 @@ const PreviousCards: React.FC<PrevCardsProps> = ({
     localStorage.setItem("titleSets", JSON.stringify(newTitleSets));
   }
 
-  function editFlashcardSet(title: string) {
-    localStorage.setItem("currTitle", title);
+  async function exportQuestions(title: string) {
+    const questionsToExport = localStorage.getItem(title);
 
-    router.push("/edit");
+    try {
+      if (questionsToExport)
+        await navigator.clipboard.writeText(questionsToExport);
+    } catch (err) {
+      alert("Failed to Export.");
+    }
   }
 
   return (
@@ -66,6 +72,15 @@ const PreviousCards: React.FC<PrevCardsProps> = ({
                     onClick={() => editFlashcardSet(title)}>
                     <AiFillEdit />
                   </button> */}
+
+                  <button
+                    className="question-list-btn"
+                    type="button"
+                    onClick={() => {
+                      exportQuestions(title);
+                    }}>
+                    <BiExport />
+                  </button>
 
                   <button
                     className="question-list-btn"
