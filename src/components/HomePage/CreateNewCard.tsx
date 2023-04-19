@@ -63,13 +63,9 @@ const CreateNewCard: React.FC<CreateNewCardProps> = ({
 
         <div className="text-red-600">{titleMsg}</div>
 
-        <div>
-          <button onClick={() => createNewFlashcardSet()} className="home-btn">
-            Create New
-          </button>
-
-          <button className="home-btn">Import</button>
-        </div>
+        <button onClick={() => createNewFlashcardSet()} className="home-btn">
+          Create New
+        </button>
       </div>
     </>
   );
