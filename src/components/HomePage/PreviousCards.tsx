@@ -53,7 +53,7 @@ const PreviousCards: React.FC<PrevCardsProps> = ({
         {titleSets &&
           titleSets.map((title, index) => (
             <div
-              className="relative flex items-center w-[70%] min-h-[2.5rem] pr-1 rounded border-[1px] border-[#d4d4d4] mb-2 lg:w-[30vw] hover:border-[2px] cursor-pointer"
+              className="relative flex items-center w-[65%] md:w-[50%] lg:w-[30%] min-h-[2.5rem] pr-1 rounded border-[1px] border-[#d4d4d4] mb-2 hover:border-[2px] cursor-pointer"
               key={title}
               onMouseEnter={() => setIsHovered(index)}
               onMouseLeave={() => setIsHovered(-1)}>

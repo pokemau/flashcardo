@@ -8,7 +8,7 @@ const ImportQuestions: React.FC<ImportQuestionsProps> = ({
   setImportQuestions,
 }) => {
   return (
-    <div className="w-[70%]">
+    <div className="w-[65%] md:w-[50%] lg:w-[30%]">
       <div
         className="edit-form"
         role="textbox"
