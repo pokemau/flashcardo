@@ -38,8 +38,9 @@ const PreviousCards: React.FC<PrevCardsProps> = ({
     const questionsToExport = localStorage.getItem(title);
 
     try {
-      if (questionsToExport)
+      if (questionsToExport) {
         await navigator.clipboard.writeText(questionsToExport);
+      }
     } catch (err) {
       alert("Failed to Export.");
     }
@@ -66,13 +67,6 @@ const PreviousCards: React.FC<PrevCardsProps> = ({
 
               {isHovered == index && (
                 <div className="flex absolute right-1 top-[.15rem] z-10 border-[1px] border-[#b1b1b1] rounded">
-                  {/* <button
-                    className="question-list-btn"
-                    type="button"
-                    onClick={() => editFlashcardSet(title)}>
-                    <AiFillEdit />
-                  </button> */}
-
                   <button
                     className="question-list-btn"
                     type="button"

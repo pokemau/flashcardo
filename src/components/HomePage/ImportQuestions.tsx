@@ -1,25 +1,22 @@
-import { useState } from "react";
-import { QuestionsListType } from "../../pages/edit";
+import { Dispatch, SetStateAction } from "react";
 
 type ImportQuestionsProps = {
-  title: string;
-  questions: QuestionsListType[];
-  titleSets: string[];
+  setImportQuestions: Dispatch<SetStateAction<string>>;
 };
 
 const ImportQuestions: React.FC<ImportQuestionsProps> = ({
-  title,
-  questions,
-  titleSets,
+  setImportQuestions,
 }) => {
-  const handleClickImport = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    console.log(e);
-  };
-
   return (
-    <div>
-      <button onClick={handleClickImport}>Import</button>
+    <div className="w-[70%]">
+      <div
+        className="edit-form"
+        role="textbox"
+        contentEditable={true}
+        suppressContentEditableWarning={true}
+        onInput={(e) =>
+          setImportQuestions(e.currentTarget.textContent || "")
+        }></div>
     </div>
   );
 };
