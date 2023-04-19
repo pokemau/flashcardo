@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { AiFillEdit } from "react-icons/ai";
 import { BsFillTrashFill } from "react-icons/bs";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 
 interface PrevCardsProps {
   titleSets: string[];
@@ -15,6 +15,8 @@ const PreviousCards: React.FC<PrevCardsProps> = ({
   setCurrTitle,
 }) => {
   const router = useRouter();
+
+  const [isHovered, setIsHovered] = useState(-1);
 
   function goToFlashcardSet(title: string) {
     setCurrTitle(title);
@@ -44,31 +46,37 @@ const PreviousCards: React.FC<PrevCardsProps> = ({
         {titleSets &&
           titleSets.map((title, index) => (
             <div
-              className="flex items-center w-[70%] min-h-[2.5rem] pr-1 rounded border-[1px] border-[#d4d4d4] mb-2 lg:w-[30vw] hover:border-[2px]"
-              key={title}>
+              className="relative flex items-center w-[70%] min-h-[2.5rem] pr-1 rounded border-[1px] border-[#d4d4d4] mb-2 lg:w-[30vw] hover:border-[2px] cursor-pointer"
+              key={title}
+              onMouseEnter={() => setIsHovered(index)}
+              onMouseLeave={() => setIsHovered(-1)}>
               <div
-                className="cursor-pointer flex items-center pl-4 rounded text-lg w-[90%] h-full hover:text-[#954ca0] hover:font-bold transition-all duration-100"
+                className="pl-3 text-lg"
                 onClick={() => {
                   goToFlashcardSet(title);
                 }}>
                 <p>{title}</p>
               </div>
 
-              {/* <button
-                className="question-list-btn"
-                type="button"
-                onClick={() => editFlashcardSet(title)}>
-                <AiFillEdit />
-              </button> */}
+              {isHovered == index && (
+                <div className="flex absolute right-1 top-[.15rem] z-10 border-[1px] border-[#b1b1b1] rounded">
+                  {/* <button
+                    className="question-list-btn"
+                    type="button"
+                    onClick={() => editFlashcardSet(title)}>
+                    <AiFillEdit />
+                  </button> */}
 
-              <button
-                className="question-list-btn"
-                type="button"
-                onClick={() => {
-                  deleteFlashcardSet(title, index);
-                }}>
-                <BsFillTrashFill />
-              </button>
+                  <button
+                    className="question-list-btn"
+                    type="button"
+                    onClick={() => {
+                      deleteFlashcardSet(title, index);
+                    }}>
+                    <BsFillTrashFill />
+                  </button>
+                </div>
+              )}
             </div>
           ))}
       </div>
