@@ -33,6 +33,9 @@
   .edit-form {
     @apply p-[0.30rem] min-h-[3em] w-[98%] m-auto bg-gray-200 hover:cursor-text;
   }
+  .home-btn {
+    @apply cursor-pointer bg-[#b989c2] mx-1 py-1 px-2 text-lg rounded my-[5px] hover:bg-[#a77aaf] transition-all duration-100;
+  }
 }
 
 * {
