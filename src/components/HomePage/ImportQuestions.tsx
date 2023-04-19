@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { QuestionsListType } from "../../pages/edit";
 
 type ImportQuestionsProps = {
@@ -11,9 +12,14 @@ const ImportQuestions: React.FC<ImportQuestionsProps> = ({
   questions,
   titleSets,
 }) => {
+  const handleClickImport = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    console.log(e);
+  };
+
   return (
     <div>
-      <p>You are black</p>
+      <button onClick={handleClickImport}>Import</button>
     </div>
   );
 };
