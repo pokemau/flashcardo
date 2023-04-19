@@ -143,7 +143,7 @@ const CreateNewCard: React.FC<CreateNewCardProps> = ({
           </div>
         ) : (
           <>
-            <div className="flex">
+            <div className="flex mb-2">
               <button
                 onClick={() => handleImportQuestions()}
                 className="home-btn">
