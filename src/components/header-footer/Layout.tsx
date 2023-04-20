@@ -1,9 +1,9 @@
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
-interface LayoutProps {
+type LayoutProps = {
   children: React.ReactNode;
-}
+};
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (

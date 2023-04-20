@@ -3,13 +3,13 @@ import { Dispatch, SetStateAction, useState } from "react";
 
 import { AiOutlineCheck } from "react-icons/ai";
 
-interface EditQuestionProps {
+type EditQuestionProps = {
   question: QuestionsListType;
   index: number;
   setEditIndex: Dispatch<SetStateAction<number>>;
   questionsList: QuestionsListType[];
   setQuestionsList: Dispatch<SetStateAction<QuestionsListType[]>>;
-}
+};
 
 const EditQuestion: React.FC<EditQuestionProps> = ({
   question,

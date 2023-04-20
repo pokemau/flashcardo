@@ -4,11 +4,11 @@ import { BiExport } from "react-icons/bi";
 import { BsFillTrashFill } from "react-icons/bs";
 import { Dispatch, SetStateAction, useState } from "react";
 
-interface PrevCardsProps {
+type PrevCardsProps = {
   titleSets: string[];
   setTitleSets: Dispatch<SetStateAction<string[]>>;
   setCurrTitle: Dispatch<SetStateAction<string>>;
-}
+};
 
 const PreviousCards: React.FC<PrevCardsProps> = ({
   titleSets,

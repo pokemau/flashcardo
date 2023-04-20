@@ -5,13 +5,13 @@ import { AiFillEdit } from "react-icons/ai";
 import { BsFillTrashFill } from "react-icons/bs";
 import { QuestionsListType } from "../../pages/edit";
 
-interface QuestionsListProps {
+type QuestionsListProps = {
   questionsList: QuestionsListType[];
   setQuestionsList: Dispatch<SetStateAction<QuestionsListType[]>>;
   currTitle: string;
   titleSets: string[];
   setTitleSets: Dispatch<SetStateAction<string[]>>;
-}
+};
 
 const QuestionsList: React.FC<QuestionsListProps> = ({
   questionsList,

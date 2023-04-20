@@ -1,14 +1,19 @@
 import { useRouter } from "next/router";
 import { Dispatch, SetStateAction, useState } from "react";
-import ImportQuestions from "./ImportQuestions";
-import { QuestionsListType } from "../../pages/edit";
+import ImportQuestions from "./import-export/ImportQuestions";
+import CreateInput from "./CreateInput";
+import DefaultHomeButtons from "./DefaultHomeBtns";
+import ImportingBtns from "./ImportingBtns";
 
-interface CreateNewCardProps {
+type CreateNewCardProps = {
   titleSets: string[];
   setTitleSets: Dispatch<SetStateAction<string[]>>;
   currTitle: string;
   setCurrTitle: Dispatch<SetStateAction<string>>;
-}
+};
+
+export const existsMsg = "Title already exists, select a new one.";
+export const isBlankTitle = "Title cannot be blank.";
 
 const CreateNewCard: React.FC<CreateNewCardProps> = ({
   titleSets,
@@ -31,135 +36,50 @@ const CreateNewCard: React.FC<CreateNewCardProps> = ({
       setCurrTitle("");
     }
     if (alreadyExists) {
-      setTitleMsg("Title already exists, select a new one.");
+      setTitleMsg(existsMsg);
       setTimeout(() => {
         setTitleMsg("");
       }, 800);
     }
     if (!currTitle) {
-      setTitleMsg("Title cannot be blank.");
+      setTitleMsg(isBlankTitle);
       setTimeout(() => {
         setTitleMsg("");
       }, 800);
-    }
-  }
-
-  function handleImportQuestions(): void {
-    const alreadyExists = titleSets.includes(currTitle);
-
-    if (currTitle && !alreadyExists && importQuestions) {
-      const validQuestions = checkIfValidQuestionFormat(importQuestions);
-      if (!validQuestions) {
-        setTitleMsg("Invalid question format.");
-        setTimeout(() => {
-          setTitleMsg("");
-        }, 800);
-        return;
-      }
-
-      localStorage.setItem("currTitle", currTitle);
-      const updatedTitleSets = [...titleSets, currTitle];
-      setTitleSets(updatedTitleSets);
-      localStorage.setItem("titleSets", JSON.stringify(updatedTitleSets));
-      localStorage.setItem(currTitle, importQuestions);
-      router.push("/flashcard");
-    }
-
-    if (!importQuestions) {
-      setTitleMsg("Questions cannot be blank.");
-      setTimeout(() => {
-        setTitleMsg("");
-      }, 800);
-    }
-
-    if (!currTitle) {
-      setTitleMsg("Title cannot be blank.");
-      setTimeout(() => {
-        setTitleMsg("");
-      }, 800);
-    }
-
-    if (alreadyExists) {
-      setTitleMsg("Title already exists, select a new one.");
-      setTimeout(() => {
-        setTitleMsg("");
-      }, 800);
-    }
-  }
-
-  function checkIfValidQuestionFormat(str: string): 0 | QuestionsListType[] {
-    try {
-      const importQuestionsJSON = JSON.parse(str);
-      if (
-        !Array.isArray(importQuestionsJSON) &&
-        importQuestionsJSON.every(
-          (item: QuestionsListType) =>
-            typeof item.id === "string" &&
-            typeof item.def === "string" &&
-            typeof item.ans === "string"
-        )
-      ) {
-        return 0;
-      }
-    } catch {
-      return 0;
-    }
-    return JSON.parse(str);
-  }
-
-  function checkIfEnter(e: React.KeyboardEvent<HTMLInputElement>): void {
-    if (e.code === "Enter") {
-      createNewFlashcardSet();
     }
   }
 
   return (
-    <>
-      <div className="w-[100vw] flex flex-col items-center">
-        <h1 className="text-2xl font-bold">Create New Flashcard</h1>
+    <div className="w-[100vw] flex flex-col items-center">
+      <h1 className="text-2xl font-bold">Create New Flashcard</h1>
 
-        <input
-          className="flex h-8 w-[65%] m-2 border-[1px] border-[#a8a8a8] md:w-[50%] lg:w-[30%] p-2 focus:outline-none"
-          value={currTitle}
-          type="text"
-          onChange={(e) => {
-            setCurrTitle(e.target.value);
-          }}
-          onKeyDown={checkIfEnter}
+      <CreateInput
+        setCurrTitle={setCurrTitle}
+        currTitle={currTitle}
+        createNewFlashcardSet={createNewFlashcardSet}
+      />
+
+      <div className="text-red-600">{titleMsg}</div>
+
+      {!isImporting ? (
+        <DefaultHomeButtons
+          createNewFlashcardSet={createNewFlashcardSet}
+          setIsImporting={setIsImporting}
         />
-
-        <div className="text-red-600">{titleMsg}</div>
-
-        {!isImporting ? (
-          <div className="flex">
-            <button
-              onClick={() => createNewFlashcardSet()}
-              className="home-btn">
-              Create New
-            </button>
-            <button onClick={() => setIsImporting(true)} className="home-btn">
-              ImportQuestions
-            </button>
-          </div>
-        ) : (
-          <>
-            <div className="flex mb-2">
-              <button
-                onClick={() => handleImportQuestions()}
-                className="home-btn">
-                Done
-              </button>
-              <button
-                onClick={() => setIsImporting(false)}
-                className="home-btn">
-                Cancel
-              </button>
-            </div>
-            <ImportQuestions setImportQuestions={setImportQuestions} />
-          </>
-        )}
-      </div>
-    </>
+      ) : (
+        <>
+          <ImportingBtns
+            currTitle={currTitle}
+            importQuestions={importQuestions}
+            setIsImporting={setIsImporting}
+            setTitleMsg={setTitleMsg}
+            setTitleSets={setTitleSets}
+            titleSets={titleSets}
+          />
+          <ImportQuestions setImportQuestions={setImportQuestions} />
+        </>
+      )}
+    </div>
   );
 };
 

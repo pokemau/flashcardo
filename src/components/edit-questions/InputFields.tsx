@@ -2,12 +2,12 @@ import { generateUID } from "../../utils/generateUID";
 import { QuestionsListType } from "../../pages/edit";
 import React from "react";
 
-export interface InputFieldsProps {
+export type InputFieldsProps = {
   setQuestionsList: React.Dispatch<React.SetStateAction<QuestionsListType[]>>;
   questionsList: QuestionsListType[];
   inputAnsRef: React.RefObject<HTMLTextAreaElement>;
   inputDefRef: React.RefObject<HTMLTextAreaElement>;
-}
+};
 
 const InputFields: React.FC<InputFieldsProps> = ({
   questionsList,

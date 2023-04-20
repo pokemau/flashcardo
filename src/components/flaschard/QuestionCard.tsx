@@ -1,8 +1,8 @@
-interface QuestionCardProps {
+type QuestionCardProps = {
   showAns: boolean;
   currAns: string;
   currQuestion: string;
-}
+};
 
 const QuestionCard: React.FC<QuestionCardProps> = ({
   showAns,

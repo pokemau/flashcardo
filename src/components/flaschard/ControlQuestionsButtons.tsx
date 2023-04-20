@@ -1,13 +1,12 @@
 import { useEffect, Dispatch, SetStateAction } from "react";
 
-interface ControlQuesBtnProps {
+type ControlQuesBtnProps = {
   showAns: boolean;
   setShowAns: Dispatch<SetStateAction<boolean>>;
   currNum: number;
   setCurrNum: Dispatch<SetStateAction<number>>;
   questionsListLen: number;
-}
-
+};
 
 const ControlQuestionsButtons: React.FC<ControlQuesBtnProps> = ({
   showAns,
