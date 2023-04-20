@@ -1,4 +1,4 @@
-import { generateUID } from "../Utils/generateUID";
+import { generateUID } from "../../utils/generateUID";
 import { QuestionsListType } from "../../pages/edit";
 import React from "react";
 

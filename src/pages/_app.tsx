@@ -3,7 +3,7 @@ import Head from "next/head";
 import { AppProps } from "next/app";
 
 // components
-import Layout from "../components/HeaderFooter/Layout";
+import Layout from "../components/header-footer/Layout";
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (

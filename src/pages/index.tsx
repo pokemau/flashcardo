@@ -3,8 +3,8 @@ import Head from "next/head";
 import { useState, useEffect } from "react";
 
 // components
-import PreviousCards from "../components/HomePage/PreviousCards";
-import CreateNewCard from "../components/HomePage/CreateNewCard";
+import PreviousCards from "../components/home-page/PreviousCards";
+import CreateNewCard from "../components/home-page/CreateNewCard";
 
 const Home: React.FC = () => {
   const [currTitle, setCurrTitle] = useState<string>("");
