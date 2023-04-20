@@ -49,11 +49,11 @@ const InputFields: React.FC<InputFieldsProps> = ({
 
   return (
     <>
-      <div className="mt-4 lg:mt-5 w-[100%] flex flex-col items-center mb-4 lg:w-[50%] lg:mx-auto">
+      <div className="mt-4 lg:mt-5 w-[100%] flex flex-col items-center mb-4 lg:w-[50%] lg:mx-auto transition-all">
         <textarea
           name="ques-form"
           placeholder="Write your question here..."
-          className="block h-full min-h-[10em] resize-none w-[90%] mt-2 border-[1px] border-[#b1b1b1] rounded text-xl p-2"
+          className="h-full min-h-[15rem] resize-none w-[90%] mt-2 border-[1px] border-[#b1b1b1] rounded text-xl p-2"
           ref={inputDefRef}
           onKeyDown={checkIfEnterKeyIsPressed}></textarea>
 

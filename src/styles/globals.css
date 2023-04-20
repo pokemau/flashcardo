@@ -22,7 +22,7 @@
     @apply hover:bg-gray-200 flex items-center justify-center h-8 w-14 md:w-16 rounded transition-all;
   }
   .empty-input {
-    @apply empty:before:content-[attr(input-placeholder)] empty:before:opacity-30;
+    @apply empty:before:content-[attr(input-placeholder)] empty:before:opacity-50;
   }
   .flashcard-btn {
     @apply bg-[#b989c2] md:min-w-[10%] rounded hover:bg-[#a77aaf] transition-all duration-100 p-2 mt-2 mx-2;
@@ -34,7 +34,7 @@
 
 @layer utilities {
   .edit-form {
-    @apply p-[0.30rem] min-h-[3em] w-[98%] m-auto bg-gray-200 hover:cursor-text;
+    @apply empty:before:content-[attr(placeholder)] empty:before:text-[rgb(68,68,68)] empty:before:opacity-50 p-[0.30rem] min-h-[3em] w-[98%] m-auto bg-gray-200 hover:cursor-text outline-none;
   }
   .home-btn {
     @apply cursor-pointer bg-[#b989c2] mx-1 py-1 px-2 text-lg rounded my-[5px] hover:bg-[#a77aaf] transition-all duration-100;
@@ -75,3 +75,10 @@
 .card-back {
   transform: rotateY(180deg);
 }
+
+/* [placeholder]:empty:before {
+  content: attr(placeholder);
+  color: rgb(68, 68, 68);
+  opacity: 0.5;
+  cursor: text;
+} */
