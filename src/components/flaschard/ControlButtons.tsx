@@ -52,7 +52,8 @@ const ControlQuestionsButtons: React.FC<ControlQuesBtnProps> = ({
   }
 
   return (
-    <div className="flex justify-center">
+                  <div className="flex justify-center">
+
       <button
         className="flashcard-btn px-11"
         type="button"

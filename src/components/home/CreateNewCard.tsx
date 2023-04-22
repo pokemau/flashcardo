@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { Dispatch, SetStateAction, useState } from "react";
-import ImportQuestions from "./import-export/ImportQuestions";
+import ImportQuestions from "./ImportQuestionsField";
 import CreateInput from "./CreateInput";
 import DefaultHomeButtons from "./DefaultHomeBtns";
 import ImportingBtns from "./ImportingBtns";

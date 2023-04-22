@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Head from "next/head";
 import QuestionCard from "../components/flaschard/QuestionCard";
-import ControlQuestionsButtons from "../components/flaschard/ControlQuestionsButtons";
+import ControlQuestionsButtons from "../components/flaschard/ControlButtons";
 import { useRouter } from "next/router";
 import { QuestionsListType } from "./edit";
 

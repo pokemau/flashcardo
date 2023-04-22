@@ -18,7 +18,7 @@ const EditQuestion: React.FC<EditQuestionProps> = ({
   questionsList,
   setQuestionsList,
 }) => {
-  const [newAnsVal, setNewAnsVal] = useState(question.ans);
+          const [newAnsVal, setNewAnsVal] = useState(question.ans);
   const [newDefVal, setNewDefVal] = useState(question.def);
 
   function handleFinishEditQuestion() {
