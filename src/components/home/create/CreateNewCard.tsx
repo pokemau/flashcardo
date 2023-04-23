@@ -1,9 +1,9 @@
 import { useRouter } from "next/router";
 import { Dispatch, SetStateAction, useState } from "react";
-import ImportQuestions from "../ImportQuestionsField";
+import ImportQuestions from "../importing/ImportQuestionsField";
 import CreateInput from "./CreateInput";
 import DefaultHomeButtons from "./DefaultHomeBtns";
-import ImportingBtns from "../ImportingBtns";
+import ImportingBtns from "../importing/ImportingBtns";
 
 type CreateNewCardProps = {
   titleSets: string[];

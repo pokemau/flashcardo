@@ -1,6 +1,6 @@
 import { BsFillTrashFill } from "react-icons/bs";
 import { MouseEvent, Dispatch, SetStateAction } from "react";
-import { QuestionsListType } from "../../../pages/edit";
+import { QuestionsListType } from "../../../../pages/edit";
 
 type DeleteQuesOptProps = {
   setQuestionsList: Dispatch<SetStateAction<QuestionsListType[]>>;

@@ -1,6 +1,6 @@
 import { AiFillEdit } from "react-icons/ai";
 import { Dispatch, SetStateAction } from "react";
-import { QuestionsListType } from "../../../pages/edit";
+import { QuestionsListType } from "../../../../pages/edit";
 ("");
 
 type EditQuesOptProps = {

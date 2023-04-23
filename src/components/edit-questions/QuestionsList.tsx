@@ -1,11 +1,9 @@
 import { useEffect, useState, Dispatch, SetStateAction } from "react";
 
 import { QuestionsListType } from "../../pages/edit";
-
 import EditQuestion from "./EditQuestion";
-import EditQuesOpt from "./ques-list-opts/EditQuesOpt";
-import DeleteQuesOpt from "./ques-list-opts/DeleteQuesOpt";
 import StartBtn from "./start-btn/StartBtn";
+import QuesOpts from "./ques-list-opts/QuesOpts";
 
 type QuestionsListProps = {
   questionsList: QuestionsListType[];
@@ -60,32 +58,23 @@ const QuestionsList: React.FC<QuestionsListProps> = ({
                     </div>
 
                     {hoverIndex === index && (
-                      <div
-                        className="flex absolute right-2 top-1 z-10 
-                        border-[1px] border-[#b1b1b1] rounded">
-                        <EditQuesOpt
-                          question={question}
-                          index={index}
-                          setEditIndex={setEditIndex}
-                        />
-                        <DeleteQuesOpt
-                          question={question}
-                          questionsList={questionsList}
-                          setQuestionsList={setQuestionsList}
-                        />
-                      </div>
+                      <QuesOpts
+                        index={index}
+                        question={question}
+                        questionsList={questionsList}
+                        setEditIndex={setEditIndex}
+                        setQuestionsList={setQuestionsList}
+                      />
                     )}
                   </div>
                 ) : (
-                  <>
-                    <EditQuestion
-                      question={question}
-                      index={index}
-                      setEditIndex={setEditIndex}
-                      questionsList={questionsList}
-                      setQuestionsList={setQuestionsList}
-                    />
-                  </>
+                  <EditQuestion
+                    question={question}
+                    index={index}
+                    setEditIndex={setEditIndex}
+                    questionsList={questionsList}
+                    setQuestionsList={setQuestionsList}
+                  />
                 )}
               </div>
             ))}

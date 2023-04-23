@@ -3,7 +3,7 @@ import Head from "next/head";
 import { useState, useEffect } from "react";
 
 // components
-import PreviousCards from "../components/home/PreviousCards";
+import PreviousCards from "../components/home/previous-cards/PreviousCards";
 import CreateNewCard from "../components/home/create/CreateNewCard";
 
 const Home: React.FC = () => {

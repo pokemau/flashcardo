@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
 import { Dispatch, SetStateAction, useState } from "react";
-import EditOpt from "./title-set-options/EditOpt";
-import ExportOpt from "./title-set-options/ExportOpt";
-import DeleteOpt from "./title-set-options/DeleteOpt";
+import EditOpt from "./previous-card-options/EditOpt";
+import ExportOpt from "./previous-card-options/ExportOpt";
+import DeleteOpt from "./previous-card-options/DeleteOpt";
 
 type PrevCardsProps = {
   titleSets: string[];
