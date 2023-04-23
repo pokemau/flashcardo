@@ -32,7 +32,7 @@ const EditQuestions = () => {
       setCurrTitle(titleFromStorage);
       const questionsLocalStorage = localStorage.getItem(titleFromStorage)!;
       const questions: QuestionsListType[] = JSON.parse(questionsLocalStorage);
-      setQuestionsList([...questions]);
+      if (questions) setQuestionsList([...questions]);
     }
     if (tSetsFromStorage) {
       setTitleSets(JSON.parse(tSetsFromStorage));
