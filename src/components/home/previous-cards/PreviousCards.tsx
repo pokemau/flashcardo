@@ -20,7 +20,6 @@ const PreviousCards: React.FC<PrevCardsProps> = ({
   const [isHovered, setIsHovered] = useState(-1);
 
   function goToFlashcardSet(title: string) {
-    console.log("black");
     setCurrTitle(title);
     localStorage.setItem("currTitle", title);
     router.push("/flashcard");
@@ -40,7 +39,7 @@ const PreviousCards: React.FC<PrevCardsProps> = ({
               onMouseEnter={() => setIsHovered(index)}
               onMouseLeave={() => setIsHovered(-1)}>
               <div
-                className="flex pl-3 text-lg w-[70%]"
+                className="flex pl-3 text-lg w-full"
                 onClick={() => {
                   goToFlashcardSet(title);
                 }}>
