@@ -25,11 +25,18 @@ const EditQuestions = () => {
 
   // get local storage items
   useEffect(() => {
-    const titleLocalStorage = localStorage.getItem("currTitle");
-    const titleSetsLocalStorage = localStorage.getItem("titleSets");
+    const titleFromStorage = localStorage.getItem("currTitle");
+    const tSetsFromStorage = localStorage.getItem("titleSets");
 
-    if (titleLocalStorage) setCurrTitle(titleLocalStorage);
-    if (titleSetsLocalStorage) setTitleSets(JSON.parse(titleSetsLocalStorage));
+    if (titleFromStorage) {
+      setCurrTitle(titleFromStorage);
+      const questionsLocalStorage = localStorage.getItem(titleFromStorage)!;
+      const questions: QuestionsListType[] = JSON.parse(questionsLocalStorage);
+      setQuestionsList([...questions]);
+    }
+    if (tSetsFromStorage) {
+      setTitleSets(JSON.parse(tSetsFromStorage));
+    }
 
     inputDefRef?.current?.focus();
   }, []);
