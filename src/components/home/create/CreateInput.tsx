@@ -18,7 +18,8 @@ const CreateInput: React.FC<CreateInputProps> = ({
   }
   return (
     <input
-      className="flex h-8 w-[65%] m-2 border-[1px] border-[#a8a8a8] md:w-[50%] lg:w-[30%] p-2 focus:outline-none"
+      className="flex h-8 w-[65%] m-2 border-[1px] border-[#a8a8a8] md:w-[50%]
+			lg:w-[30%] p-2 focus:outline-none"
       value={currTitle}
       type="text"
       onChange={(e) => {

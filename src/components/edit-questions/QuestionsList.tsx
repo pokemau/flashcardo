@@ -66,16 +66,25 @@ const QuestionsList: React.FC<QuestionsListProps> = ({
       <div className="flex items-center flex-col">
         <h1 className="text-2xl font-bold">Questions</h1>
 
-        <div className="w-[95%] mb-2 border-[1px] border-[#b3b3b3] min-h-[20vh] h-auto rounded lg:min-h-[30vh] lg:max-h-[75vh] overflow-auto">
+        <div
+          className="w-[95%] mb-2 border-[1px] border-[#b3b3b3]
+          min-h-[20vh] h-auto rounded lg:min-h-[30vh] lg:max-h-[75vh]
+          overflow-auto"
+        >
           {questionsList &&
             questionsList.map((question, index) => (
               <div
-                className="relative cursor-pointer border-b-[1px] border-[#b3b3b3] "
+                className="relative cursor-pointer border-b-[1px]
+                border-[#b3b3b3]"
                 onMouseEnter={() => setHoverIndex(index)}
                 onMouseLeave={() => setHoverIndex(-1)}
-                key={question.id}>
+                key={question.id}
+              >
                 {editIndex !== index ? (
-                  <div className="hover:bg-[#ebebeb] rounded px-2 py-[.60rem] ">
+                  <div
+                    className="hover:bg-[#ebebeb] rounded px-2 
+                    py-[.60rem] "
+                  >
                     <div className="break-words">
                       {index + 1}){" "}
                       <span className="font-bold">{question.ans}</span> -{" "}
@@ -83,10 +92,14 @@ const QuestionsList: React.FC<QuestionsListProps> = ({
                     </div>
 
                     {hoverIndex === index && (
-                      <div className="flex absolute right-2 top-1 z-10 border-[1px] border-[#b1b1b1] rounded">
+                      <div
+                        className="flex absolute right-2 top-1 z-10 
+                        border-[1px] border-[#b1b1b1] rounded"
+                      >
                         <button
                           className="question-list-btn rounded-tl rounded-bl"
-                          onClick={() => editSelectedQuestion(question, index)}>
+                          onClick={() => editSelectedQuestion(question, index)}
+                        >
                           <AiFillEdit />
                         </button>
 
@@ -94,7 +107,8 @@ const QuestionsList: React.FC<QuestionsListProps> = ({
                           className="question-list-btn rounded-tr rounded-br"
                           onClick={(e) => {
                             handleDeleteQuestions(e, question);
-                          }}>
+                          }}
+                        >
                           <BsFillTrashFill />
                         </button>
                       </div>
@@ -116,9 +130,11 @@ const QuestionsList: React.FC<QuestionsListProps> = ({
         </div>
 
         <button
-          className="cursor-pointer rounded px-4 py-1 bg-[#b989c2] hover:bg-[#a77aaf] transition-all duration-100"
+          className="cursor-pointer rounded px-4 py-1 bg-[#b989c2] 
+          hover:bg-[#a77aaf] transition-all duration-100"
           onClick={startFlashcard}
-          type="button">
+          type="button"
+        >
           Start
         </button>
       </div>
