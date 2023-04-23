@@ -1,9 +1,11 @@
-import { useRouter } from "next/router";
 import { useEffect, useState, Dispatch, SetStateAction } from "react";
-import EditQuestion from "./EditQuestion";
-import { AiFillEdit } from "react-icons/ai";
-import { BsFillTrashFill } from "react-icons/bs";
+
 import { QuestionsListType } from "../../pages/edit";
+
+import EditQuestion from "./EditQuestion";
+import EditQuesOpt from "./ques-list-opts/EditQuesOpt";
+import DeleteQuesOpt from "./ques-list-opts/DeleteQuesOpt";
+import StartBtn from "./start-btn/StartBtn";
 
 type QuestionsListProps = {
   questionsList: QuestionsListType[];
@@ -20,41 +22,8 @@ const QuestionsList: React.FC<QuestionsListProps> = ({
   titleSets,
   setTitleSets,
 }) => {
-  const router = useRouter();
-
   const [editIndex, setEditIndex] = useState(-1);
   const [hoverIndex, setHoverIndex] = useState(-1);
-
-  function startFlashcard(e: React.MouseEvent<HTMLButtonElement>) {
-    e.preventDefault();
-
-    if (questionsList.length) {
-      localStorage.setItem(currTitle, JSON.stringify(questionsList));
-      if (!titleSets.includes(currTitle)) {
-        setTitleSets([...titleSets, currTitle]);
-      }
-      router.push("/flashcard");
-    }
-  }
-
-  function handleDeleteQuestions(
-    e: React.MouseEvent<HTMLButtonElement>,
-    question: QuestionsListType
-  ) {
-    e.preventDefault();
-
-    setQuestionsList(
-      questionsList.filter(
-        (ques) =>
-          (ques.def && ques.ans && ques.id) !==
-          (question.def && question.ans && question.id)
-      )
-    );
-  }
-
-  function editSelectedQuestion(question: QuestionsListType, index: number) {
-    setEditIndex(index);
-  }
 
   // set title sets on local storage
   useEffect(() => {
@@ -94,19 +63,16 @@ const QuestionsList: React.FC<QuestionsListProps> = ({
                       <div
                         className="flex absolute right-2 top-1 z-10 
                         border-[1px] border-[#b1b1b1] rounded">
-                        <button
-                          className="question-list-btn rounded-tl rounded-bl"
-                          onClick={() => editSelectedQuestion(question, index)}>
-                          <AiFillEdit />
-                        </button>
-
-                        <button
-                          className="question-list-btn rounded-tr rounded-br"
-                          onClick={(e) => {
-                            handleDeleteQuestions(e, question);
-                          }}>
-                          <BsFillTrashFill />
-                        </button>
+                        <EditQuesOpt
+                          question={question}
+                          index={index}
+                          setEditIndex={setEditIndex}
+                        />
+                        <DeleteQuesOpt
+                          question={question}
+                          questionsList={questionsList}
+                          setQuestionsList={setQuestionsList}
+                        />
                       </div>
                     )}
                   </div>
@@ -125,13 +91,12 @@ const QuestionsList: React.FC<QuestionsListProps> = ({
             ))}
         </div>
 
-        <button
-          className="cursor-pointer rounded px-4 py-1 bg-[#b989c2] 
-          hover:bg-[#a77aaf] transition-all duration-100"
-          onClick={startFlashcard}
-          type="button">
-          Start
-        </button>
+        <StartBtn
+          currTitle={currTitle}
+          questionsList={questionsList}
+          setTitleSets={setTitleSets}
+          titleSets={titleSets}
+        />
       </div>
     </div>
   );

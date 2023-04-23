@@ -1,0 +1,41 @@
+import { BsFillTrashFill } from "react-icons/bs";
+import { MouseEvent, Dispatch, SetStateAction } from "react";
+import { QuestionsListType } from "../../../pages/edit";
+
+type DeleteQuesOptProps = {
+  setQuestionsList: Dispatch<SetStateAction<QuestionsListType[]>>;
+  questionsList: QuestionsListType[];
+  question: QuestionsListType;
+};
+
+const DeleteQuesOpt: React.FC<DeleteQuesOptProps> = ({
+  setQuestionsList,
+  questionsList,
+  question,
+}) => {
+  function handleDeleteQuestions(
+    e: MouseEvent<HTMLButtonElement>,
+    question: QuestionsListType
+  ) {
+    e.preventDefault();
+
+    setQuestionsList(
+      questionsList.filter(
+        (ques) =>
+          (ques.def && ques.ans && ques.id) !==
+          (question.def && question.ans && question.id)
+      )
+    );
+  }
+  return (
+    <button
+      className="question-list-btn rounded-tr rounded-br"
+      onClick={(e) => {
+        handleDeleteQuestions(e, question);
+      }}>
+      <BsFillTrashFill />
+    </button>
+  );
+};
+
+export default DeleteQuesOpt;
