@@ -33,7 +33,6 @@ const Flashcard = () => {
     while (questions.length) {
       const randNum = Math.floor(Math.random() * questions.length);
       const newQuestion: QuestionsListType = questions[randNum];
-      console.log(newQuestion);
 
       // set initial currQuestion and currAns
       if (!runOnce) {
