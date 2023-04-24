@@ -1,9 +1,9 @@
 import { useEffect, useState, Dispatch, SetStateAction } from "react";
 
-import { QuestionsListType } from "../../pages/edit";
+import { QuestionsListType } from "../../../pages/edit";
 import EditQuestion from "./EditQuestion";
-import StartBtn from "./start-btn/StartBtn";
-import QuesOpts from "./ques-list-opts/QuesOpts";
+import StartBtn from "../start-btn/StartBtn";
+import QuesOpts from "../ques-list-opts/QuesOpts";
 
 type QuestionsListProps = {
   questionsList: QuestionsListType[];

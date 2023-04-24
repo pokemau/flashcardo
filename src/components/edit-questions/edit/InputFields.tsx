@@ -1,5 +1,5 @@
-import { generateUID } from "../../utils/generateUID";
-import { QuestionsListType } from "../../pages/edit";
+import { generateUID } from "../../../utils/generateUID";
+import { QuestionsListType } from "../../../pages/edit";
 import {
   SetStateAction,
   Dispatch,

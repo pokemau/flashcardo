@@ -2,8 +2,8 @@ import Head from "next/head";
 import { useRef, useEffect, useState } from "react";
 
 // components
-import InputFields from "../components/edit-questions/InputFields";
-import QuestionsList from "../components/edit-questions/QuestionsList";
+import InputFields from "../components/edit-questions/edit/InputFields";
+import QuestionsList from "../components/edit-questions/edit/QuestionsList";
 
 export type QuestionsListType = {
   id: string;

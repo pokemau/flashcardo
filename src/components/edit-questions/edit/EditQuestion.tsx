@@ -1,4 +1,4 @@
-import { QuestionsListType } from "../../pages/edit";
+import { QuestionsListType } from "../../../pages/edit";
 import { Dispatch, SetStateAction, useState } from "react";
 
 import { AiOutlineCheck } from "react-icons/ai";
@@ -49,8 +49,7 @@ const EditQuestion: React.FC<EditQuestionProps> = ({
             role="textbox"
             contentEditable={true}
             suppressContentEditableWarning={true}
-            onInput={(e) => setNewAnsVal(e.currentTarget.textContent || "")}
-          >
+            onInput={(e) => setNewAnsVal(e.currentTarget.textContent || "")}>
             {question.ans}
           </div>
         </div>
@@ -61,8 +60,7 @@ const EditQuestion: React.FC<EditQuestionProps> = ({
           role="textbox"
           contentEditable={true}
           suppressContentEditableWarning={true}
-          onInput={(e) => setNewDefVal(e.currentTarget.textContent || "")}
-        >
+          onInput={(e) => setNewDefVal(e.currentTarget.textContent || "")}>
           {question.def}
         </div>
 
@@ -71,8 +69,7 @@ const EditQuestion: React.FC<EditQuestionProps> = ({
             type="button"
             onClick={() => handleFinishEditQuestion()}
             className="mt-1 bg-[#b989c2] px-4 py-2 rounded hover:bg-[#a77aaf]
-            font-bold"
-          >
+            font-bold">
             <AiOutlineCheck />
           </button>
         </div>
