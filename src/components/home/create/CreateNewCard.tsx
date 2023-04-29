@@ -51,7 +51,9 @@ const CreateNewCard: React.FC<CreateNewCardProps> = ({
 
   return (
     <div className="w-[100vw] flex flex-col items-center">
-      <h1 className="text-2xl font-bold">Create New Flashcard</h1>
+      <h1 className="text-2xl font-bold">
+        {isImporting ? "Import Questions" : "Create New Flashcard"}
+      </h1>
 
       <CreateInput
         setCurrTitle={setCurrTitle}
