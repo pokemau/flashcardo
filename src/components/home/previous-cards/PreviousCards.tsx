@@ -1,8 +1,9 @@
 import { useRouter } from "next/router";
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction, useRef, useState } from "react";
 import EditOpt from "./previous-card-options/EditOpt";
 import ExportOpt from "./previous-card-options/ExportOpt";
 import DeleteOpt from "./previous-card-options/DeleteOpt";
+import ExportMsg from "../export-msg/ExportMsg";
 
 type PrevCardsProps = {
   titleSets: string[];
@@ -18,6 +19,7 @@ const PreviousCards: React.FC<PrevCardsProps> = ({
   const router = useRouter();
 
   const [isHovered, setIsHovered] = useState(-1);
+  const exportMsgRef = useRef<HTMLDivElement>(null);
 
   function goToFlashcardSet(title: string) {
     setCurrTitle(title);
@@ -27,6 +29,7 @@ const PreviousCards: React.FC<PrevCardsProps> = ({
 
   return (
     <div className="w-full mx-auto flex flex-col items-center">
+      <ExportMsg exportMsgRef={exportMsgRef} />
       <h1 className="text-2xl font-bold mt-4 mb-2">Previous Flashcards</h1>
       {titleSets &&
         titleSets.map((title, index) => (
@@ -53,7 +56,7 @@ const PreviousCards: React.FC<PrevCardsProps> = ({
 								border-[#b1b1b1] rounded"
               >
                 <EditOpt title={title} />
-                <ExportOpt title={title} />
+                <ExportOpt title={title} exportMsgRef={exportMsgRef} />
                 <DeleteOpt
                   index={index}
                   title={title}
