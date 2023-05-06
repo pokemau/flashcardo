@@ -10,7 +10,7 @@ const DefaultHomeButtons: React.FC<DefaultHomeButtonsProps> = ({
   setIsImporting,
 }) => {
   return (
-    <div className="flex">
+    <div className="flex flex-col">
       <button onClick={() => createNewFlashcardSet()} className="home-btn">
         Create New
       </button>
