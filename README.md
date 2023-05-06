@@ -1,3 +1,4 @@
-# Flashcardo with Next JS
-<p>NextJS Tailwind CSS</p>
+# Flashcardo
+Make flashcards for studying :D
+
 https://flashcardo.vercel.app/
