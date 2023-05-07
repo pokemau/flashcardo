@@ -2,6 +2,7 @@ import { Dispatch, SetStateAction } from "react";
 import { useRouter } from "next/router";
 import { QuestionsListType } from "../../../pages/edit";
 import { existsMsg, isBlankTitle } from "../create/CreateNewCard";
+import { Button } from "../../../ui/button/Button";
 
 type ImportingBtnsProps = {
   setIsImporting: Dispatch<SetStateAction<boolean>>;
@@ -14,6 +15,8 @@ type ImportingBtnsProps = {
 
 const invalidQuesFormat = "Invalid question format.";
 const quesIsBlank = "Questions cannot be blank.";
+const doneTitle = "Done";
+const cancelTitle = "Cancel";
 
 const ImportingBtns: React.FC<ImportingBtnsProps> = ({
   setIsImporting,
@@ -89,12 +92,8 @@ const ImportingBtns: React.FC<ImportingBtnsProps> = ({
   }
   return (
     <div className="flex mb-2">
-      <button onClick={() => handleImportQuestions()} className="home-btn">
-        Done
-      </button>
-      <button onClick={() => setIsImporting(false)} className="home-btn">
-        Cancel
-      </button>
+      <Button btnFunc={handleImportQuestions} btnTitle={doneTitle} />
+      <Button btnFunc={() => setIsImporting(false)} btnTitle={cancelTitle} />
     </div>
   );
 };

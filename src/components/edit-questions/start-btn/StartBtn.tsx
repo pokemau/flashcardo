@@ -1,5 +1,5 @@
 import { MouseEvent, Dispatch, SetStateAction } from "react";
-import Router, { useRouter } from "next/router";
+import { useRouter } from "next/router";
 
 import { QuestionsListType } from "../../../pages/edit";
 
@@ -30,7 +30,13 @@ const StartBtn: React.FC<StartBtnProps> = ({
     }
   }
   return (
-    <button className="normal-btn mb-4" onClick={startFlashcard} type="button">
+    <button
+      className="min-w-[20vw] md:min-w-[8rem] cursor-pointer bg-primary-btn mx-1 
+      py-1 px-2 text-lg rounded my-[5px] hover:bg-[#a77aaf] transition-all 
+      duration-100 shadow-md"
+      onClick={startFlashcard}
+      type="button"
+    >
       Start
     </button>
   );
