@@ -1,5 +1,7 @@
+import { MouseEvent } from "react";
+
 type ButtonProps = {
-  btnFunc: (value?: boolean | number | string) => void;
+  btnFunc: (e?: boolean | number | string) => void;
   btnTitle: string;
 };
 

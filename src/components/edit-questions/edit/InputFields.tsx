@@ -7,6 +7,7 @@ import {
   KeyboardEvent,
   MouseEvent,
 } from "react";
+import { Button } from "../../../ui/button/Button";
 
 export type InputFieldsProps = {
   setQuestionsList: Dispatch<SetStateAction<QuestionsListType[]>>;
@@ -15,14 +16,16 @@ export type InputFieldsProps = {
   inputDefRef: RefObject<HTMLTextAreaElement>;
 };
 
+const addQuesTitle = "Add Question";
+
 const InputFields: React.FC<InputFieldsProps> = ({
   questionsList,
   setQuestionsList,
   inputAnsRef,
   inputDefRef,
 }) => {
-  function addNewQuestion(e?: MouseEvent<HTMLButtonElement>) {
-    if (e) e.preventDefault();
+  function addNewQuestion() {
+    // if (e) e.preventDefault();
 
     const ansRefVal = inputAnsRef.current?.value.trim();
     const defRefVal = inputDefRef.current?.value.trim();
@@ -75,9 +78,7 @@ const InputFields: React.FC<InputFieldsProps> = ({
           onKeyDown={checkIfEnterKeyIsPressed}
         ></textarea>
 
-        <button className="normal-btn" type="button" onClick={addNewQuestion}>
-          Add Question
-        </button>
+        <Button btnFunc={addNewQuestion} btnTitle={addQuesTitle} />
       </div>
     </>
   );
