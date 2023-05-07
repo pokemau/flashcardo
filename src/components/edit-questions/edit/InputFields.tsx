@@ -75,12 +75,7 @@ const InputFields: React.FC<InputFieldsProps> = ({
           onKeyDown={checkIfEnterKeyIsPressed}
         ></textarea>
 
-        <button
-          className="py-1 px-2 rounded text-lg bg-[#b989c2] hover:bg-[#a77aaf]
-          transition-all duration-100 "
-          type="button"
-          onClick={addNewQuestion}
-        >
+        <button className="normal-btn" type="button" onClick={addNewQuestion}>
           Add Question
         </button>
       </div>

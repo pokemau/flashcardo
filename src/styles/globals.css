@@ -34,6 +34,10 @@
     flex items-center justify-center bg-[#e4e4e4]/90 p-1 hover:bg-[#d8d8d8] 
     text-[1.3em];
   }
+  .normal-btn {
+    @apply min-w-[20vw] md:min-w-[8rem] cursor-pointer bg-[#b989c2] mx-1 py-1 px-2 text-lg rounded my-[5px] 
+    hover:bg-[#a77aaf] transition-all duration-100 shadow-md;
+  }
 }
 
 @layer utilities {
@@ -41,10 +45,6 @@
     @apply empty:before:content-[attr(placeholder)] empty:before:text-[rgb(68,68,68)] 
     empty:before:opacity-50 p-[0.30rem] min-h-[3em] w-[98%] m-auto bg-gray-200 
     hover:cursor-text outline-none;
-  }
-  .home-btn {
-    @apply cursor-pointer bg-[#b989c2] mx-1 py-1 px-2 text-lg rounded my-[5px] 
-    hover:bg-[#a77aaf] transition-all duration-100;
   }
   .show-export-msg {
     @apply visible scale-100 top-2;

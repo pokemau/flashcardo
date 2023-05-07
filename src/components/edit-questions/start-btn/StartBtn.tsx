@@ -30,11 +30,7 @@ const StartBtn: React.FC<StartBtnProps> = ({
     }
   }
   return (
-    <button
-      className="cursor-pointer rounded px-4 py-1 bg-[#b989c2] 
-          hover:bg-[#a77aaf] transition-all duration-100"
-      onClick={startFlashcard}
-      type="button">
+    <button className="normal-btn mb-4" onClick={startFlashcard} type="button">
       Start
     </button>
   );

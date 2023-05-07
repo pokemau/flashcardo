@@ -52,26 +52,26 @@ const ControlQuestionsButtons: React.FC<ControlQuesBtnProps> = ({
   }
 
   return (
-                  <div className="flex justify-center">
-
+    <div className="flex justify-center">
       <button
-        className="flashcard-btn px-11"
+        className="normal-btn"
         type="button"
-        onClick={() => goToPrevQuestion()}>
+        onClick={() => goToPrevQuestion()}
+      >
         Previous
       </button>
 
       <button
-        className="flashcard-btn"
+        className="normal-btn"
         type="button"
-        onClick={() => showAnswer()}>{`${
-        showAns ? "Hide" : "Show"
-      } Answer`}</button>
+        onClick={() => showAnswer()}
+      >{`${showAns ? "Hide" : "Show"} Answer`}</button>
 
       <button
-        className="flashcard-btn px-11"
+        className="normal-btn"
         type="button"
-        onClick={() => goToNextQuestion()}>
+        onClick={() => goToNextQuestion()}
+      >
         Next
       </button>
     </div>
