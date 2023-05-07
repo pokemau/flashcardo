@@ -1,4 +1,5 @@
 import { useEffect, Dispatch, SetStateAction } from "react";
+import { Button } from "../../ui/button/Button";
 
 type ControlQuesBtnProps = {
   showAns: boolean;
@@ -7,6 +8,9 @@ type ControlQuesBtnProps = {
   setCurrNum: Dispatch<SetStateAction<number>>;
   questionsListLen: number;
 };
+
+const prevQuesTitle = "Previous";
+const nextQuesTitle = "Next";
 
 const ControlQuestionsButtons: React.FC<ControlQuesBtnProps> = ({
   showAns,
@@ -52,28 +56,13 @@ const ControlQuestionsButtons: React.FC<ControlQuesBtnProps> = ({
   }
 
   return (
-    <div className="flex justify-center">
-      <button
-        className="normal-btn"
-        type="button"
-        onClick={() => goToPrevQuestion()}
-      >
-        Previous
-      </button>
-
-      <button
-        className="normal-btn"
-        type="button"
-        onClick={() => showAnswer()}
-      >{`${showAns ? "Hide" : "Show"} Answer`}</button>
-
-      <button
-        className="normal-btn"
-        type="button"
-        onClick={() => goToNextQuestion()}
-      >
-        Next
-      </button>
+    <div className="flex flex-col w-[50%] m-auto md:flex-row justify-center">
+      <Button btnFunc={goToPrevQuestion} btnTitle={prevQuesTitle} />
+      <Button
+        btnFunc={showAnswer}
+        btnTitle={`${showAns ? "Hide" : "Show"} Answer`}
+      />
+      <Button btnFunc={goToNextQuestion} btnTitle={nextQuesTitle} />
     </div>
   );
 };
