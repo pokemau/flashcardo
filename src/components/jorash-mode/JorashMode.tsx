@@ -1,3 +1,7 @@
+/*
+  "Jorash Mode" is a special feature requested by my friend :D
+*/
+
 import { ChangeEvent, useRef, useState } from "react";
 import { QuestionsListType } from "../../pages/edit";
 import { generateUID } from "../../utils/generateUID";
@@ -20,8 +24,7 @@ const JorashMode = () => {
       return;
     }
 
-    let i = 0;
-    while (i < entries.length - 1) {
+    for (let i = 0; i < entries.length - 1; i += 2) {
       const ans = entries[i];
       const def = entries[i + 1];
 
@@ -29,8 +32,6 @@ const JorashMode = () => {
         ...prev,
         { id: generateUID(), def: def, ans: ans },
       ]);
-
-      i += 2;
     }
 
     setUserInput("");
