@@ -25,8 +25,6 @@ const InputFields: React.FC<InputFieldsProps> = ({
   inputDefRef,
 }) => {
   function addNewQuestion() {
-    // if (e) e.preventDefault();
-
     const ansRefVal = inputAnsRef.current?.value.trim();
     const defRefVal = inputDefRef.current?.value.trim();
 
