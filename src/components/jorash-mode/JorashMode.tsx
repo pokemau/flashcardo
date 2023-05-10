@@ -64,16 +64,21 @@ const JorashMode: React.FC<JorashModeProps> = ({ setQuestionsList }) => {
         ></textarea>
 
         <div className="flex justify-center items-center">
-          <div className="group relative flex items-center justify-center">
-            <div>
+          <div className=" flex items-center justify-center">
+            <div className="group relative inline-block">
               <AiOutlineQuestionCircle className="cursor-pointer text-[1.5rem]" />
 
-              <Image
-                alt="question-format-tooltip"
-                src={tooltip}
-                className="invisible group-hover:visible opacity-0
-          group-hover:opacity-100 transition-all absolute rounded"
-              />
+              <div
+                className="invisible group-hover:visible opacity-0 
+                group-hover:opacity-100 transition-all absolute rounded
+                top-[140%] w-[8rem] z-10"
+              >
+                <Image
+                  alt="question-format-tooltip"
+                  src={tooltip}
+                  className="rounded"
+                />
+              </div>
             </div>
 
             <Button
