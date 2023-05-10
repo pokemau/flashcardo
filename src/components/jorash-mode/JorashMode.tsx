@@ -13,6 +13,9 @@ import tooltip from "../../../public/images/question-format-tooltip.jpg";
 import { QuestionsListType } from "../../pages/edit";
 import { generateUID } from "../../utils/generateUID";
 import { Button } from "../../ui/button/Button";
+import InvalidMessage from "../../ui/notification/invalid-msg/InvalidMessage";
+
+const invalidFormatMsg = "Invalid format, check number of lines.";
 
 export type JorashModeProps = {
   setQuestionsList: Dispatch<SetStateAction<QuestionsListType[]>>;
@@ -21,6 +24,7 @@ export type JorashModeProps = {
 const JorashMode: React.FC<JorashModeProps> = ({ setQuestionsList }) => {
   const [userInput, setUserInput] = useState("");
   const JMref = useRef<HTMLTextAreaElement>(null);
+  const [isValidInput, setIsValidInput] = useState(true);
 
   const handleKeyPress = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setUserInput(e.target.value);
@@ -32,6 +36,10 @@ const JorashMode: React.FC<JorashModeProps> = ({ setQuestionsList }) => {
 
     const isValidLen = Math.floor(entries.length % 2) !== 0;
     if (isValidLen) {
+      setIsValidInput(false);
+      setTimeout(() => {
+        setIsValidInput(true);
+      }, 1200);
       return;
     }
 
@@ -62,16 +70,21 @@ const JorashMode: React.FC<JorashModeProps> = ({ setQuestionsList }) => {
           onChange={(e) => handleKeyPress(e)}
           ref={JMref}
         ></textarea>
+        {!isValidInput && <InvalidMessage msg={invalidFormatMsg} />}
 
         <div className="flex justify-center items-center">
-          <div className=" flex items-center justify-center">
+          <div className="flex flex-col items-center gap-2 mt-2">
+            <Button
+              btnFunc={() => addQuestions(userInput)}
+              btnTitle="Add Questions"
+            />
             <div className="group relative inline-block">
               <AiOutlineQuestionCircle className="cursor-pointer text-[1.5rem]" />
 
               <div
                 className="invisible group-hover:visible opacity-0 
                 group-hover:opacity-100 transition-all absolute rounded
-                top-[140%] w-[8rem] z-10"
+                top-[140%] right-[-220%] w-[8rem] z-10"
               >
                 <Image
                   alt="question-format-tooltip"
@@ -80,11 +93,6 @@ const JorashMode: React.FC<JorashModeProps> = ({ setQuestionsList }) => {
                 />
               </div>
             </div>
-
-            <Button
-              btnFunc={() => addQuestions(userInput)}
-              btnTitle="Add Questions"
-            />
           </div>
         </div>
       </div>
