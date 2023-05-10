@@ -2,10 +2,8 @@ import Head from "next/head";
 import { useRef, useEffect, useState } from "react";
 
 // components
-import InputFields from "../components/edit-questions/edit/InputFields";
 import QuestionsList from "../components/edit-questions/edit/QuestionsList";
 import JorashMode from "../components/jorash-mode/JorashMode";
-import { Button } from "../ui/button/Button";
 
 export type QuestionsListType = {
   id: string;
@@ -51,27 +49,8 @@ const EditQuestions = () => {
         <title>Flashcardo | Edit</title>
       </Head>
 
-      <div className="w-[5rem] m-auto">
-        <Button
-          btnFunc={() => setIsJorashMode(!isJorashMode)}
-          btnTitle={isJorashMode ? "Jorash Mode" : "Normal Mode"}
-        />
-      </div>
-
       <div className="mt-1 w-full m-auto lg:flex">
-        {isJorashMode ? (
-          <JorashMode
-            questionsList={questionsList}
-            setQuestionsList={setQuestionsList}
-          />
-        ) : (
-          <InputFields
-            setQuestionsList={setQuestionsList}
-            questionsList={questionsList}
-            inputAnsRef={inputAnsRef}
-            inputDefRef={inputDefRef}
-          />
-        )}
+        <JorashMode setQuestionsList={setQuestionsList} />
 
         <QuestionsList
           questionsList={questionsList}

@@ -1,28 +1,24 @@
-/*
-  "Jorash Mode" is a special feature requested by my friend :D
-*/
-
 import React, {
   ChangeEvent,
   Dispatch,
-  RefObject,
   SetStateAction,
   useRef,
   useState,
 } from "react";
+import Image from "next/image";
+
+import { AiOutlineQuestionCircle } from "react-icons/ai";
+import tooltip from "../../../public/images/question-format-tooltip.jpg";
+
 import { QuestionsListType } from "../../pages/edit";
 import { generateUID } from "../../utils/generateUID";
 import { Button } from "../../ui/button/Button";
 
 export type JorashModeProps = {
   setQuestionsList: Dispatch<SetStateAction<QuestionsListType[]>>;
-  questionsList: QuestionsListType[];
 };
 
-const JorashMode: React.FC<JorashModeProps> = ({
-  setQuestionsList,
-  questionsList,
-}) => {
+const JorashMode: React.FC<JorashModeProps> = ({ setQuestionsList }) => {
   const [userInput, setUserInput] = useState("");
   const JMref = useRef<HTMLTextAreaElement>(null);
 
@@ -52,10 +48,6 @@ const JorashMode: React.FC<JorashModeProps> = ({
     setUserInput("");
     if (JMref.current) JMref.current.value = "";
   };
-
-  const test = () => {
-    console.log(questionsList);
-  };
   return (
     <>
       <div
@@ -71,10 +63,25 @@ const JorashMode: React.FC<JorashModeProps> = ({
           ref={JMref}
         ></textarea>
 
-        <Button
-          btnFunc={() => addQuestions(userInput)}
-          btnTitle="Add Questions"
-        />
+        <div className="flex justify-center items-center">
+          <div className="group relative flex items-center justify-center">
+            <div>
+              <AiOutlineQuestionCircle className="cursor-pointer text-[1.5rem]" />
+
+              <Image
+                alt="question-format-tooltip"
+                src={tooltip}
+                className="invisible group-hover:visible opacity-0
+          group-hover:opacity-100 transition-all absolute rounded"
+              />
+            </div>
+
+            <Button
+              btnFunc={() => addQuestions(userInput)}
+              btnTitle="Add Questions"
+            />
+          </div>
+        </div>
       </div>
     </>
   );
