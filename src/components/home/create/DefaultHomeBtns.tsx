@@ -18,12 +18,6 @@ const DefaultHomeButtons: React.FC<DefaultHomeButtonsProps> = ({
     <div className="flex flex-col">
       <Button btnFunc={createNewFlashcardSet} btnTitle={createTitle} />
       <Button btnFunc={() => setIsImporting(true)} btnTitle={importTitle} />
-      {/* <button onClick={() => createNewFlashcardSet()} className="normal-btn">
-        Create New
-      </button>
-      <button onClick={() => setIsImporting(true)} className="normal-btn">
-        ImportQuestions
-      </button> */}
     </div>
   );
 };

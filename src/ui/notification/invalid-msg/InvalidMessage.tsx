@@ -4,7 +4,7 @@ type InvalidMessageProps = {
 
 const InvalidMessage: React.FC<InvalidMessageProps> = ({ msg }) => {
   return (
-    <div className="mt-2 text-red-600">
+    <div className="my-1 text-red-600">
       <p>{msg}</p>
     </div>
   );

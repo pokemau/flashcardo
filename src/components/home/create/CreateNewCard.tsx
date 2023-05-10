@@ -4,6 +4,7 @@ import ImportQuestions from "../importing/ImportQuestionsField";
 import CreateInput from "./CreateInput";
 import DefaultHomeButtons from "./DefaultHomeBtns";
 import ImportingBtns from "../importing/ImportingBtns";
+import InvalidMessage from "../../../ui/notification/invalid-msg/InvalidMessage";
 
 type CreateNewCardProps = {
   titleSets: string[];
@@ -61,7 +62,7 @@ const CreateNewCard: React.FC<CreateNewCardProps> = ({
         createNewFlashcardSet={createNewFlashcardSet}
       />
 
-      <div className="text-red-600">{titleMsg}</div>
+      <InvalidMessage msg={titleMsg} />
 
       {!isImporting ? (
         <DefaultHomeButtons

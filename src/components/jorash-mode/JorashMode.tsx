@@ -70,10 +70,11 @@ const JorashMode: React.FC<JorashModeProps> = ({ setQuestionsList }) => {
           onChange={(e) => handleKeyPress(e)}
           ref={JMref}
         ></textarea>
+
         {!isValidInput && <InvalidMessage msg={invalidFormatMsg} />}
 
         <div className="flex justify-center items-center">
-          <div className="flex flex-col items-center gap-2 mt-2">
+          <div className="flex flex-col items-center gap-2 ">
             <Button
               btnFunc={() => addQuestions(userInput)}
               btnTitle="Add Questions"
