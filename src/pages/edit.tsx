@@ -4,6 +4,8 @@ import { useRef, useEffect, useState } from "react";
 // components
 import InputFields from "../components/edit-questions/edit/InputFields";
 import QuestionsList from "../components/edit-questions/edit/QuestionsList";
+import JorashMode from "../components/jorash-mode/JorashMode";
+import { Button } from "../ui/button/Button";
 
 export type QuestionsListType = {
   id: string;
@@ -22,6 +24,8 @@ const EditQuestions = () => {
   // input fields ref
   const inputAnsRef = useRef<HTMLTextAreaElement>(null);
   const inputDefRef = useRef<HTMLTextAreaElement>(null);
+
+  const [isJorashMode, setIsJorashMode] = useState(false);
 
   // get local storage items
   useEffect(() => {
@@ -47,13 +51,27 @@ const EditQuestions = () => {
         <title>Flashcardo | Edit</title>
       </Head>
 
-      <div className="mt-1 w-full m-auto lg:flex">
-        <InputFields
-          setQuestionsList={setQuestionsList}
-          questionsList={questionsList}
-          inputAnsRef={inputAnsRef}
-          inputDefRef={inputDefRef}
+      <div className="w-[5rem] m-auto">
+        <Button
+          btnFunc={() => setIsJorashMode(!isJorashMode)}
+          btnTitle={isJorashMode ? "Jorash Mode" : "Normal Mode"}
         />
+      </div>
+
+      <div className="mt-1 w-full m-auto lg:flex">
+        {isJorashMode ? (
+          <JorashMode
+            questionsList={questionsList}
+            setQuestionsList={setQuestionsList}
+          />
+        ) : (
+          <InputFields
+            setQuestionsList={setQuestionsList}
+            questionsList={questionsList}
+            inputAnsRef={inputAnsRef}
+            inputDefRef={inputDefRef}
+          />
+        )}
 
         <QuestionsList
           questionsList={questionsList}
