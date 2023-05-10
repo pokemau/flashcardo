@@ -27,7 +27,6 @@ const Home: React.FC = () => {
         <title>Flashcardo | Home</title>
       </Head>
       <div className="w-[100vw] my-5 mx-auto">
-        <JorashMode />
         <CreateNewCard
           titleSets={titleSets}
           setTitleSets={setTitleSets}

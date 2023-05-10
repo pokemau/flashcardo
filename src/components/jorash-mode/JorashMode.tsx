@@ -2,13 +2,28 @@
   "Jorash Mode" is a special feature requested by my friend :D
 */
 
-import { ChangeEvent, useRef, useState } from "react";
+import React, {
+  ChangeEvent,
+  Dispatch,
+  RefObject,
+  SetStateAction,
+  useRef,
+  useState,
+} from "react";
 import { QuestionsListType } from "../../pages/edit";
 import { generateUID } from "../../utils/generateUID";
+import { Button } from "../../ui/button/Button";
 
-const JorashMode = () => {
+export type JorashModeProps = {
+  setQuestionsList: Dispatch<SetStateAction<QuestionsListType[]>>;
+  questionsList: QuestionsListType[];
+};
+
+const JorashMode: React.FC<JorashModeProps> = ({
+  setQuestionsList,
+  questionsList,
+}) => {
   const [userInput, setUserInput] = useState("");
-  const [questionsList, setQuestionsList] = useState<QuestionsListType[]>([]);
   const JMref = useRef<HTMLTextAreaElement>(null);
 
   const handleKeyPress = (e: ChangeEvent<HTMLTextAreaElement>) => {
@@ -43,8 +58,10 @@ const JorashMode = () => {
   };
   return (
     <>
-      <div>
-        <button onClick={test}>SHOW QUESTIONS</button>
+      <div
+        className="mt-4 lg:mt-5 w-[100%] flex flex-col items-center mb-4
+        lg:w-[50%] lg:mx-auto transition-all"
+      >
         <textarea
           name="jorash-mode-textarea"
           placeholder="Write your question here..."
@@ -54,7 +71,10 @@ const JorashMode = () => {
           ref={JMref}
         ></textarea>
 
-        <button onClick={() => addQuestions(userInput)}>Add Questions</button>
+        <Button
+          btnFunc={() => addQuestions(userInput)}
+          btnTitle="Add Questions"
+        />
       </div>
     </>
   );

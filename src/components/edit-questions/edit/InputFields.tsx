@@ -1,12 +1,6 @@
 import { generateUID } from "../../../utils/generateUID";
 import { QuestionsListType } from "../../../pages/edit";
-import {
-  SetStateAction,
-  Dispatch,
-  RefObject,
-  KeyboardEvent,
-  MouseEvent,
-} from "react";
+import { SetStateAction, Dispatch, RefObject, KeyboardEvent } from "react";
 import { Button } from "../../../ui/button/Button";
 
 export type InputFieldsProps = {
