@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 // components
 import PreviousCards from "../components/home/previous-cards/PreviousCards";
 import CreateNewCard from "../components/home/create/CreateNewCard";
-import JorashMode from "../components/jorash-mode/JorashMode";
 
 const Home: React.FC = () => {
   const [currTitle, setCurrTitle] = useState<string>("");

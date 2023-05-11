@@ -32,7 +32,9 @@ const JorashMode: React.FC<JorashModeProps> = ({ setQuestionsList }) => {
 
   const addQuestions = (textValues: string) => {
     if (textValues.length === 0) return;
-    const entries = textValues.split("\n").filter((entry) => entry !== "");
+    const entries = textValues
+      .split("\n")
+      .filter((entry) => entry.trim() !== "");
 
     const isValidLen = Math.floor(entries.length % 2) !== 0;
     if (isValidLen) {
