@@ -1,19 +1,9 @@
-import React, {
-  ChangeEvent,
-  Dispatch,
-  SetStateAction,
-  useRef,
-  useState,
-} from "react";
-import Image from "next/image";
-
-import { AiOutlineQuestionCircle } from "react-icons/ai";
-import tooltip from "../../../public/images/question-format-tooltip.jpg";
+import React, { Dispatch, SetStateAction, useRef, useState } from "react";
 
 import { QuestionsListType } from "../../pages/edit";
-import { generateUID } from "../../utils/generateUID";
-import { Button } from "../../ui/button/Button";
 import InvalidMessage from "../../ui/notification/invalid-msg/InvalidMessage";
+import { UserInput } from "./UserInput";
+import AddQuesBtn from "./AddQuesBtn";
 
 const invalidFormatMsg = "Invalid format, check number of lines.";
 
@@ -26,83 +16,23 @@ const JorashMode: React.FC<JorashModeProps> = ({ setQuestionsList }) => {
   const JMref = useRef<HTMLTextAreaElement>(null);
   const [isValidInput, setIsValidInput] = useState(true);
 
-  const handleKeyPress = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    setUserInput(e.target.value);
-  };
-
-  const addQuestions = (textValues: string) => {
-    if (textValues.length === 0) return;
-    const entries = textValues
-      .split("\n")
-      .filter((entry) => entry.trim() !== "");
-
-    const isValidLen = Math.floor(entries.length % 2) !== 0;
-    if (isValidLen) {
-      setIsValidInput(false);
-      setTimeout(() => {
-        setIsValidInput(true);
-      }, 1200);
-      return;
-    }
-
-    for (let i = 0; i < entries.length - 1; i += 2) {
-      const ans = entries[i];
-      const def = entries[i + 1];
-
-      setQuestionsList((prev) => [
-        ...prev,
-        { id: generateUID(), def: def, ans: ans },
-      ]);
-    }
-
-    setUserInput("");
-    if (JMref.current) JMref.current.value = "";
-  };
   return (
-    <>
-      <div
-        className="mt-4 lg:mt-5 w-[100%] flex flex-col items-center mb-4
-        lg:w-[50%] lg:mx-auto transition-all"
-      >
-        <textarea
-          name="jorash-mode-textarea"
-          placeholder="Write your question here..."
-          className="h-full min-h-[15rem] resize-none w-[90%] mt-2
-          border-[1px] border-[#b1b1b1] rounded text-xl p-2"
-          onChange={(e) => handleKeyPress(e)}
-          ref={JMref}
-        ></textarea>
+    <div
+      className="mt-4 lg:mt-5 w-[100%] flex flex-col items-center mb-4
+      lg:w-[50%] lg:mx-auto transition-all"
+    >
+      <UserInput JMref={JMref} setUserInput={setUserInput} />
 
-        {!isValidInput && <InvalidMessage msg={invalidFormatMsg} />}
+      {!isValidInput && <InvalidMessage msg={invalidFormatMsg} />}
 
-        <div className="flex justify-center items-center">
-          <div className="flex flex-col items-center ">
-            <Button
-              btnFunc={() => addQuestions(userInput)}
-              btnTitle="Add Questions"
-            />
-            <div className="group relative inline-block">
-              <AiOutlineQuestionCircle
-                className="cursor-pointer text-[1.5rem]
-              text-[#797979] font-[300]"
-              />
-
-              <div
-                className="invisible group-hover:visible opacity-0 
-                group-hover:opacity-100 transition-all absolute rounded
-                top-[140%] right-[-220%] w-[8rem] z-10"
-              >
-                <Image
-                  alt="question-format-tooltip"
-                  src={tooltip}
-                  className="rounded"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
+      <AddQuesBtn
+        JMref={JMref}
+        setIsValidInput={setIsValidInput}
+        setQuestionsList={setQuestionsList}
+        setUserInput={setUserInput}
+        userInput={userInput}
+      />
+    </div>
   );
 };
 
