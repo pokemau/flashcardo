@@ -39,8 +39,8 @@ const AddQuesBtn: React.FC<AddQuesBtnProps> = ({
     }
 
     for (let i = 0; i < entries.length - 1; i += 2) {
-      const ans = entries[i];
-      const def = entries[i + 1];
+      const ans = entries[i + 1];
+      const def = entries[i];
 
       setQuestionsList((prev) => [
         ...prev,
