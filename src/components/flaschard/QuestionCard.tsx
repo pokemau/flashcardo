@@ -22,17 +22,19 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
           <div
             className="card-front absolute w-full h-full text-2xl 
           bg-orange-300">
-            <div className="absolute text-base top-1 left-1 text-gray-600">
+            <p className="absolute text-base top-1 left-1 text-gray-600">
               Question
-            </div>
-            {currQuestion}
+            </p>
+
+            <p>{currQuestion}</p>
           </div>
 
           <div className="card-back w-full h-full text-2xl bold bg-green-300">
-            <div className="absolute text-base top-1 left-1 text-gray-600">
+            <p className="absolute text-base top-1 left-1 text-gray-600">
               Answer
-            </div>
-            {`${showAns ? currAns : ""}`}
+            </p>
+
+            <p>{`${showAns ? currAns : ""}`}</p>
           </div>
         </div>
       </div>

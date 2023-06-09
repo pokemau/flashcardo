@@ -62,7 +62,7 @@ const Flashcard = () => {
         <title>Flashcardo | {currTitle}</title>
       </Head>
 
-      <div className="flashcards">
+      <div className="overflow-y-hidden">
         <h1 className="text-center font-bold text-4xl my-2">{currTitle}</h1>
         <h1 className="text-center font-bold text-xl mb-2">{`${currNum + 1} / ${
           questionsList.length
