@@ -25,7 +25,7 @@ const Home: React.FC = () => {
       <Head>
         <title>Flashcardo | Home</title>
       </Head>
-      <div className="w-[100vw] my-5 mx-auto">
+      <div className="w-[100vw] my-5 mx-auto overflow-x-hidden">
         <CreateNewCard
           titleSets={titleSets}
           setTitleSets={setTitleSets}
