@@ -20,7 +20,9 @@ const EditQuesOpt: React.FC<EditQuesOptProps> = ({
 
   return (
     <button
-      className="question-list-btn rounded-tl rounded-bl"
+      className="cursor-pointer min-w-[2em] border-none transition-all duration-100 
+    flex items-center justify-center bg-[#e4e4e4]/90 p-1 hover:bg-[#d8d8d8] 
+    text-[1.3em] rounded-tl rounded-bl"
       onClick={() => editSelectedQuestion(question, index)}>
       <AiFillEdit />
     </button>

@@ -10,10 +10,16 @@ const Navbar = () => {
       </div>
 
       <div className="flex">
-        <Link className="nav-link" href="/">
+        <Link
+          className="hover:bg-gray-200 flex items-center justify-center h-8 w-14 md:w-16 
+    rounded transition-all"
+          href="/">
           Home
         </Link>
-        <Link className="nav-link" href="/about">
+        <Link
+          className="hover:bg-gray-200 flex items-center justify-center h-8 w-14 md:w-16 
+    rounded transition-all"
+          href="/about">
           About
         </Link>
       </div>

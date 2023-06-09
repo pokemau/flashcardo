@@ -10,13 +10,18 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
   currQuestion,
 }) => {
   return (
-    <div className="relative w-[80vw] h-[40vh] mx-auto mb-2 text-center ">
-      <div className="card w-full h-full lg:w-[70%] rounded mx-auto min-h-[10em]">
-        <div className={`card-inner ${showAns ? "card-flip" : ""}`}>
+    <div
+      className="relative w-[80vw] lg:w-[60vw] h-[40vh] mx-auto 
+    mb-2 text-center">
+      <div
+        className="bg-transparent w-full h-full rounded mx-auto
+      min-h-[10em] card">
+        <div
+          className={`card-inner relative w-full h-full text-center
+        ${showAns ? "card-flip" : ""}`}>
           <div
             className="card-front absolute w-full h-full text-2xl 
-          bg-orange-300"
-          >
+          bg-orange-300">
             <div className="absolute text-base top-1 left-1 text-gray-600">
               Question
             </div>
