@@ -89,10 +89,3 @@
 .card-back {
   transform: rotateY(180deg);
 }
-
-/* [placeholder]:empty:before {
-  content: attr(placeholder);
-  color: rgb(68, 68, 68);
-  opacity: 0.5;
-  cursor: text;
-} */
