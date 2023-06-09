@@ -7,7 +7,7 @@ type LayoutProps = {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="main-container">
+    <div className="overflow-x-hidden">
       <Navbar />
       {children}
       {/* <Footer /> */}
