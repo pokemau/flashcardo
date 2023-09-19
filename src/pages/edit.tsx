@@ -20,10 +20,7 @@ const EditQuestions = () => {
   const [questionsList, setQuestionsList] = useState<QuestionsListType[]>([]);
 
   // input fields ref
-  const inputAnsRef = useRef<HTMLTextAreaElement>(null);
   const inputDefRef = useRef<HTMLTextAreaElement>(null);
-
-  const [isJorashMode, setIsJorashMode] = useState(false);
 
   // get local storage items
   useEffect(() => {
