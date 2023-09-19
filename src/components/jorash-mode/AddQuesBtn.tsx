@@ -67,13 +67,12 @@ const AddQuesBtn: React.FC<AddQuesBtnProps> = ({
           <div
             className="invisible group-hover:visible opacity-0 
                 group-hover:opacity-100 transition-all absolute rounded
-                top-[140%] right-[-220%] w-[8rem] z-10"
-          >
-            <Image
+                top-[140%] right-[-220%] w-[8rem] z-10">
+            {/* <Image
               alt="question-format-tooltip"
               src={tooltip}
               className="rounded"
-            />
+            /> */}
           </div>
         </div>
       </div>
