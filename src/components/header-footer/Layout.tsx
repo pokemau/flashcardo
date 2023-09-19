@@ -1,5 +1,4 @@
 import Navbar from "./Navbar";
-import Footer from "./Footer";
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -7,10 +6,9 @@ type LayoutProps = {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="overflow-x-hidden">
+    <div className="h-[100vh]">
       <Navbar />
       {children}
-      {/* <Footer /> */}
     </div>
   );
 };
