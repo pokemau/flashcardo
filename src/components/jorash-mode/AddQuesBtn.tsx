@@ -60,7 +60,7 @@ const AddQuesBtn: React.FC<AddQuesBtnProps> = ({
         />
 
         {/* TODO: add tooltip */}
-        {/* <div className="group relative inline-block">
+        <div className="group relative inline-block">
           <AiOutlineQuestionCircle
             className="cursor-pointer text-[1.5rem]
               text-[#797979] font-[300]"
@@ -69,14 +69,14 @@ const AddQuesBtn: React.FC<AddQuesBtnProps> = ({
           <div
             className="invisible group-hover:visible opacity-0 
                 group-hover:opacity-100 transition-all absolute rounded
-                top-[140%] right-[-220%] w-[8rem] z-10">
+                top-[-600%] right-[-220%] w-[8rem] z-10">
             <Image
               alt="question-format-tooltip"
               src={tooltip}
-              className="rounded"
+              className="rounded shadow-2xl"
             />
           </div>
-        </div> */}
+        </div>
       </div>
     </div>
   );
