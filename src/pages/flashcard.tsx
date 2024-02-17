@@ -63,12 +63,12 @@ const Flashcard = () => {
       </Head>
 
       <div className="overflow-y-hidden">
-        <h1 className="text-center font-bold text-xl md:text-4xl md:my-2">
+        <h1 className="text-center font-bold text-xl md:text-3xl">
           {currTitle}
         </h1>
-        <h1 className="text-center font-bold md:text-xl mb-1">{`${
-          currNum + 1
-        } / ${questionsList.length}`}</h1>
+        <h1 className="text-center font-bold mb-1">{`${currNum + 1} / ${
+          questionsList.length
+        }`}</h1>
 
         <QuestionCard
           currAns={currAns}
