@@ -9,8 +9,8 @@ type ControlQuesBtnProps = {
   questionsListLen: number;
 };
 
-const prevQuesTitle = "Previous";
-const nextQuesTitle = "Next";
+const prevQuesTitle = "<";
+const nextQuesTitle = ">";
 
 const ControlQuestionsButtons: React.FC<ControlQuesBtnProps> = ({
   showAns,
@@ -56,12 +56,12 @@ const ControlQuestionsButtons: React.FC<ControlQuesBtnProps> = ({
   }
 
   return (
-    <div className="flex flex-col w-[50%] m-auto md:flex-row justify-center">
+    <div className="flex w-[50%] m-auto justify-center">
       <Button btnFunc={goToPrevQuestion} btnTitle={prevQuesTitle} />
-      <Button
+      {/* <Button
         btnFunc={showAnswer}
         btnTitle={`${showAns ? "Hide" : "Show"} Answer`}
-      />
+      /> */}
       <Button btnFunc={goToNextQuestion} btnTitle={nextQuesTitle} />
     </div>
   );
