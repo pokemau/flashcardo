@@ -24,7 +24,8 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
         <div
           className={`card-inner relative text-center ${
             showAns ? "card-flip" : ""
-          } relative h-[65vh] md:h-]55vh\ rounded-md text-sm lg:text-xl`}>
+          } relative h-[65vh] md:h-[55vh] rounded-md text-sm lg:text-xl
+          break-words`}>
           {/* FRONT */}
           <div
             className="card-front absolute bg-[#c9af3f] flex items-center
