@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
-    <footer>
-      <p>Copyright Mau@2022</p>
+    <footer className="fixed bottom-0 w-full text-center mx-auto">
+      <p className="text-xs">Maurice Tañeca@2024</p>
     </footer>
   );
 };
