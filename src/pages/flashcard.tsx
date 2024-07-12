@@ -51,6 +51,10 @@ const Flashcard = () => {
     setCurrAns(questionsList[currNum].ans);
   }
 
+  function editCurrentFlashcardSet() {
+    router.push("/edit");
+  }
+
   // update current question text
   useEffect(() => {
     if (questionsList.length) updateAnswerAndQuestion();
@@ -63,12 +67,22 @@ const Flashcard = () => {
       </Head>
 
       <div className="overflow-y-hidden">
-        <h1 className="text-center font-bold text-xl md:text-3xl">
-          {currTitle}
-        </h1>
-        <h1 className="text-center font-bold mb-1">{`${currNum + 1} / ${
-          questionsList.length
-        }`}</h1>
+        <div className="flex items-center relative justify-center w-[90vw] lg:w-[60vw] mx-auto">
+          <button
+            onClick={editCurrentFlashcardSet}
+            className="absolute left-0 cursor-pointer bg-gray-200 hover:bg-gray-300 px-2 py-1 rounded-md"
+          >
+            Edit
+          </button>
+          <div>
+            <h1 className="text-center font-bold text-xl md:text-3xl">
+              {currTitle}
+            </h1>
+            <h1 className="text-center font-bold mb-1">{`${currNum + 1} / ${
+              questionsList.length
+            }`}</h1>
+          </div>
+        </div>
 
         <QuestionCard
           currAns={currAns}
