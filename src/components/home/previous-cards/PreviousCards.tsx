@@ -3,6 +3,7 @@ import { Dispatch, SetStateAction, useRef, useState } from "react";
 import EditOpt from "./previous-card-options/EditOpt";
 import ExportOpt from "./previous-card-options/ExportOpt";
 import DeleteOpt from "./previous-card-options/DeleteOpt";
+import CopyQuestionsOpt from "./previous-card-options/CopyQuestionsOpt";
 import ExportMsg from "../export-msg/ExportMsg";
 
 type PrevCardsProps = {
@@ -35,7 +36,7 @@ const PreviousCards: React.FC<PrevCardsProps> = ({
         titleSets.map((title, index) => (
           <div
             className="relative flex items-center w-[65%] md:w-[50%] lg:w-[30%]
-							min-h-[2.5rem] pr-1 rounded border-[1px] border-[#d4d4d4] mb-2 
+							min-h-[2.5rem] pr-1 rounded border-[1px] border-[#d4d4d4] mb-2
 							hover:border-[2px] cursor-pointer"
             key={title}
             onMouseEnter={() => setIsHovered(index)}
@@ -56,6 +57,7 @@ const PreviousCards: React.FC<PrevCardsProps> = ({
 								border-[#b1b1b1] rounded"
               >
                 <EditOpt title={title} />
+                <CopyQuestionsOpt />
                 <ExportOpt title={title} exportMsgRef={exportMsgRef} />
                 <DeleteOpt
                   index={index}

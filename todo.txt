@@ -1,0 +1,9 @@
+[[ huge ]]
+    - add firebase para ma sync sa devices (optional login)
+    - generate links para ma share sa uban
+
+[[ question editor ]]
+    - add numbers when typing
+
+[[ while editing flashcards ]]
+    - auto save when adding items (?)

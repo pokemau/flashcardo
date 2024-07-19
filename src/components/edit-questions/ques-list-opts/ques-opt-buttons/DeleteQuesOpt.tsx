@@ -15,7 +15,7 @@ const DeleteQuesOpt: React.FC<DeleteQuesOptProps> = ({
 }) => {
   function handleDeleteQuestions(
     e: MouseEvent<HTMLButtonElement>,
-    question: QuestionsListType
+    question: QuestionsListType,
   ) {
     e.preventDefault();
 
@@ -23,18 +23,19 @@ const DeleteQuesOpt: React.FC<DeleteQuesOptProps> = ({
       questionsList.filter(
         (ques) =>
           (ques.def && ques.ans && ques.id) !==
-          (question.def && question.ans && question.id)
-      )
+          (question.def && question.ans && question.id),
+      ),
     );
   }
   return (
     <button
-      className="cursor-pointer min-w-[2em] border-none transition-all duration-100 
-    flex items-center justify-center bg-[#e4e4e4]/90 p-1 hover:bg-[#d8d8d8] 
-    text-[1.3em] rounded-tr rounded-br"
+      className="cursor-pointer min-w-[2em] border-none transition-all duration-100
+      flex items-center justify-center bg-[#e4e4e4]/90 p-1 hover:bg-[#d8d8d8]
+      text-[1.3em] rounded-tr rounded-br"
       onClick={(e) => {
         handleDeleteQuestions(e, question);
-      }}>
+      }}
+    >
       <BsFillTrashFill />
     </button>
   );

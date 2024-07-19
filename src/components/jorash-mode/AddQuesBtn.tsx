@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, RefObject } from "react";
+import { Dispatch, SetStateAction, RefObject, useState } from "react";
 import Image from "next/image";
 
 import { AiOutlineQuestionCircle } from "react-icons/ai";
@@ -23,8 +23,23 @@ const AddQuesBtn: React.FC<AddQuesBtnProps> = ({
   setUserInput,
   JMref,
 }) => {
-  const addQuestions = (textValues: string) => {
+  const [questionCount, setQuestionCount] = useState(1);
+
+  function calculateNumberOfQuestions(textValues: string): number {
+    let res = 0;
+
+    if (textValues.length === 0) return 0;
+
+    const entries = textValues
+      .split("\n")
+      .filter((entry) => entry.trim() !== "");
+
+    return res;
+  }
+
+  function addQuestions(textValues: string) {
     if (textValues.length === 0) return;
+
     const entries = textValues
       .split("\n")
       .filter((entry) => entry.trim() !== "");
@@ -50,7 +65,7 @@ const AddQuesBtn: React.FC<AddQuesBtnProps> = ({
 
     setUserInput("");
     if (JMref.current) JMref.current.value = "";
-  };
+  }
   return (
     <div className="flex justify-center items-center">
       <div className="flex flex-col items-center ">
@@ -67,9 +82,10 @@ const AddQuesBtn: React.FC<AddQuesBtnProps> = ({
           />
 
           <div
-            className="invisible group-hover:visible opacity-0 
+            className="invisible group-hover:visible opacity-0
                 group-hover:opacity-100 transition-all absolute rounded
-                top-[-600%] right-[-220%] w-[8rem] z-10">
+                top-[-600%] right-[-220%] w-[8rem] z-10"
+          >
             <Image
               alt="question-format-tooltip"
               src={tooltip}
