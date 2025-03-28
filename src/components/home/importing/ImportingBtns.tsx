@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction } from "react";
 import { useRouter } from "next/router";
 import { QuestionsListType } from "../../../pages/edit";
 import { existsMsg, isBlankTitle } from "../create/CreateNewCard";
-import { Button } from "../../../ui/button/Button";
+import { Button } from "../../ui/button/Button";
 
 type ImportingBtnsProps = {
   setIsImporting: Dispatch<SetStateAction<boolean>>;

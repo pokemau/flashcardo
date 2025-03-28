@@ -2,7 +2,6 @@ import { QuestionsListType } from "../../../pages/edit";
 import { Dispatch, SetStateAction, useState } from "react";
 
 import { AiOutlineCheck } from "react-icons/ai";
-import { Button } from "../../../ui/button/Button";
 
 type EditQuestionProps = {
   question: QuestionsListType;

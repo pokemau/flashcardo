@@ -1,5 +1,5 @@
 import { useEffect, Dispatch, SetStateAction } from "react";
-import { Button } from "../../ui/button/Button";
+import { Button } from "../ui/button/Button";
 
 type ControlQuesBtnProps = {
   showAns: boolean;

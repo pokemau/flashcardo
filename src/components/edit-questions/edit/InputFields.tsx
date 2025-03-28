@@ -1,7 +1,7 @@
 import { generateUID } from "../../../utils/generateUID";
 import { QuestionsListType } from "../../../pages/edit";
 import { SetStateAction, Dispatch, RefObject, KeyboardEvent } from "react";
-import { Button } from "../../../ui/button/Button";
+import { Button } from "../../ui/button/Button";
 
 export type InputFieldsProps = {
   setQuestionsList: Dispatch<SetStateAction<QuestionsListType[]>>;

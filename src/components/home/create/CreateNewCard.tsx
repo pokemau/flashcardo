@@ -4,7 +4,7 @@ import ImportQuestions from "../importing/ImportQuestionsField";
 import CreateInput from "./CreateInput";
 import DefaultHomeButtons from "./DefaultHomeBtns";
 import ImportingBtns from "../importing/ImportingBtns";
-import InvalidMessage from "../../../ui/notification/invalid-msg/InvalidMessage";
+import InvalidMessage from "../../ui/notification/invalid-msg/InvalidMessage";
 
 type CreateNewCardProps = {
   titleSets: string[];

@@ -1,7 +1,7 @@
 import React, { Dispatch, SetStateAction, useRef, useState } from "react";
 
 import { QuestionsListType } from "../../pages/edit";
-import InvalidMessage from "../../ui/notification/invalid-msg/InvalidMessage";
+import InvalidMessage from "../ui/notification/invalid-msg/InvalidMessage";
 import { UserInput } from "./UserInput";
 import AddQuesBtn from "./AddQuesBtn";
 

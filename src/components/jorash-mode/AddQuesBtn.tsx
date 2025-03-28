@@ -5,7 +5,7 @@ import { AiOutlineQuestionCircle } from "react-icons/ai";
 import tooltip from "../../../public/images/question-format-tooltip.jpg";
 
 import { QuestionsListType } from "../../pages/edit";
-import { Button } from "../../ui/button/Button";
+import { Button } from "../ui/button/Button";
 import { generateUID } from "../../utils/generateUID";
 
 type AddQuesBtnProps = {
