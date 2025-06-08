@@ -1,0 +1,9 @@
+# ./.tmuxinator.yml
+
+name: flashcardo
+root: ~/Code/flashcardo/
+
+windows:
+  - editor: nvim
+  - term:
+  - server: yarn dev
