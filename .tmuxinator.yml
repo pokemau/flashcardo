@@ -1,0 +1,9 @@
+# ./.tmuxinator.yml
+
+name: chumcheck
+root: ~/Code/flashcardo/
+
+windows:
+  - editor: nvim
+  - term:
+  - server: npm run dev
