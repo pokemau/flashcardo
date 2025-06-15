@@ -1,38 +1,52 @@
 'use client'
 
-import { useAtom } from "jotai";
+import { useAtom, useAtomValue } from "jotai";
 import { Card, CardContent } from "../ui/card";
-import { questionsListAtom } from "@/lib/atoms";
+import { questionsListAtom, titleAtom } from "@/lib/atoms";
 import { Button } from "../ui/button";
 import { useState } from "react";
 import EditQuestionDialog from "./EditQuestionDialog";
+import { toast } from "sonner";
+import { addTitleToTitleSetsLocalStorage } from "@/lib/utils";
 
 
 const QuestionsList = () => {
-  const [questions, setQuestions] = useAtom(questionsListAtom);
+  const currTitle = useAtomValue(titleAtom);
+
+  const [questionsList, setQuestionsList] = useAtom(questionsListAtom);
 
   const [hoverIndex, setHoverIndex] = useState(-1);
   const [editIndex, setEditIndex] = useState(-1);
+
+  function start() {
+    if (questionsList.length === 0) {
+      toast.warning('Questions cannot be empty');
+      return;
+    }
+
+    localStorage.setItem(currTitle, JSON.stringify(questionsList));
+    addTitleToTitleSetsLocalStorage(currTitle);
+  }
 
   return (
 
     <div className="w-full md:w-[50%]">
       <h1 className="text-xl font-bold mb-2">Questions</h1>
 
-      <Card className="h-[25rem]">
+      <Card className="min-h-[25rem] max-h-[35rem] overflow-y-auto py-2">
 
-        <CardContent>
-          {questions.map((q, index) => (
+        <CardContent className="px-2">
+          {questionsList.map((q, index) => (
             <div
               key={q.id}
               onMouseLeave={() => setHoverIndex(-1)}
               onMouseEnter={() => setHoverIndex(index)}
-              className="relative cursor-pointer bg-red-50">
+              className="relative cursor-pointer border-b-[1px] py-1">
 
-              {editIndex !== index ? (
+              {editIndex !== index && (
                 <div>
 
-                  <div>
+                  <div className="py-2">
                     {index + 1}){' '}
                     <span>{q.answer}</span> -{' '}
                     {q.question}
@@ -40,14 +54,14 @@ const QuestionsList = () => {
 
                   {hoverIndex === index && (
 
-                    <EditQuestionDialog index={index} question={q}/>
+                    <div className="absolute right-2 top-1 z-10">
+                      <EditQuestionDialog index={index} question={q} />
+                    </div>
 
                   )}
 
                 </div>
 
-              ) : (
-                <div>EDITING</div>
               )}
 
             </div>
@@ -58,9 +72,9 @@ const QuestionsList = () => {
 
       </Card>
 
-      {/* <EditQuestionDialog /> */}
-
-      <Button className="mt-2">Start</Button>
+      <Button
+        onClick={start}
+        className="mt-2">Start</Button>
     </div>
   )
 

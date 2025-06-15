@@ -6,7 +6,7 @@ import { titleAtom } from "@/lib/atoms";
 import { useAtom } from "jotai";
 import { useState } from "react";
 
-import { addTitleToTitleSets, titleAlreadyExists } from "@/lib/utils";
+import { titleAlreadyExists } from "@/lib/utils";
 import Importing from "./Importing";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
@@ -30,7 +30,8 @@ const CreateNewCard = () => {
       return;
     };
 
-    addTitleToTitleSets(title);
+    setTitle(title);
+    localStorage.setItem('currTitle', title);
     router.push('/edit')
   }
 

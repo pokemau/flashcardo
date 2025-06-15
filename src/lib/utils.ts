@@ -16,7 +16,7 @@ export function titleAlreadyExists(title: string): boolean {
   return sets.includes(title);
 }
 
-export function addTitleToTitleSets(title: string) {
+export function addTitleToTitleSetsLocalStorage(title: string) {
   const titleSetsString = localStorage.getItem("titleSets");
   const titleSets: string[] = titleSetsString
     ? JSON.parse(titleSetsString)
