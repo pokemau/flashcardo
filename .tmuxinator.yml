@@ -1,6 +1,6 @@
 # ./.tmuxinator.yml
 
-name: chumcheck
+name: flashcardo
 root: ~/Code/flashcardo/
 
 windows:
