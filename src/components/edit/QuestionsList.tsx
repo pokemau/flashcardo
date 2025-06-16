@@ -8,9 +8,12 @@ import { useState } from "react";
 import EditQuestionDialog from "./EditQuestionDialog";
 import { toast } from "sonner";
 import { addTitleToTitleSetsLocalStorage } from "@/lib/utils";
+import { useRouter } from "next/navigation";
 
 
 const QuestionsList = () => {
+  const router = useRouter();
+
   const currTitle = useAtomValue(titleAtom);
 
   const [questionsList, setQuestionsList] = useAtom(questionsListAtom);
@@ -26,6 +29,7 @@ const QuestionsList = () => {
 
     localStorage.setItem(currTitle, JSON.stringify(questionsList));
     addTitleToTitleSetsLocalStorage(currTitle);
+    router.push('/flashcard');
   }
 
   return (

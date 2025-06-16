@@ -1,6 +1,7 @@
 'use client'
 
 import CreateNewCard from "@/components/home/CreateNewCard";
+import PreviousFlashcards from "@/components/home/PreviousFlashcards";
 import { questionsListAtom, titleSetsAtom } from "@/lib/atoms";
 import { useSetAtom } from "jotai";
 import { useEffect } from "react";
@@ -21,6 +22,9 @@ export default function Home() {
   }, []);
 
   return (
-    <CreateNewCard />
+    <>
+      <CreateNewCard />
+      <PreviousFlashcards />
+    </>
   );
 }
