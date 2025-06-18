@@ -1,7 +1,7 @@
 import { clsx, type ClassValue } from "clsx";
 import { toast } from "sonner";
 import { twMerge } from "tailwind-merge";
-import { QuestionsList } from "./types";
+import { Question } from "./types";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -36,13 +36,25 @@ export function generateUID(): string {
   return firstPart + secondPart;
 }
 
-export function getQuestionsListFromLocalStorage(
+export function getQuestionFromLocalStorage(
   title: string,
-): QuestionsList[] | undefined {
+): Question[] | undefined {
   const questionsList = localStorage.getItem(title);
   if (!questionsList) {
     return;
   }
 
   return JSON.parse(questionsList);
+}
+
+export function getLocalStorageCurrentTitle(): string | undefined {
+  const title = localStorage.getItem('currTitle');
+  if (!title) {
+    return;
+  }
+  return title;
+}
+
+export function setLocalStorageCurrentTitle(title: string) {
+  localStorage.setItem('currTitle', title);
 }

@@ -13,10 +13,10 @@ import { Textarea } from "../ui/textarea"
 import { questionsListAtom } from "@/lib/atoms"
 import { useAtom } from "jotai"
 import { toast } from "sonner"
-import { QuestionsList } from "@/lib/types"
+import { Question } from "@/lib/types"
 
 type EditQuestionProps = {
-  question: QuestionsList;
+  question: Question;
   index: number
 }
 

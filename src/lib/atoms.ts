@@ -1,11 +1,11 @@
 import { atom } from "jotai";
-import { QuestionsList } from "./types";
+import { Question } from "./types";
 
 
 export const currentTitleAtom = atom('');
 
 export const titleSetsAtom = atom<string[]>([]);
 
-export const questionsListAtom = atom<QuestionsList[]>([]);
+export const questionsListAtom = atom<Question[]>([]);
 
-export const currentFlashcardset = atom<QuestionsList[]>([]);
+export const currentFlashcardsetAtom = atom<Question[]>([]);

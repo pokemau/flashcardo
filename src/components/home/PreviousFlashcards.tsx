@@ -1,25 +1,22 @@
-import { currentFlashcardset, currentTitleAtom, titleSetsAtom } from "@/lib/atoms"
-import { useAtomValue, useSetAtom } from "jotai";
+import { titleSetsAtom } from "@/lib/atoms"
+import { useAtomValue } from "jotai";
 import { Card } from "../ui/card";
-import { getQuestionsListFromLocalStorage } from "@/lib/utils";
+import { getQuestionFromLocalStorage, setLocalStorageCurrentTitle } from "@/lib/utils";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 
 const PreviousFlashcards = () => {
   const router = useRouter();
   const titleSets = useAtomValue(titleSetsAtom);
-  const setCurrentTitle = useSetAtom(currentTitleAtom);
-  const setFlashcardSet = useSetAtom(currentFlashcardset);
 
   const handleClick = (title: string) => {
-    setCurrentTitle(title);
 
-    const questions = getQuestionsListFromLocalStorage(title);
+    const questions = getQuestionFromLocalStorage(title);
     if (!questions) {
       toast.error("Flashcard set does not exist");
       return;
     }
-    setFlashcardSet(questions);
+    setLocalStorageCurrentTitle(title);
     router.push('/flashcard')
   }
 
