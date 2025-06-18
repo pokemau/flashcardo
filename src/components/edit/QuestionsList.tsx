@@ -2,7 +2,7 @@
 
 import { useAtom, useAtomValue } from "jotai";
 import { Card, CardContent } from "../ui/card";
-import { questionsListAtom, titleAtom } from "@/lib/atoms";
+import { questionsListAtom, currentTitleAtom } from "@/lib/atoms";
 import { Button } from "../ui/button";
 import { useState } from "react";
 import EditQuestionDialog from "./EditQuestionDialog";
@@ -14,7 +14,7 @@ import { useRouter } from "next/navigation";
 const QuestionsList = () => {
   const router = useRouter();
 
-  const currTitle = useAtomValue(titleAtom);
+  const currTitle = useAtomValue(currentTitleAtom);
 
   const [questionsList, setQuestionsList] = useAtom(questionsListAtom);
 

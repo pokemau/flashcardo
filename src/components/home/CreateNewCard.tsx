@@ -2,7 +2,7 @@
 
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
-import { titleAtom } from "@/lib/atoms";
+import { currentTitleAtom } from "@/lib/atoms";
 import { useAtom } from "jotai";
 import { useState } from "react";
 
@@ -17,7 +17,7 @@ const CreateNewCard = () => {
 
   const [isImporting, setIsImporting] = useState(false);
 
-  const [title, setTitle] = useAtom(titleAtom);
+  const [title, setTitle] = useAtom(currentTitleAtom);
 
   function createNewFlashcardSet() {
     if (title.length === 0) {
