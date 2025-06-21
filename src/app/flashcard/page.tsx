@@ -1,6 +1,8 @@
 'use client'
 
-import { currentFlashcardsetAtom, currentTitleAtom } from "@/lib/atoms";
+import QuestionCard from "@/components/flashcard/QuestionCard";
+import { Button } from "@/components/ui/button";
+import { currentFlashcardsetAtom, currentTitleAtom, currItemAtom, currItemNumberAtom, showAnswerAtom } from "@/lib/atoms";
 import { Question } from "@/lib/types";
 import { getLocalStorageCurrentTitle, getQuestionFromLocalStorage } from "@/lib/utils";
 import { useAtom } from "jotai";
@@ -8,11 +10,24 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
+function randomizeQuestions(questions: Question[]): Question[] {
+  const arr = [...questions];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
 const Flashcard = () => {
   const router = useRouter();
   const [currTitle, setCurrTitle] = useAtom(currentTitleAtom);
   const [flashcardSet, setFlashcardSet] = useAtom(currentFlashcardsetAtom);
   const [loading, setLoading] = useState(true);
+  const [showAnswer, setShowAnswer] = useAtom(showAnswerAtom);
+
+  const [currItemNumber, setCurrItemNumber] = useAtom(currItemNumberAtom)
+  const [currItem, setCurrItem] = useAtom(currItemAtom);
 
   useEffect(() => {
     const title = getLocalStorageCurrentTitle();
@@ -29,7 +44,8 @@ const Flashcard = () => {
       router.push('/');
       return;
     }
-    setFlashcardSet(questions);
+    setFlashcardSet(randomizeQuestions(questions));
+    setCurrItem(flashcardSet[currItemNumber]);
 
     setLoading(false);
   }, []);
@@ -44,12 +60,7 @@ const Flashcard = () => {
 
   return (
     <div>
-      <h1 className="font-bold text-4xl mb-4">{currTitle}</h1>
-      {flashcardSet.map((question: Question, index) => (
-        <div key={question.id}>
-          <h1>{index+1}) {question.question} - {question.answer}</h1>
-        </div>
-      ))}
+     <QuestionCard/>
     </div>
   );
 };

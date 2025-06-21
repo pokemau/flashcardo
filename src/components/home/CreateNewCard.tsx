@@ -14,9 +14,7 @@ import { useRouter } from "next/navigation";
 
 const CreateNewCard = () => {
   const router = useRouter();
-
   const [isImporting, setIsImporting] = useState(false);
-
   const [title, setTitle] = useAtom(currentTitleAtom);
 
   function createNewFlashcardSet() {
@@ -40,7 +38,7 @@ const CreateNewCard = () => {
 
       <h1 className="text-2xl font-bold">Create New Flashcard</h1>
       <Input placeholder="Enter title of flashcard set" className="mt-2 focus:outline-none"
-        value={title} onChange={e => setTitle(e.target.value)} />
+        onChange={e => setTitle(e.target.value)} />
 
       {isImporting ? (
         <Importing />
